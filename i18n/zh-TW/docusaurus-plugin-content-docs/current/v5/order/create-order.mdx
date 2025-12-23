@@ -8,7 +8,7 @@ sidebar_position: 1
 :::info
 - **支持的訂單類型 (`orderType`):**<br/>
 限價單: <code>orderType</code>=<i>Limit</i>, 需要指定訂單數量和價格.<br/>
-<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001135">市價單</a>: <code>orderType</code>=<i>Market</i>, 以Bybit市場內最優的價格一直執行到成交. 選擇市價單時，price 參數為空。在期貨交易系統，為了保護市價單產生嚴重的滑點，Bybit 交易系統會將市價單轉為限價單進行撮合，如果市場價格轉限價時，超過滑點設置的閾值，該筆市場價格訂單將會被取消。滑點閾值是指訂單價格偏離最新成交價格的百分比，目前閾值設置為：BTC 合約3%，其他合約5%。
+<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001135">市價單</a>: <code>orderType</code>=<i>Market</i>, 以平台市場內最優的價格一直執行到成交. 選擇市價單時，price 參數為空。在期貨交易系統，為了保護市價單產生嚴重的滑點，平台交易系統會將市價單轉為限價單進行撮合，如果市場價格轉限價時，超過滑點設置的閾值，該筆市場價格訂單將會被取消。滑點閾值是指訂單價格偏離最新成交價格的百分比，目前閾值設置為：BTC 合約3%，其他合約5%。
 
 - **支持的timeInForce策略:**<br/>
 `GTC` 一直有效至取消<br/>
@@ -26,7 +26,7 @@ sidebar_position: 1
 
 - **訂單價格**: 下限價單，價格字段**必傳**。若您有倉位, 下單價格需要高於強平價. 對於設置價格的步長，請參閱該[接口](../market/instrument#)中的`priceFilter` > `tickSize`.
 
-- **用戶自定義訂單Id**: 最大長度不超過36個字符且唯一。您可以自定義設置的订单ID(`orderLinkId`)，我们会为您关联到Bybit系统的唯一订单ID，并把唯一订单ID在活动委托创建成功后一并返回给您（包括Websocket），您可以使用 Bybit 的订单ID 和 orderLinkId 去獲取和取消訂單，如果在參數輸入中同時輸入 orderId 和 orderLinkId，Bybit 會優先以 orderId 為准來處理對應訂單.
+- **用戶自定義訂單Id**: 最大長度不超過36個字符且唯一。您可以自定義設置的订单ID(`orderLinkId`)，我们会为您关联到平台系统的唯一订单ID，并把唯一订单ID在活动委托创建成功后一并返回给您（包括Websocket），您可以使用 平台 的订单ID 和 orderLinkId 去獲取和取消訂單，如果在參數輸入中同時輸入 orderId 和 orderLinkId，平台會優先以 orderId 為准來處理對應訂單.
 
 - **訂單持有上限:**<br/>
 **現貨:** 單帳戶單交易對: 總計支持500個掛單，包括最多持有30個止盈止損委託單和30個條件單委託單<br/>

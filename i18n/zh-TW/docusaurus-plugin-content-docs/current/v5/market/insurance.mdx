@@ -4,7 +4,7 @@ sidebar_label: 查詢保險基金
 sidebar_position: 11
 ---
 
-查詢Bybit平台的保險基金的數據，包含所有保險池的數據
+查詢平台的保險基金的數據，包含所有保險池的數據
 
 :::info
 * 獨立保險池的餘額數據每1分鐘更新一次, 共享保險池的餘額數據每24小時更新一次
@@ -45,64 +45,7 @@ Host: api-testnet.abfinance.com
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(testnet=True)
-print(session.get_insurance(
-    coin="USDT",
-))
-```
-
-</TabItem>
-<TabItem value="GO" label="GO">
-
-```go
-import (
-	"context"
-	"fmt"
-	bybit "github.com/bybit-exchange/bybit.go.api"
-)
-client := bybit.NewBybitHttpClient("", "", bybit.WithBaseURL(bybit.TESTNET))
-params := map[string]interface{}{"category": "linear", "symbol": "BTCUSDT"}
-client.NewUtaBybitServiceWithParams(params).GetMarketInsurance(context.Background())
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.domain.market.request.MarketDataRequest;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance().newAsyncMarketDataRestClient();
-var insuranceRequest = MarketDataRequest.builder().coin("BTC").build();
-var insuranceData = client.getInsurance(insuranceRequest);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-});
-
-client
-    .getInsurance({
-        coin: 'USDT',
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例

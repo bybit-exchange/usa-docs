@@ -102,9 +102,6 @@ sidebar_label: Enums Definitions
 
 ### category
 * `spot`
-* `linear`&emsp;USDT perpetual, USDT Futures and USDC contract, including USDC perp, USDC futures
-* `inverse`&emsp;Inverse contract, including Inverse perp, Inverse futures
-* `option`
 
 ### orderStatus
 _open status_
@@ -133,44 +130,15 @@ _closed status_
 
 ### createType
 * `CreateByUser`
-* `CreateByFutureSpread`&emsp;Spread order
 * `CreateByAdminClosing`
-* `CreateBySettle`&emsp;USDC Futures delivery; position closed as a result of the delisting of a contract. This is recorded as a [trade](order/execution) but not an [order](order/order-list).
-* `CreateByStopOrder`&emsp;Futures conditional order
-* `CreateByTakeProfit`&emsp;Futures take profit order
-* `CreateByPartialTakeProfit`&emsp;Futures partial take profit order
-* `CreateByStopLoss`&emsp;Futures stop loss order
-* `CreateByPartialStopLoss`&emsp;Futures partial stop loss order
-* `CreateByTrailingStop`&emsp;Futures trailing stop order
-* `CreateByTrailingProfit`&emsp;Futures trailing take profit order
-* `CreateByLiq`&emsp;Laddered liquidation to reduce the required maintenance margin
-* `CreateByTakeOver_PassThrough`If the position is still subject to liquidation (i.e., does not meet the required maintenance margin level), the position shall be taken over by the liquidation engine and closed at the bankruptcy price.
-* `CreateByAdl_PassThrough`&emsp;[Auto-Deleveraging(ADL)](https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL)
-* `CreateByBlock_PassThrough`&emsp;Order placed via Paradigm
-* `CreateByBlockTradeMovePosition_PassThrough`&emsp;Order created by move position
-* `CreateByClosing`&emsp;The close order placed via web or app position area - web/app
-* `CreateByFGridBot`&emsp;Order created via grid bot - web/app
-* `CloseByFGridBot`&emsp;Order closed via grid bot - web/app
-* `CreateByTWAP`&emsp;Order created by TWAP - web/app
-* `CreateByTVSignal`&emsp;Order created by TV webhook - web/app
 * `CreateByMmRateClose`&emsp;Order created by Mm rate close function - web/app
 * `CreateByMartingaleBot`&emsp;Order created by Martingale bot - web/app
 * `CloseByMartingaleBot`&emsp;Order closed by Martingale bot - web/app
 * `CreateByIceBerg`&emsp;Order created by Ice berg strategy - web/app
 * `CreateByArbitrage`&emsp;Order created by arbitrage - web/app
-* `CreateByDdh`&emsp;Option dynamic delta hedge order - web/app
-* `CreateByBboOrder`&emsp;BBO order
 
 ### execType
 * `Trade`
-* `AdlTrade`&emsp;<a href="https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL">Auto-Deleveraging</a>
-* `Funding`&emsp;<a href="https://www.abfinance.com/en/help-center/article/Introduction-to-Funding-Rate">Funding fee</a>
-* `BustTrade`&emsp;Takeover liquidation
-* `Delivery`&emsp;USDC futures delivery; Position closed by contract delisted
-* `Settle`&emsp;Inverse futures settlement; Position closed due to delisting
-* `BlockTrade`
-* `MovePosition`
-* `FutureSpread`&emsp;Spread leg execution
 * `UNKNOWN`&emsp;May be returned by a classic account. Cannot query by this type
 
 ### orderType
@@ -207,10 +175,6 @@ _closed status_
 * `1h` `4h`&emsp;hour
 * `1d`&emsp;day
 
-### positionIdx
-* `0`&emsp;one-way mode position
-* `1`&emsp;Buy side of hedge-mode position
-* `2`&emsp;Sell side of hedge-mode position
 
 ### positionStatus
 * `Normal`
@@ -304,33 +268,12 @@ _closed status_
 
 ### cancelType
 * `CancelByUser`
-* `CancelByReduceOnly`&emsp;cancelled by <a href="https://bybit-exchange.github.io/docs/v5/order/create-order">reduceOnly</a>
-* `CancelByPrepareLiq` `CancelAllBeforeLiq`&emsp;cancelled in order to attempt <a href="https://www.abfinance.com/en/help-center/article/Liquidation-Process-Derivatives-Standard-Account">liquidation prevention</a> by freeing up margin
-* `CancelByPrepareAdl` `CancelAllBeforeAdl`&emsp;cancelled due to <a href="https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL">ADL</a>
 * `CancelByAdmin`
-* `CancelBySettle`&emsp;cancelled due to delisting contract
 * `CancelByTpSlTsClear`&emsp;TP/SL order cancelled when the position is cleared
 * `CancelBySmp`&emsp;cancelled by <a href="https://bybit-exchange.github.io/docs/v5/smp">SMP</a>
 * `CancelByDCP`&emsp;cancelled by DCP triggering
-* `CancelByRebalance`&emsp;Spread trading: the order price of a single leg order is outside the limit price range.
 * `CancelByOCOTpCanceledBySlTriggered`&emsp;The take profit order was canceled due to the triggering of the stop loss
 * `CancelByOCOSlCanceledByTpTriggered`&emsp;The stop loss order was canceled due to the triggering of the take profit
-
-_Options:_
-* `CancelByUser`
-* `CancelByReduceOnly`
-* `CancelAllBeforeLiq`&emsp;cancelled due to liquidation
-* `CancelAllBeforeAdl`&emsp;cancelled due to ADL
-* `CancelBySettle`
-* `CancelByCannotAffordOrderCost`
-* `CancelByPmTrialMmOverEquity`
-* `CancelByAccountBlocking`
-* `CancelByDelivery`
-* `CancelByMmpTriggered`
-* `CancelByCrossSelfMuch`
-* `CancelByCrossReachMaxTradeNum`
-* `CancelByDCP`
-* `CancelBySmp`
 
 ### optionPeriod
 * BTC: `7`,`14`,`21`,`30`,`60`,`90`,`180`,`270`days
@@ -342,11 +285,6 @@ _Options:_
 * `1h` `4h`&emsp;hour
 * `4d`&emsp;day
 
-### contractType
-* `InversePerpetual`
-* `LinearPerpetual`
-* `LinearFutures`&emsp;USDT/USDC Futures
-* `InverseFutures`
 
 ### status
 * `PreLaunch`
@@ -567,10 +505,7 @@ _Spot_:
 * `5`&emsp;Market data service
 
 ### product
-* `1`&emsp;Futures
 * `2`&emsp;Spot
-* `3`&emsp;Option
-* `4`&emsp;Spread
 
 ### maintainType
 * `1`&emsp;Planned maintenance
@@ -583,101 +518,3 @@ _Spot_:
 
 ### bizType
 * `SPOT`
-* `DERIVATIVES`
-* `OPTIONS`
-
-### msg
-* `API limit updated successfully`
-* `Requested limit exceeds maximum allowed per user`
-* `No permission to operate these UIDs`
-* `API cap configuration not found`
-* `API cap configuration not found for bizType`
-* `Requested limit would exceed institutional quota`
-
-### groupId
-* `1`&emsp;Major Coins
-* `2`&emsp;High Growth
-* `3`&emsp;Mid-Tier Liquidity
-* `4`&emsp;Mid-Tier Activation
-* `5`&emsp;Long Tail
-* `6`&emsp;Innovation Zone
-* `7`&emsp;Pre-Listing
-
-### groupName
-* `G1(Major Coins)`&emsp;Major Coins
-* `G2(High Growth)`&emsp;High Growth
-* `G3(Mid-Tier Liquidity)`&emsp;Mid-Tier Liquidity
-* `G4(Mid-Tier Activation)`&emsp;Mid-Tier Activation
-* `G5(Long Tail)`&emsp;Long Tail
-* `Innovation-Zone`&emsp;Innovation Zone
-* `Pre-listing`&emsp;Pre-listing
-
-### Spot Fee Currency Instruction
-with the example of BTCUSDT:
-
-- Is makerFeeRate positive?
-    - TRUE
-        - Side = Buy -> base currency (BTC)
-        - Side = Sell -> quote currency (USDT)
-    - FALSE
-        - IsMakerOrder = TRUE
-            - Side = Buy -> quote currency (USDT)
-            - Side = Sell -> base currency (BTC)
-        - IsMakerOrder = FALSE
-            - Side = Buy -> base currency (BTC)
-            - Side = Sell -> quote currency (USDT)
-### sbe-orderStatus
-* `5`&emsp;Rejected
-* `6`&emsp;New
-* `7`&emsp;Cancelled
-* `8`&emsp;PartiallyFilled
-* `9`&emsp;Filled
-* `0`&emsp;Others
-### sbe-rejectReason
-* `0`&emsp;EC_NoError  
-* `1`&emsp;EC_Others  
-* `2`&emsp;EC_UnknownMessageType  
-* `3`&emsp;EC_MissingClOrdID  
-* `4`&emsp;EC_OrderNotExist  
-* `5`&emsp;EC_MissingOrigClOrdID  
-* `6`&emsp;EC_ClOrdIDOrigClOrdIDAreTheSame  
-* `7`&emsp;EC_OrigClOrdIDDoesNotExist  
-* `8`&emsp;EC_TooLateToCancel  
-* `9`&emsp;EC_UnknownOrderType  
-* `10`&emsp;EC_UnknownSide  
-* `11`&emsp;EC_UnknownTimeInForce  
-* `12`&emsp;EC_WronglyRouted  
-* `13`&emsp;EC_MarketOrderPriceIsNotZero  
-* `14`&emsp;EC_LimitOrderInvalidPrice  
-* `15`&emsp;EC_NoEnoughQtyToFill  
-* `16`&emsp;EC_NoImmediateQtyToFill  
-* `17`&emsp;EC_QtyCannotBeZero  
-* `18`&emsp;EC_PerCancelRequest  
-* `19`&emsp;EC_MarketOrderCannotBePostOnly  
-* `20`&emsp;EC_PostOnlyWillTakeLiquidity  
-* `21`&emsp;EC_CancelReplaceOrder  
-* `22`&emsp;EC_InvalidSymbolStatus  
-* `23`&emsp;EC_MarketOrderNoSupportTIF  
-* `24`&emsp;EC_ReachMaxTradeNum  
-* `25`&emsp;EC_InvalidPriceScale  
-* `28`&emsp;EC_BySelfMatch  
-* `29`&emsp;EC_InvalidSmpType  
-* `30`&emsp;EC_CancelByMMP  
-* `31`&emsp;EC_InCallAuctionStatus  
-* `34`&emsp;EC_InvalidUserType  
-* `35`&emsp;EC_InvalidMirrorOid  
-* `36`&emsp;EC_InvalidMirrorUid  
-* `100`&emsp;EC_EcInvalidQty  
-* `101`&emsp;EC_InvalidAmount  
-* `102`&emsp;EC_LoadOrderCancel  
-* `103`&emsp;EC_CancelForNoFullFill  
-* `104`&emsp;EC_MarketQuoteNoSuppSell  
-* `105`&emsp;EC_DisorderOrderID  
-* `106`&emsp;EC_InvalidBaseValue  
-* `107`&emsp;EC_LoadOrderCanMatch  
-* `108`&emsp;EC_SecurityStatusFail  
-* `110`&emsp;EC_ReachRiskPriceLimit  
-* `111`&emsp;EC_CancelByOrderValueZero  
-* `112`&emsp;EC_CancelByMatchValueZero  
-* `113`&emsp;EC_CancelByMatchValueZero  
-* `200`&emsp;EC_ReachMarketPriceLimit

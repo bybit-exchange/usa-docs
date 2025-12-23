@@ -3,7 +3,7 @@ title: 查詢充值記錄 (平台转账)
 sidebar_label: 查詢充值記錄 (平台转账)
 sidebar_position: 13.05
 ---
-查詢Bybit平台內部充值紀錄
+查詢平台內部充值紀錄
 
 :::info 規則
 <li>開始時間和截止時間差最大限制為30天</li>
@@ -36,8 +36,8 @@ GET `/v5/asset/deposit/query-internal-record`
 |> address|string|郵箱地址或者手機號|
 |> createdTime|string|充值創建時間戳|
 |txID |string |內部轉帳交易ID |
-|> taxDepositRecordsId|string|Bybit EU（奧地利）用戶用於稅務目的, 保稅記錄id |
-|> taxStatus|integer|Bybit EU（奧地利）用戶用於稅務目的 <li>0: No reporting required</li><li>1: Reporting pending</li><li>2: Reporting completed</li>|
+|> taxDepositRecordsId|string|用戶用於稅務目的, 保稅記錄id |
+|> taxStatus|integer|用戶用於稅務目的 <li>0: No reporting required</li><li>1: Reporting pending</li><li>2: Reporting completed</li>|
 |nextPageCursor|string|游標信息：用來分頁|
 
 <a href="/api-explorer/v5/asset/internal-deposit-record"><Button>運行實例 >></Button></a>

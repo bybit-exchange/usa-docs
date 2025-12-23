@@ -45,30 +45,7 @@ Host: api.abfinance.com
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(testnet=True)
-print(session.get_announcement(
-    locale="en-US",
-    limit=1,
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.domain.announcement.LanguageSymbol;
-import com.bybit.api.client.domain.market.request.MarketDataRequest;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance().newAsyncMarketDataRestClient();
-var announcementInfoRequest = MarketDataRequest.builder().locale(LanguageSymbol.EN_US).build();
-client.getAnnouncementInfo(announcementInfoRequest, System.out::println);
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example
@@ -82,7 +59,7 @@ client.getAnnouncementInfo(announcementInfoRequest, System.out::println);
         "list": [
             {
                 "title": "New Listing: Arbitrum (ARB) — Deposit, Trade and Stake ARB to Share a 400,000 USDT Prize Pool!",
-                "description": "Bybit is excited to announce the listing of ARB on our trading platform!",
+                "description": "We are excited to announce the listing of ARB on our trading platform!",
                 "type": {
                     "title": "New Listings",
                     "key": "new_crypto"

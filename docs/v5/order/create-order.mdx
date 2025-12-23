@@ -8,7 +8,7 @@ This endpoint supports to create the order for Spot
 :::info
 - **Supported order type (`orderType`):**<br/>
 Limit order: `orderType`=_Limit_, it is necessary to specify order qty and price.<br/>
-<a href="https://www.abfinance.com/en/help-center/article/Types-of-Orders-Available-on-Bybit">Market order</a>: <code>orderType</code>=<i>Market</i>, execute at the best price in the Bybit market until the transaction is completed. When selecting a market order, the "price" can be empty. In the futures trading system, in order to protect traders against the serious slippage of the Market order, Bybit trading engine will convert the market order into an IOC limit order for matching. If there are no orderbook entries within price slippage limit, the order will not be executed. If there is insufficient liquidity, the order will be cancelled. The slippage threshold refers to the percentage that the order price deviates from the mark price. You can learn more here: <a href="https://announcements.abfinance.com/en/article/adjustments-to-bybit-s-derivative-trading-limit-order-mechanism-blt469228de1902fff6/">Adjustments to Bybit's Derivative Trading Price Limit Mechanism</a>
+<a href="https://www.abfinance.com/en/help-center/article/Types-of-Orders-Available-on-Bybit">Market order</a>: <code>orderType</code>=<i>Market</i>, execute at the best price in the exchange market until the transaction is completed. When selecting a market order, the "price" can be empty. In the futures trading system, in order to protect traders against the serious slippage of the Market order, Exchange trading engine will convert the market order into an IOC limit order for matching. If there are no orderbook entries within price slippage limit, the order will not be executed. If there is insufficient liquidity, the order will be cancelled. The slippage threshold refers to the percentage that the order price deviates from the mark price. You can learn more here: <a href="https://announcements.abfinance.com/en/article/adjustments-to-bybit-s-derivative-trading-limit-order-mechanism-blt469228de1902fff6/">Adjustments to Exchange's Derivative Trading Price Limit Mechanism</a>
 
 - **Supported timeInForce strategy:**<br/>
 `GTC`<br/>
@@ -22,14 +22,14 @@ When submitting an order, if `triggerPrice` is set, the order will be automatica
 
 - **<a href="https://www.abfinance.com/en/help-center/article/Introduction-to-Take-Profit-Stop-Loss-Perpetual-Futures-Contracts">Take profit / Stop loss</a>**: You can set TP/SL while placing orders. Besides, you could modify the position's TP/SL.
 
-- **Order quantity**: The quantity of perpetual contracts you are going to buy/sell. For the order quantity, Bybit only supports positive number at present.
+- **Order quantity**: The quantity of perpetual contracts you are going to buy/sell. For the order quantity, only supports positive number at present.
 
 - **Order price**: Place a limit order, this parameter is **required**. If you have position, the price should be higher than the _liquidation price_.
 For the minimum unit of the price change, please refer to the `priceFilter` > `tickSize` field in the [instruments-info](../market/instrument#) endpoint.
 
 - **orderLinkId**: You can customize the active order ID. We can link this ID to the order ID in the system. Once the
 active order is successfully created, we will send the unique order ID in the system to you. Then, you can use this order
-ID to cancel active orders, and if both orderId and orderLinkId are entered in the parameter input, Bybit will prioritize the orderId to process the corresponding order. Meanwhile, your customized order ID should be no longer than 36 characters and should be **unique**.
+ID to cancel active orders, and if both orderId and orderLinkId are entered in the parameter input, Will prioritize the orderId to process the corresponding order. Meanwhile, your customized order ID should be no longer than 36 characters and should be **unique**.
 
 - **Open orders up limit:**<br/>
 **Spot:** 500 orders in total, including a maximum of 30 open TP/SL orders, a maximum of 30 open conditional orders for each symbol per account<br/>

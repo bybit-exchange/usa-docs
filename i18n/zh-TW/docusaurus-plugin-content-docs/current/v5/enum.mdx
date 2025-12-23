@@ -102,9 +102,6 @@ sidebar_label: 枚舉定義
 
 ### category
 * `spot`&emsp;現貨
-* `linear`&emsp;USDT永續, USDT交割, USDC永續, USDC交割
-* `inverse`&emsp;反向合約，包含反向永續, 反向交割
-* `option`&emsp;期權
 
 ### orderStatus
 _活動態_
@@ -134,41 +131,15 @@ _終態_
 ### createType
 * `CreateByUser`
 * `CreateByAdminClosing`
-* `CreateBySettle`&emsp;USDC期貨交割; 因合約下架導致的平倉
-* `CreateByStopOrder`&emsp;期貨條件單
-* `CreateByTakeProfit`&emsp;期貨止盈單
-* `CreateByPartialTakeProfit`&emsp;期貨部分止盈單
-* `CreateByStopLoss`&emsp;期貨止損單
-* `CreateByPartialStopLoss`&emsp;期貨部分止損單
-* `CreateByTrailingStop`&emsp;期貨追蹤出場單
-* `CreateByTrailingProfit`&emsp;期貨追蹤止盈單
-* `CreateByLiq`&emsp;階梯強平
-* `CreateByTakeOver_PassThrough`強平觸發倉位被系統接管
-* `CreateByAdl_PassThrough`&emsp;[自動減倉](https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL)
-* `CreateByBlock_PassThrough`&emsp;從Paradigm下的大宗交易
-* `CreateByBlockTradeMovePosition_PassThrough`&emsp;移倉觸發的訂單
-* `CreateByClosing`&emsp;在持倉區進行平倉 - web/app
-* `CreateByFGridBot`&emsp;網格機器人創建訂單 - web/app
-* `CloseByFGridBot`&emsp;網格機器人平倉 - web/app
-* `CreateByTWAP`&emsp;TWAP創建訂單 - web/app
-* `CreateByTVSignal`&emsp;TradingView webhook觸發訂單 - web/app
 * `CreateByMmRateClose`&emsp;通過設置mmrate觸發的訂單 - web/app
 * `CreateByMartingaleBot`&emsp;馬丁格爾訂單 - web/app
 * `CloseByMartingaleBot`&emsp;馬丁格爾平倉 - web/app
 * `CreateByIceBerg`&emsp;冰山策略訂單 - web/app
 * `CreateByArbitrage`&emsp;套利策略下單 - web/app
-* `CreateByDdh`&emsp;期權動態Delta對衝訂單 - web/app
-* `CreateByBboOrder`&emsp;BBO 訂單
 
 ### execType
 * `Trade`
-* `AdlTrade`&emsp;<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001124">自動減倉</a>
-* `Funding`&emsp;<a href="https://www.abfinance.com/zh-TW/help-center/HelpCenterKnowledge/bybitHC_Article?id=000001123&language=zh_TW">資金費率</a>
-* `BustTrade`&emsp;強平
-* `Delivery`&emsp;USDC.USDT到期交割; 因合約下架導致的平倉
-* `Settle`&emsp;反向合約到期交割; 下架合約到期平倉
-* `BlockTrade`
-* `MovePosition`
+* `UNKNOWN`&emsp;May be returned by a classic account. Cannot query by this type
 
 ### stopOrderType
 * `TakeProfit`&emsp;止盈單
@@ -199,10 +170,6 @@ _終態_
 * `1h` `4h`&emsp;小時
 * `1d`&emsp;天
 
-### positionIdx
-* `0`&emsp;單向持倉
-* `1`&emsp;買側的雙向持倉
-* `2`&emsp;賣側的雙向持倉
 
 ### positionStatus
 * `Normal`
@@ -296,33 +263,13 @@ _終態_
 
 ### cancelType
 * `CancelByUser`
-* `CancelByReduceOnly`
-* `CancelByPrepareLiq` `CancelAllBeforeLiq`&emsp;由於強平而取消
-* `CancelByPrepareAdl` `CancelAllBeforeAdl`&emsp;由於自動減倉而取消
 * `CancelByAdmin`
-* `CancelBySettle`&emsp;由於合約下架而取消訂單
 * `CancelByTpSlTsClear`&emsp;止盈止損訂單因倉位被平而取消
 * `CancelBySmp`
 * `CancelByDCP`
-* `CancelByRebalance`&emsp;價差交易特有
 * `CancelByOCOTpCanceledBySlTriggered`&emsp;止盈訂單因止損觸發而被取消
 * `CancelByOCOSlCanceledByTpTriggered`&emsp;止損訂單因止盈觸發而被取消
 
-_期權:_
-* `CancelByUser`
-* `CancelByReduceOnly`
-* `CancelAllBeforeLiq`&emsp;由於強平而取消
-* `CancelAllBeforeAdl`&emsp;由於自動減倉而取消
-* `CancelBySettle`
-* `CancelByCannotAffordOrderCost`
-* `CancelByPmTrialMmOverEquity`
-* `CancelByAccountBlocking`
-* `CancelByDelivery`
-* `CancelByMmpTriggered`
-* `CancelByCrossSelfMuch`
-* `CancelByCrossReachMaxTradeNum`
-* `CancelByDCP`
-* `CancelBySmp`
 
 ### optionPeriod
 * BTC: `7`,`14`,`21`,`30`,`60`,`90`,`180`,`270`天
@@ -334,11 +281,6 @@ _期權:_
 * `1h` `4h`&emsp;小時
 * `4d`&emsp;天
 
-### contractType
-* `InversePerpetual`&emsp;反向永續
-* `LinearPerpetual`&emsp;正向永續: USDT永續和USDC永續
-* `LinearFutures`&emsp;USDT/USDC交割
-* `InverseFutures`&emsp;反向交割
 
 ### status
 * `PreLaunch`&emsp;預上線
@@ -570,10 +512,8 @@ _現貨_:
 * `5`&emsp;行情
 
 ### product
-* `1`&emsp;期貨
 * `2`&emsp;現貨
-* `3`&emsp;期權
-* `4`&emsp;價差交易
+
 
 ### maintainType
 * `1`&emsp;計畫維護
@@ -586,8 +526,7 @@ _現貨_:
 
 ### bizType
 * `SPOT`
-* `DERIVATIVES`
-* `OPTIONS`
+
 
 ### msg
 * `API limit updated successfully`&emsp;API limit更新成功
@@ -630,59 +569,3 @@ _現貨_:
     - 是否是maker單 = FALSE
         - 方向 = Buy -> 交易幣種 (BTC)
         - 方向 = Sell -> 報價幣種 (USDT)
-
-### sbe-orderStatus
-* `5`&emsp;Rejected
-* `6`&emsp;New
-* `7`&emsp;Cancelled
-* `8`&emsp;PartiallyFilled
-* `9`&emsp;Filled
-* `0`&emsp;Others
-### sbe-rejectReason
-* `0`&emsp;EC_NoError  
-* `1`&emsp;EC_Others  
-* `2`&emsp;EC_UnknownMessageType  
-* `3`&emsp;EC_MissingClOrdID  
-* `4`&emsp;EC_OrderNotExist  
-* `5`&emsp;EC_MissingOrigClOrdID  
-* `6`&emsp;EC_ClOrdIDOrigClOrdIDAreTheSame  
-* `7`&emsp;EC_OrigClOrdIDDoesNotExist  
-* `8`&emsp;EC_TooLateToCancel  
-* `9`&emsp;EC_UnknownOrderType  
-* `10`&emsp;EC_UnknownSide  
-* `11`&emsp;EC_UnknownTimeInForce  
-* `12`&emsp;EC_WronglyRouted  
-* `13`&emsp;EC_MarketOrderPriceIsNotZero  
-* `14`&emsp;EC_LimitOrderInvalidPrice  
-* `15`&emsp;EC_NoEnoughQtyToFill  
-* `16`&emsp;EC_NoImmediateQtyToFill  
-* `17`&emsp;EC_QtyCannotBeZero  
-* `18`&emsp;EC_PerCancelRequest  
-* `19`&emsp;EC_MarketOrderCannotBePostOnly  
-* `20`&emsp;EC_PostOnlyWillTakeLiquidity  
-* `21`&emsp;EC_CancelReplaceOrder  
-* `22`&emsp;EC_InvalidSymbolStatus  
-* `23`&emsp;EC_MarketOrderNoSupportTIF  
-* `24`&emsp;EC_ReachMaxTradeNum  
-* `25`&emsp;EC_InvalidPriceScale  
-* `28`&emsp;EC_BySelfMatch  
-* `29`&emsp;EC_InvalidSmpType  
-* `30`&emsp;EC_CancelByMMP  
-* `31`&emsp;EC_InCallAuctionStatus  
-* `34`&emsp;EC_InvalidUserType  
-* `35`&emsp;EC_InvalidMirrorOid  
-* `36`&emsp;EC_InvalidMirrorUid  
-* `100`&emsp;EC_EcInvalidQty  
-* `101`&emsp;EC_InvalidAmount  
-* `102`&emsp;EC_LoadOrderCancel  
-* `103`&emsp;EC_CancelForNoFullFill  
-* `104`&emsp;EC_MarketQuoteNoSuppSell  
-* `105`&emsp;EC_DisorderOrderID  
-* `106`&emsp;EC_InvalidBaseValue  
-* `107`&emsp;EC_LoadOrderCanMatch  
-* `108`&emsp;EC_SecurityStatusFail  
-* `110`&emsp;EC_ReachRiskPriceLimit  
-* `111`&emsp;EC_CancelByOrderValueZero  
-* `112`&emsp;EC_CancelByMatchValueZero  
-* `113`&emsp;EC_CancelByMatchValueZero  
-* `200`&emsp;EC_ReachMarketPriceLimit

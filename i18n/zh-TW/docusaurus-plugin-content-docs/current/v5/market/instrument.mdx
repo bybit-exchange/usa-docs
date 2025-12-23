@@ -9,7 +9,6 @@ sidebar_position: 4.5
 
 :::caution
 * 現貨不支持翻頁，因此`limit`, `cusor`無效.
-* 當通過`baseCoin`查詢時, 不管category=`linear`或`inverse`, 返回結果中都會包含USDT永續, USDT交割, USDC永續, USDC交割和反向合約的交易對.
 * 在極端市場波動期間, 此介面可能會出現延遲增加或資料傳遞暫時延遲的情況
 :::
 
@@ -24,9 +23,8 @@ GET `/v5/market/instruments-info`
 |:----- |:-------|:-----|------ |
 |[category](../enum#category) |<b>true</b> |string |產品類型. `spot`|
 |symbol |false |string |合約名稱|
-|[symbolType](../enum#symboltype) |false |string |交易對所屬區域:僅对`linear`,`inverse`,`spot`有效|
-|[status](../enum#status) |false |string |交易對狀態篩選 <ul><li>`linear` & `inverse` & `spot ` 默認返回`Trading`狀態的交易對</li><li>`option` 默認返回 `PreLaunch`, `Trading`, `Delivering`狀態的交易對</li><li>現貨 僅有`Trading`狀態</li><li>`linear` & `inverse`: status=PreLaunch可以查詢到盤前交易的合約</li></ul>|
-|baseCoin |false |string |交易貨幣. 僅對期貨/期權有效 <li>對於期權, 默認返回baseCoin為BTC的</li>|
+|[symbolType](../enum#symboltype) |false |string |交易對所屬區域|
+|[status](../enum#status) |false |string |交易對狀態篩選 <ul><li>現貨 僅有`Trading`狀態</li></ul>|
 |limit |false |integer |每頁數量限制. [`1`, `1000`]. 默認: `500`|
 |cursor |false |string |游標，用於翻頁|
 

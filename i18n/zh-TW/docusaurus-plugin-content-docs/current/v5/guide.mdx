@@ -17,11 +17,11 @@ REST接口根URL:
 
 
 ### 選擇用於鑒權的API密鑰類型
-**系統生產的API密鑰**: Bybit 系統生成的 API 密鑰基於 HMAC 對稱加密算法運作。您將獲得一對公鑰和私鑰。請將這對密鑰視為密碼一樣妥善保管。
+**系統生產的API密鑰**: 系統生成的 API 密鑰基於 HMAC 對稱加密算法運作。您將獲得一對公鑰和私鑰。請將這對密鑰視為密碼一樣妥善保管。
 
 > 跟隨<a href="https://github.com/bybit-exchange/api-usage-examples">HMAC簽名示例</a>來完成加密過程。
 
-**自動生成的API密鑰**: 自動生成的 API 密鑰基於 RSA 非對稱加密算法運作。您必須通過軟件自行創建公鑰和私鑰，然後僅向 Bybit 提供公鑰。Bybit 不會替您保管私鑰。
+**自動生成的API密鑰**: 自動生成的 API 密鑰基於 RSA 非對稱加密算法運作。您必須通過軟件自行創建公鑰和私鑰，然後僅向 Abfinance Abfinance 不會替您保管私鑰。
 
 > 1. 使用開源的<a href="https://github.com/bybit-exchange/api-rsa-generator">RSA密鑰對創建器</a>來創建出一組RSA密鑰對
 > 2. 跟隨<a href="https://github.com/bybit-exchange/api-usage-examples">RSA簽名示例</a>來完成加密過程。
@@ -38,7 +38,7 @@ REST接口根URL:
 :::caution
 註意，timestamp參數必須符合如下規則:<br/>
 _server_time - recv_window <= timestamp < server_time + 1000_<br/>
-其中server_time是Bybit服務器時間，您可以通過[獲取服務器時間](../v5/market/time#)接口獲取.
+其中server_time是服務器時間，您可以通過[獲取服務器時間](../v5/market/time#)接口獲取.
 :::
 
 ### 構建請求

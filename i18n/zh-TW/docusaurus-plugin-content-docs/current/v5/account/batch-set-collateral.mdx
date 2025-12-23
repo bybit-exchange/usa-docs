@@ -61,64 +61,8 @@ Content-Length: 371
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.batch_set_collateral_coin(
-  request=[
-    {
-      "coin": "BTC",
-      "collateralSwitch": "ON",
-    },
-    {
-      "coin": "ETH",
-      "collateralSwitch": "ON",
-    }
-  ]
-))
-```
 
-</TabItem>
-
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-  testnet: true,
-  key: 'xxxxxxxxxxxxxxxxxx',
-  secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-  .batchSetCollateralCoin({
-    request: [
-      {
-        coin: 'BTC',
-        collateralSwitch: 'ON',
-      },
-      {
-        coin: 'ETH',
-        collateralSwitch: 'OFF',
-      },
-    ],
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例

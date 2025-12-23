@@ -26,7 +26,7 @@ Level 1000 data, push frequency: **200ms**<br/>
 
 To process `snapshot` and `delta` messages, please follow these rules:
 
-Once you have subscribed successfully, you will receive a `snapshot`. The WebSocket will keep pushing `delta` messages every time the orderbook changes. If you receive a new `snapshot` message, you will have to reset your local orderbook. If there is a problem on Bybit's end, a `snapshot` will be re-sent, which is guaranteed to contain the latest data.
+Once you have subscribed successfully, you will receive a `snapshot`. The WebSocket will keep pushing `delta` messages every time the orderbook changes. If you receive a new `snapshot` message, you will have to reset your local orderbook. If there is a problem on exchange's end, a `snapshot` will be re-sent, which is guaranteed to contain the latest data.
 
 To apply `delta` updates:
 

@@ -55,40 +55,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-
-```
-
-</TabItem>
-
-<TabItem value="Node" label="Node.js">
-
-```n4js
-// https://api.abfinance.com/v5/user/get-member-type
-
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-  testnet: true,
-  key: 'xxxxxxxxxxxxxxxxxx',
-  secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-  .getUIDWalletType({
-    memberIds: 'subUID1,subUID2',
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例
