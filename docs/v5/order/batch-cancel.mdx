@@ -9,7 +9,7 @@ This endpoint allows you to cancel more than one open order in a single request.
 - You must specify `orderId` or `orderLinkId`.
 - If `orderId` and `orderLinkId` is not matched, the system will process `orderId` first.
 - You can cancel **unfilled** or **partially filled** orders.
-- A maximum of 20 orders (option), 20 orders (inverse), 20 orders (linear), 10 orders (spot) can be cancelled per request.
+- A maximum of 10 orders (spot) can be cancelled per request.
 :::
 
 ### HTTP Request
@@ -18,7 +18,7 @@ POST `/v5/order/cancel-batch`
 ### Request Parameters
 | Parameter | Required | Type | Comments|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |**true** |string |Product type `linear`, `option`, `spot`, `inverse`|
+|[category](../enum#category) |**true** |string |Product type  `spot`|
 |request |**true** |array |Object |
 |> symbol |**true** |string |Symbol name, like `BTCUSDT`, uppercase only  |
 |> orderId |false |string |Order ID. Either `orderId` or `orderLinkId` is required |
@@ -76,90 +76,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.cancel_batch_order(
-    category="spot",
-    request=[
-        {
-            "symbol": "BTCUSDT",
-            "orderId": "1666800494330512128"
-        },
-        {
-            "symbol": "ATOMUSDT",
-            "orderLinkId": "1666800494330512129"
-        }
-    ]
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.restApi.BybitApiTradeRestClient;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-BybitApiClientFactory factory = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET");
-BybitApiAsyncTradeRestClient client = factory.newAsyncTradeRestClient();
-var cancelOrderRequests = Arrays.asList(TradeOrderRequest.builder().symbol("BTC-10FEB23-24000-C").orderLinkId("9b381bb1-401").build(),
-                TradeOrderRequest.builder().symbol("BTC-10FEB23-24000-C").orderLinkId("82ee86dd-001").build());
-var cancelBatchOrders = BatchOrderRequest.builder().category(ProductType.OPTION).request(cancelOrderRequests).build();
-client.createBatchOrder(cancelBatchOrders, System.out::println);
-```
-
-</TabItem>
-<TabItem value="DotNet" label=".Net">
-
-```c#
-using bybit.net.api.ApiServiceImp;
-using bybit.net.api.Models.Trade;
-var order1 = new OrderRequest { Symbol = "BTC-10FEB23-24000-C", OrderLinkId = "9b381bb1-401" };
-var order2 = new OrderRequest { Symbol = "BTC-10FEB23-24000-C", OrderLinkId = "82ee86dd-001" };
-var orderInfoString = await TradeService.CancelBatchOrder(category: Category.LINEAR, request: new List<OrderRequest> { order1, order2 });
-Console.WriteLine(orderInfoString);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .batchCancelOrders('spot', [
-        {
-            "symbol": "BTCUSDT",
-            "orderId": "1666800494330512128"
-        },
-        {
-            "symbol": "ATOMUSDT",
-            "orderLinkId": "1666800494330512129"
-        },
-    ])
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example

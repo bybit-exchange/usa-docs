@@ -10,20 +10,12 @@ Spot
 * **Maximum Buy Price**: *Min[Max(Index, Index × (1 + y%) + 2-Minute Average Premium), Index × (1 + z%)]*
 * **Lowest price for Sell**: *Max[Min(Index, Index × (1 – y%) + 2-Minute Average Premium), Index × (1 – z%)]*
 
-Futures
-* **Maximum Buy Price**: *min( max( index , markprice * ( 1 + x% ）), markprice *( 1 + y%) )*
-* **Lowest price for Sell**: *max ( min( index , markprice * ( 1 - x% )) , markprice ( 1 - y%) )
 
 :::info Default Setting
 *	Spot:
 **modifyEnable = false.** If the order price exceeds the boundary, the system rejects the request. <br/>
 Corresponding to <a href="https://bybit-exchange.github.io/docs/v5/account/get-user-setting-config">Get Limit Price Behaviour</a> that **lpaSpot = false , lpaPerp = true**
 
-*	Futures:
-**modifyEnable = true.** If the order price exceeds the boundary, the system will automatically adjust the price to the nearest allowed boundary (i.e., highest bid or lowest ask).<br/>
-Corresponding to <a href="https://bybit-exchange.github.io/docs/v5/account/get-user-setting-config">Get Limit Price Behaviour</a> that **lpaSpot = true , lpaPerp = false**
-
-* Setting either `linear` or `inverse` will set behaviour for **all futures**.
 :::
 
 ### HTTP Request
@@ -32,7 +24,7 @@ POST `/v5/account/set-limit-px-action`
 ### Request Parameters
 | Parameter | Required | Type | Comments|
 |:----- |:-------|:-----|------ |
-|category |**true** |string |`linear`, `inverse`, `spot`|
+|category |**true** |string |`spot`|
 |modifyEnable |**true** |boolean |`true`: allow the syetem to modify the order price<br/>`false`: reject your order request|
 
 ### Response Parameters
@@ -60,21 +52,7 @@ Content-Length: 52
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-
-```
-
-</TabItem>
-
-<TabItem value="Node" label="Node.js">
-
-```n4js
-
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example

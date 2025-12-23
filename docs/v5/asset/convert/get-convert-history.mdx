@@ -54,44 +54,7 @@ X-BAPI-RECV-WINDOW: 5000
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.get_convert_history(
-    accountType="eb_convert_uta,eb_convert_funding",
-))
-```
-
-</TabItem>
-
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-  testnet: true,
-  key: 'xxxxxxxxxxxxxxxxxx',
-  secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-  .getConvertHistory()
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example

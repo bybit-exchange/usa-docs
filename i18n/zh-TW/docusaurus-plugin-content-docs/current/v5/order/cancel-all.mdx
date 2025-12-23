@@ -23,7 +23,6 @@ POST `/v5/order/cancel-all`
 |symbol |false|string |合約名稱|
 |baseCoin |false|string |交易幣種 |
 |orderFilter |false |string |<ul><li>category=`spot`, 該字段可以傳: <br/>`Order`(普通單), `tpslOrder`(止盈止損單)<br/>`StopOrder`(條件單), `OcoOrder`<br/>`BidirectionalTpslOrder`(現貨雙向止盈止損訂單)<br/>若不傳, 則默認是撤掉`Order`單</li></ul>|
-|[stopOrderType](../enum#stopordertype) |false |string |條件單類型, `Stop` <li>僅用於當corderFilter=`StopOrder`時, 若想僅取消條件單 (不包括止盈止損單和追蹤出場單), 則可以傳入該字段</li>|
 
 <a href="/api-explorer/v5/trade/cancel-all"><Button>運行實例 >></Button></a>
 

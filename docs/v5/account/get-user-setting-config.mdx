@@ -9,16 +9,11 @@ Spot
 * **Maximum Buy Price**: *Min[Max(Index, Index × (1 + y%) + 2-Minute Average Premium), Index × (1 + z%)]*
 * **Lowest price for Sell**: *Max[Min(Index, Index × (1 – y%) + 2-Minute Average Premium), Index × (1 – z%)]*
 
-Futures
-* **Maximum Buy Price**: *min( max( index , markprice * ( 1 + x% ）), markprice *( 1 + y%) )*
-* **Lowest price for Sell**: *max ( min( index , markprice * ( 1 - x% )) , markprice ( 1 - y%) )
 
 :::info Default Setting
 *	Spot:
 **lpaSpot = false.** If the order price exceeds the boundary, the system rejects the request.
 
-*	Futures:
-**lpaPerp = false.** If the order price exceeds the boundary, the system will automatically adjust the price to the nearest allowed boundary (i.e., highest bid or lowest ask).
 :::
 
 ### HTTP Request
@@ -53,21 +48,7 @@ Content-Length: 52
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-
-```
-
-</TabItem>
-
-<TabItem value="Node" label="Node.js">
-
-```n4js
-
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example

@@ -19,10 +19,9 @@ GET `/v5/order/history`
 ### Request Parameters
 | Parameter | Required | Type | Comments|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |**true** |string |Product type `linear`, `inverse`, `spot`, `option`|
+|[category](../enum#category) |**true** |string |Product type `spot`|
 |symbol |false |string |Symbol name, like `BTCUSDT`, uppercase only|
 |baseCoin |false |string |Base coin, uppercase only|
-|settleCoin |false |string |Settle coin, uppercase only|
 |orderId |false |string |Order ID |
 |orderLinkId |false |string |User customised order ID |
 |orderFilter |false |string |`Order`: active order<br/>`StopOrder`: conditional order for Futures and Spot<br/>`tpslOrder`: spot TP/SL order<br/>`OcoOrder`: spot OCO orders<br/>`BidirectionalTpslOrder`: Spot bidirectional TPSL order <ul><li>all kinds of orders are returned by default</li></ul>|
@@ -107,61 +106,7 @@ X-BAPI-RECV-WINDOW: 5000
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.get_order_history(
-    category="linear",
-    limit=1,
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.config.BybitApiConfig;
-import com.bybit.api.client.domain.trade.request.TradeOrderRequest;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET", BybitApiConfig.TESTNET_DOMAIN).newTradeRestClient();
-var orderHistory = TradeOrderRequest.builder().category(CategoryType.LINEAR).limit(10).build();
-System.out.println(client.getOrderHistory(orderHistory));
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .getHistoricOrders({
-        category: 'linear',
-        limit: 1,
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example
@@ -223,7 +168,7 @@ client
             }
         ],
         "nextPageCursor": "page_token%3D39380%26",
-        "category": "linear"
+        "category": "spot"
     },
     "retExtInfo": {},
     "time": 1684766282976

@@ -38,7 +38,6 @@ POST `/v5/order/create-batch`
 |> orderLinkId |false |string |用戶自定義訂單Id|
 |> takeProfit |false |string |止盈價格|
 |> stopLoss |false |string |止損價格|
-|> reduceOnly |false |boolean |<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001047">什麼是只減倉?</a> `true` 將這筆訂單設為只減倉 <ul><li>當減倉時, reduceOnly=true**必傳**</li><li>只減倉單的止盈止損不生效</li></ul> |
 |> [smpType](../enum#smptype) |false |string |Smp執行類型. [什麼是SMP?](../smp)|
 |> tpLimitPrice |false |string |觸發止盈後轉換為限價單的價格 <ul><li>現貨: 參數必傳當創建訂單時帶了`takeProfit` 和 `tpOrderType=Limit`</li></ul>|
 |> slLimitPrice |false |string |觸發止損後轉換為限價單的價格 <ul><li>現貨: 參數必傳當創建訂單時帶了`stopLoss` 和 `slOrderType=Limit`</li></ul>|

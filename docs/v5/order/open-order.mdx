@@ -23,10 +23,9 @@ GET `/v5/order/realtime`
 ### Request Parameters
 | Parameter | Required | Type | Comments|
 |:----- |:-------|:-----|------ |
-|category |**true** |string |Product type `linear`, `inverse`, `spot`, `option`|
-|symbol |false |string |Symbol name, like `BTCUSDT`, uppercase only. For **linear**, either `symbol`, `baseCoin`, `settleCoin` is **required** |
+|category |**true** |string |Product type `spot`|
+|symbol |false |string |Symbol name, like `BTCUSDT`, uppercase only.|
 |baseCoin |false |string |Base coin, uppercase only <li>Supports `linear`, `inverse` & `option`</li><li>`option`: it returns all option open orders by default</li>|
-|settleCoin |false |string |Settle coin, uppercase only <ul><li><b>linear</b>: either `symbol`, `baseCoin` or `settleCoin` is **required**</li><li>`spot`: not supported</li><li>`option`: USDT or USDC</li></ul> |
 |orderId |false |string |Order ID |
 |orderLinkId |false |string |User customised order ID |
 |openOnly |false |integer |<ul><li>`0`(default): query open status orders (e.g., New, PartiallyFilled) **only**</li><li>`1`: Query a maximum of recent 500 closed status records are kept under each account each category (e.g., Cancelled, Rejected, Filled orders).<br/><i>If the Bybit service is restarted due to an update, this part of the data will be cleared and accumulated again, but the order records will still be queried in [order history](order-list#)</i></li><li>`openOnly` param will be ignored when query by _orderId_ or _orderLinkId_</li></ul>|
@@ -58,7 +57,7 @@ GET `/v5/order/realtime`
 |> leavesValue |string |The estimated value not executed|
 |> cumExecQty |string |Cumulative executed order qty |
 |> cumExecValue |string |Cumulative executed order value|
-|> cumExecFee |string |<li>`inverse`, `option`: Cumulative executed trading fee.</li><li>`linear`, `spot`: Deprecated. Use `cumFeeDetail` instead.</li>|
+|> cumExecFee |string |<li>`spot`: Deprecated. Use `cumFeeDetail` instead.</li>|
 |> [timeInForce](../enum#timeinforce) |string |Time in force |
 |> [orderType](../enum#ordertype) |string |Order type. `Market`,`Limit`. For TP/SL orders, is the order type after the order was triggered|
 |> [stopOrderType](../enum#stopordertype) |string |Stop order type |
@@ -85,7 +84,7 @@ GET `/v5/order/realtime`
 |> smpOrderId |string |The counterparty's orderID which triggers this SMP execution|
 |> createdTime |string |Order created timestamp (ms) |
 |> updatedTime |string |Order updated timestamp (ms) |
-|> cumFeeDetail |json |<li>`linear`, `spot`: Cumulative trading fee details instead of `cumExecFee`</li> | 
+|> cumFeeDetail |json |<li>`spot`: Cumulative trading fee details instead of `cumExecFee`</li> | 
 
 <a href="/api-explorer/v5/trade/open-order"><Button>RUN >></Button></a>
 
@@ -107,65 +106,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.get_open_orders(
-    category="linear",
-    symbol="ETHUSDT",
-    openOnly=0,
-    limit=1,
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.config.BybitApiConfig;
-import com.bybit.api.client.domain.trade.request.TradeOrderRequest;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET", BybitApiConfig.TESTNET_DOMAIN).newTradeRestClient();
-var openLinearOrdersResult = client.getOpenOrders(openOrderRequest.category(CategoryType.LINEAR).openOnly(1).build());
-System.out.println(openLinearOrdersResult);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .getActiveOrders({
-        category: 'linear',
-        symbol: 'ETHUSDT',
-        openOnly: 0,
-        limit: 1,
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example
@@ -224,7 +165,7 @@ client
             }
         ],
         "nextPageCursor": "page_args%3Dfd4300ae-7847-404e-b947-b46980a4d140%26symbol%3D6%26",
-        "category": "linear"
+        "category": "spot"
     },
     "retExtInfo": {},
     "time": 1684765770483

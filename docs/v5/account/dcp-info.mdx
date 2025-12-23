@@ -11,7 +11,7 @@ Query the DCP configuration of the account. Before calling the interface, please
 * If you only request to activate Spot trading for DCP, the contract and options data will not be returned.
 
 :::info
-* Support USDT Perpetuals, USDT Futures, USDC Perpetuals, USDC Futures, Inverse Perpetuals, Inverse Futures [DERIVATIVES]<br/>Spot [SPOT]<br/>Options [OPTIONS]
+* Support Spot [SPOT]
 :::
 
 ### HTTP Request
@@ -24,7 +24,7 @@ None
 | Parameter | Type | Comments|
 |:----- |:-----|----- |
 |dcpInfos |array&lt;object&gt; |DCP config for each product |
-|> product |string |`SPOT`, `DERIVATIVES`, `OPTIONS`|
+|> product |string |`SPOT`|
 |> dcpStatus |string |[Disconnected-CancelAll-Prevention](../order/dcp) status: `ON`|
 |> timeWindow |string |DCP trigger time window which user pre-set. Between [3, 300] seconds, default: 10 sec|
 
@@ -43,28 +43,7 @@ X-BAPI-RECV-WINDOW: 5000
 ```
 </TabItem>
 
-<TabItem value="Node" label="Node.js">
 
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-  testnet: true,
-  key: 'xxxxxxxxxxxxxxxxxx',
-  secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-  .getDCPInfo()
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-</TabItem>
 </Tabs>
 
 ### Response Example
@@ -79,11 +58,6 @@ client
         "dcpInfos": [
             {
                 "product": "SPOT",
-                "dcpStatus": "ON",
-                "timeWindow": "10"
-            },
-            {
-                "product": "DERIVATIVES",
                 "dcpStatus": "ON",
                 "timeWindow": "10"
             }

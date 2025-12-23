@@ -5,9 +5,8 @@ sidebar_position: 5.5
 ---
 
 Query for orderbook depth data.
-> **Covers: Spot / USDT contract / USDC contract / Inverse contract / **
+> **Covers: Spot**
 
-* Contract: 50-level of RPI orderbook data
 * Spot: 50-level of RPI orderbook data
 
 :::info
@@ -20,7 +19,7 @@ GET `/v5/market/rpi_orderbook`
 ### Request Parameters
 | Parameter | Required | Type | Comments|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |false |string |Product type. `spot`, `linear`, `inverse` |
+|[category](../enum#category) |false |string |Product type. `spot`|
 |symbol |**true** |string |Symbol name, like `BTCUSDT`, uppercase only|
 |limit |**true** |integer |Limit size for each bid and ask: [1, 50]|
 
