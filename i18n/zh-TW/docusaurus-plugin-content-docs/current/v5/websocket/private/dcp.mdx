@@ -1,6 +1,6 @@
 ---
-title: 斷線保護 (期權)
-sidebar_label: 斷線保護 (期權)
+title: 斷線保護
+sidebar_label: 斷線保護
 sidebar_position: 6
 ---
 
@@ -13,14 +13,14 @@ sidebar_position: 6
 
 綜上, 只有當所有訂閱了"dcp.xxx"的私有連接斷線後, 斷線保護機制才會被觸發.
 
-**Topic:** `dcp.future`, `dcp.spot`, `dcp.option`
+**Topic:** `dcp.spot`
 
 ### 訂閱示例
 ```json
 {
     "op": "subscribe",
     "args": [
-        "dcp.future"
+        "dcp.spot"
     ]
 }
 ```

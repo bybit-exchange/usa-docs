@@ -4,7 +4,7 @@ sidebar_label: 平台成交
 sidebar_position: 2
 ---
 
-訂閱Bybit平台上最近成交的推送.<br/>
+訂閱平台上最近成交的推送.<br/>
 從用戶訂閱開始, 實時推送增量交易歷史, 有成交數據就推送.
 
 推送頻率: **實時**
@@ -13,7 +13,7 @@ sidebar_position: 2
 `publicTrade.{symbol}` **注意**: 期權使用baseCoin, e.g., publicTrade.BTC
 
 :::note
-對於期貨和現貨, 單條消息至多含有1024個成交, 一個撮合包如果超過1024個成交, 則會拆成多條消息下發
+對於現貨, 單條消息至多含有1024個成交, 一個撮合包如果超過1024個成交, 則會拆成多條消息下發
 :::
 
 ### 響應參數
@@ -41,21 +41,14 @@ sidebar_position: 2
 
 ### 訂閱示例
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="linear",
-)
-def handle_message(message):
-    print(message)
-ws.trade_stream(
-    symbol="BTCUSDT",
-    callback=handle_message
-)
-while True:
-    sleep(1)
+```json
+{
+    "op": "subscribe",
+    "args": [
+        "publicTrade.BTCUSDT"
+    ]
+}
+
 ```
 
 ### 響應示例

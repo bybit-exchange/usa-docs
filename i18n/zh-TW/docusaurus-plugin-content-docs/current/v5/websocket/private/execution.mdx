@@ -11,7 +11,7 @@ sidebar_position: 2
 :::
 
 **All-In-One Topic:** `execution`<br/>
-**Categorised Topic:** `execution.spot`, `execution.linear`, `execution.inverse`, `execution.option`
+**Categorised Topic:** `execution.spot`
 
 :::info
 * All-In-One topic 和 Categorised topic **不能**放在同一個訂閱請求裡
@@ -26,7 +26,7 @@ sidebar_position: 2
 |topic |string |Topic名 |
 |creationTime |number |消息數據創建時間 |
 |data |array |Object |
-|> [category](../../enum#category) | string | 產品類型 `spot`, `linear`, `iverse`, `option`|
+|> [category](../../enum#category) | string | 產品類型 `spot`|
 |> symbol |string |合約名稱|
 |> isLeverage |string |是否自動借貸. 僅`spot`有效. `0`: 否, 幣幣交易, `1`: 是, 槓桿交易|
 |> orderId |string |訂單ID |
@@ -69,22 +69,6 @@ sidebar_position: 2
 }
 ```
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="private",
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-def handle_message(message):
-    print(message)
-ws.execution_stream(callback=handle_message)
-while True:
-    sleep(1)
-```
-
 ### 推送示例
 
 ```json
@@ -94,7 +78,7 @@ while True:
     "creationTime": 1672364174455,
     "data": [
         {
-            "category": "linear",
+            "category": "spot",
             "symbol": "XRPUSDT",
             "execFee": "0.005061",
             "execId": "7e2ae69c-4edf-5800-a352-893d52b446aa",

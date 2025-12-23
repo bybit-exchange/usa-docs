@@ -10,19 +10,14 @@ sidebar_position: 1
 * 訂閱成功後，會立即得到一個當前快照包的推送消息.
 * websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.
 * `snapshot`=全量orderbook, `delta`=增量orderbook
-* 如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.
+* 如果因為服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.
 :::
 
 :::info
-- USDT合約, USDC合約, 反向合約以及現貨 1檔數據: 若3秒內無變化, 將會再次推送**snapshot**數據, 此消息中的字段`u`和前一條消息裡的“u”保持一樣
-- **USDT合約, USDC合約, 反向合約以及現貨 1檔數據: 只推送`snapshot`消息**
+- 現貨 1檔數據: 若3秒內無變化, 將會再次推送**snapshot**數據, 此消息中的字段`u`和前一條消息裡的“u”保持一樣
+- **現貨 1檔數據: 只推送`snapshot`消息**
 :::
 
-**USDT合約和USDC合約 & 反向合約:**<br/>
-  1 檔數據, 推送頻率: **10ms**<br/>
- 50 檔數據, 推送頻率: **20ms**<br/>
-200 檔數據, 推送頻率: **100ms**<br/>
-1000 檔數據, 推送頻率: **200ms**<br/>
 
 **現貨:**<br/>
   1 檔數據, 推送頻率: **10ms**<br/>
@@ -30,9 +25,6 @@ sidebar_position: 1
 200 檔數據, 推送頻率: **200ms**<br/>
 1000 檔數據, 推送頻率: **200ms**<br/>
 
-**期權:**<br/>
- 25 檔數據, 推送頻率: **20ms**<br/>
-100 檔數據, 推送頻率: **100ms**<br/>
 
 
 **Topic:**<br/>
@@ -58,22 +50,14 @@ sidebar_position: 1
 
 ### 訂閱示例
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="linear",
-)
-def handle_message(message):
-    print(message)
-ws.orderbook_stream(
-    depth=50,
-    symbol="BTCUSDT",
-    callback=handle_message
-)
-while True:
-    sleep(1)
+```json
+{
+    "op": "subscribe",
+    "args": [
+        "orderbook.50.BTCUSDT"
+    ]
+}
+
 ```
 
 ### 響應示例

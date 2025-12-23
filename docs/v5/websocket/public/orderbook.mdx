@@ -12,21 +12,11 @@ Subscribe to the orderbook stream. Supports different depths.
 
 ### Depths
 
-**Linear & inverse:**<br/>
-Level 1 data, push frequency: **10ms**<br/>
-Level 50 data, push frequency: **20ms**<br/>
-Level 200 data, push frequency: **100ms**<br/>
-Level 1000 data, push frequency: **200ms**<br/>
-
 **Spot:**<br/>
 Level 1 data, push frequency: **10ms**<br/>
 Level 50 data, push frequency: **20ms**<br/>
 Level 200 data, push frequency: **200ms**<br/>
 Level 1000 data, push frequency: **200ms**<br/>
-
-**Option:**<br/>
-Level 25 data, push frequency: **20ms**<br/>
-Level 100 data, push frequency: **100ms**<br/>
 
 
 **Topic:**<br/>
@@ -47,9 +37,9 @@ To apply `delta` updates:
 See working code examples of this logic in the [FAQ](https://bybit-exchange.github.io/docs/faq#how-can-i-process-websocket-snapshot-and-delta-messages).
 
 :::info
-- Linear, inverse, spot level 1 data: if 3 seconds have elapsed without a change in the orderbook, a `snapshot` message will be pushed again, and the field `u` will be the 
+- Spot level 1 data: if 3 seconds have elapsed without a change in the orderbook, a `snapshot` message will be pushed again, and the field `u` will be the 
 same as that in the previous message.
-- **Linear, inverse, spot level 1 data has `snapshot` message only**
+- **Spot level 1 data has `snapshot` message only**
 :::
 
 ### Response Parameters
@@ -72,22 +62,23 @@ same as that in the previous message.
 
 ### Subscribe Example
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="linear",
-)
-def handle_message(message):
-    print(message)
-ws.orderbook_stream(
-    depth=50,
-    symbol="BTCUSDT",
-    callback=handle_message
-)
-while True:
-    sleep(1)
+```json
+{
+    "op": "subscribe",
+    "args": [
+        "orderbook.50.BTCUSDT"
+    ]
+}
+
+```
+### Subscribe Success Response
+```json
+{
+    "success": true,
+    "ret_msg": "subscribe",
+    "conn_id": "f6b17b77-48b6-4c5c-b5ec-4a1c733f5763",
+    "op": "subscribe"
+}
 ```
 
 ### Response Example

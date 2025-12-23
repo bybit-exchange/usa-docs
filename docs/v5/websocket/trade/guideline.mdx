@@ -8,17 +8,12 @@ sidebar_position: 1
 - **Mainnet:**<br/>
 `wss://stream.abfinance.com/v5/trade`
 
-:::info
-* Turkey users registered from "www.bybit-tr.com", please use `wss://stream.bybit-tr.com/v5/trade`
-* Kazakhstan users registered from "www.bybit.kz", please use `wss://stream.bybit.kz/v5/trade`
-:::
-
 - **Testnet:**<br/>
 `wss://stream-testnet.abfinance.com/v5/trade`
 
 ## Scope
-* **Support**: USDT Contract, USDC Contract, Spot, Options, Inverse contract
-* **Not support**: demo trading, spread trading
+* **Support**: Spot
+* **Not support**: demo trading
 
 ## Authentication
 ### Request Parameters
@@ -66,7 +61,7 @@ sidebar_position: 1
 |reqId|false |string |Used to identify the uniqueness of the request, the response will return it when passed. The length cannot exceed 36 characters. <li>If passed, it can't be duplicated, otherwise you will get "20006"</li>|
 |header|**true** |object |Request headers|
 |> X-BAPI-TIMESTAMP|**true** |string |Current timestamp|
-|> X-BAPI-RECV-WINDOW|false |string |5000(ms) by default. Request will be rejected when not satisfy this rule: <i>Bybit_server_time - X-BAPI-RECV-WINDOW <= X-BAPI-TIMESTAMP < Bybit_server_time + 1000</i>|
+|> X-BAPI-RECV-WINDOW|false |string |5000(ms) by default. Request will be rejected when not satisfy this rule: <i>Server_time - X-BAPI-RECV-WINDOW <= X-BAPI-TIMESTAMP < Server_time + 1000</i>|
 |> Referer|false |string |The referer identifier for API broker user|
 |op |**true** |string |Op type <li>`order.create`: create an order</li> <li>`order.amend`: amend an order</li> <li>`order.cancel`: cancel an order</li>|
 |args |**true** |array&ltobject&gt |Args array, support one item only for now <li>`order.create`: refer to [create order request](../../order/create-order#request-parameters)</li><li>`order.amend`: refer to [amend order request](../../order/amend-order#request-parameters)</li><li>`order.cancel`: refer to [cancel order request](../../order/cancel-order#request-parameters)</li> |
@@ -109,8 +104,7 @@ The ack of create/amend/cancel order request indicates that the request is succe
             "orderType": "Limit",
             "qty": "0.2",
             "price": "2800",
-            "category": "linear",
-            "timeInForce": "PostOnly"
+            "category": "spot"
         }
     ]
 }
@@ -141,9 +135,8 @@ The ack of create/amend/cancel order request indicates that the request is succe
 
 ## Batch Create/Amend/Cancel Order
 :::info
-* A maximum of 20 orders (option), 20 orders (inverse), 20 orders (linear), 10 orders (spot) can be placed per request. The returned data list is divided into two lists. The first list indicates whether or not the order creation was successful and the second list details the created order information. The structure of the two lists are completely consistent.
-- **Option rate limt** instruction: its rate limit is count based on the actual number of request sent, e.g., by default, option trading rate limit is 10 reqs per sec, so you can send up to 20 * 10 = 200 orders in one second. 
-- **Perpetual, Futures, Spot rate limit instruction**, please check [here](../../rate-limit#api-rate-limit-rules-for-vips)
+* A maximum of 10 orders (spot) can be placed per request. The returned data list is divided into two lists. The first list indicates whether or not the order creation was successful and the second list details the created order information. The structure of the two lists are completely consistent.
+- **Spot rate limit instruction**, please check [here](../../rate-limit#api-rate-limit-rules-for-vips)
 * The account rate limit is shared between websocket and http batch orders
 * The acknowledgement of batch create/amend/cancel order requests indicates that the request was sucessfully accepted. The request is asynchronous so please use the websocket to confirm the order status.
 :::
@@ -153,7 +146,7 @@ The ack of create/amend/cancel order request indicates that the request is succe
 |reqId|false |string |Used to identify the uniqueness of the request, the response will return it when passed. The length cannot exceed 36 characters. <li>If passed, it can't be duplicated, otherwise you will get "20006"</li>|
 |header|**true** |object |Request headers|
 |> X-BAPI-TIMESTAMP|**true** |string |Current timestamp|
-|> X-BAPI-RECV-WINDOW|false |string |5000(ms) by default. Request will be rejected when not satisfy this rule: <i>Bybit_server_time - X-BAPI-RECV-WINDOW <= X-BAPI-TIMESTAMP < Bybit_server_time + 1000</i>|
+|> X-BAPI-RECV-WINDOW|false |string |5000(ms) by default. Request will be rejected when not satisfy this rule: <i>Server_time - X-BAPI-RECV-WINDOW <= X-BAPI-TIMESTAMP < Server_time + 1000</i>|
 |> Referer|false |string |The referer identifier for API broker user|
 |op |**true** |string |Op type <li>`order.create-batch`: batch create orders</li> <li>`order.amend-batch`: batch amend orders</li> <li>`order.cancel-batch`: batch cancel orders</li>|
 |args |**true** |array&ltobject&gt |Args array <li>`order.create-batch`: refer to [Batch Place Order request](../../order/batch-place#request-parameters)</li><li>`order.amend-batch`: refer to [Batch Amend Order request](../../order/batch-amend#request-parameters)</li><li>`order.cancel-batch`: refer to [Batch Cancel Order request](../../order/batch-cancel#request-parameters)</li> |
@@ -189,7 +182,7 @@ The ack of create/amend/cancel order request indicates that the request is succe
     },
     "args": [
         {
-            "category": "linear",
+            "category": "spot",
             "request": [
                 {
                     "symbol": "SOLUSDT",
@@ -233,21 +226,21 @@ The ack of create/amend/cancel order request indicates that the request is succe
     "data": {
         "list": [
             {
-                "category": "linear",
+                "category": "spot",
                 "symbol": "SOLUSDT",
                 "orderId": "",
                 "orderLinkId": "batch-000",
                 "createAt": ""
             },
             {
-                "category": "linear",
+                "category": "spot",
                 "symbol": "SOLUSDT",
                 "orderId": "",
                 "orderLinkId": "batch-001",
                 "createAt": ""
             },
             {
-                "category": "linear",
+                "category": "spot",
                 "symbol": "SOLUSDT",
                 "orderId": "",
                 "orderLinkId": "batch-002",

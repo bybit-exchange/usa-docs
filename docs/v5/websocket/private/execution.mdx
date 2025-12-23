@@ -11,11 +11,11 @@ You may have multiple executions for one order in a single message.
 :::
 
 **All-In-One Topic:** `execution`<br/>
-**Categorised Topic:** `execution.spot`, `execution.linear`, `execution.inverse`, `execution.option`
+**Categorised Topic:** `execution.spot`
 
 :::info
 * All-In-One topic and Categorised topic **cannot** be in the same subscription request
-* All-In-One topic: Allow you to listen to all categories (spot, linear, inverse, option) websocket updates
+* All-In-One topic: Allow you to listen to all categories (spot) websocket updates
 * Categorised Topic: Allow you to listen only to specific category websocket updates
 :::
 
@@ -26,7 +26,7 @@ You may have multiple executions for one order in a single message.
 |topic |string |Topic name |
 |creationTime |number |Data created timestamp (ms) |
 |data |array |Object |
-|> [category](../../enum#category) | string  | Product type `spot`, `linear`, `inverse`, `option`|
+|> [category](../../enum#category) | string  | Product type `spot`|
 |> symbol |string   |Symbol name |
 |> isLeverage |string |Whether to borrow. `0`: false, `1`: true|
 |> orderId |string |Order ID |
@@ -69,22 +69,6 @@ You may have multiple executions for one order in a single message.
 }
 ```
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="private",
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-def handle_message(message):
-    print(message)
-ws.execution_stream(callback=handle_message)
-while True:
-    sleep(1)
-```
-
 ### Stream Example
 
 ```json
@@ -94,7 +78,7 @@ while True:
     "creationTime": 1746270400355,
     "data": [
         {
-            "category": "linear",
+            "category": "spot",
             "symbol": "BTCUSDT",
             "closedSize": "0.5",
             "execFee": "26.3725275",

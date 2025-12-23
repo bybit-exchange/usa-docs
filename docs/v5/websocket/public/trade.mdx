@@ -12,16 +12,15 @@ Push frequency: **real-time**
 
 **Topic:**<br/>
 `publicTrade.{symbol}`<br/>
-**Note**: option uses baseCoin, e.g., publicTrade.BTC
 
 :::note
-For Futures and Spot, a single message may have up to 1024 trades. As such, multiple messages may be sent for the same `seq`.
+ForSpot, a single message may have up to 1024 trades. As such, multiple messages may be sent for the same `seq`.
 :::
 
 ### Response Parameters
 | Parameter | Type | Comments|
 |:----- |:-----|----- |
-|id |string |Message id. _Unique field for option_ |
+|id |string |Message id.|
 |topic |string |Topic name |
 |type |string |Data type. `snapshot` |
 |ts |number |The timestamp (ms) that the system generates the data |
@@ -31,7 +30,7 @@ For Futures and Spot, a single message may have up to 1024 trades. As such, mult
 |> S |string |Side of taker. `Buy`,`Sell` |
 |> v |string |Trade size |
 |> p |string |Trade price |
-|> [L](../../enum#tickdirection) |string |Direction of price change. _Unique field for Perps & futures_|
+|> [L](../../enum#tickdirection) |string |Direction of price change.|
 |> i |string |Trade ID |
 |> BT |boolean |Whether it is a block trade order or not|
 |> RPI |boolean |Whether it is a RPI trade or not|
@@ -43,21 +42,23 @@ For Futures and Spot, a single message may have up to 1024 trades. As such, mult
 
 ### Subscribe Example
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="linear",
-)
-def handle_message(message):
-    print(message)
-ws.trade_stream(
-    symbol="BTCUSDT",
-    callback=handle_message
-)
-while True:
-    sleep(1)
+```json
+{
+    "op": "subscribe",
+    "args": [
+        "publicTrade.BTCUSDT"
+    ]
+}
+
+```
+### Subscribe Success Response
+```json
+{
+    "success": true,
+    "ret_msg": "subscribe",
+    "conn_id": "f6b17b77-48b6-4c5c-b5ec-4a1c733f5763",
+    "op": "subscribe"
+}
 ```
 
 ### Response Example

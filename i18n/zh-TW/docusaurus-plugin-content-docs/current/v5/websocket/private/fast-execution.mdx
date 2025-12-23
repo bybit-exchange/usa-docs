@@ -7,12 +7,12 @@ sidebar_position: 2.1
 精簡版本的個人成交推送, 相比原始的快速成交流, 延遲更加低
 
 :::tip
-* 目前支持USDT永續, USDC永續, USDC交割, 反向永續, 反向交割和現貨的成交推送, 不支持期權
+* 目前支持現貨的成交推送
 * 僅推送[execType](../../enum#exectype)=Trade的消息
 :::
 
 **All-In-One Topic:** `execution.fast`<br/>
-**Categorised Topic:** `execution.fast.linear`, `execution.fast.inverse`, `execution.fast.spot`<br/>
+**Categorised Topic:** `execution.fast.spot`<br/>
 
 ### 響應參數
 | 參數 | 類型 | 說明|
@@ -20,7 +20,7 @@ sidebar_position: 2.1
 |topic |string |Topic名 |
 |creationTime |number |消息數據創建時間 |
 |data |array |Object |
-|> [category](../../enum#category) | string | 產品類型 `linear`, `iverse`, `spot`|
+|> [category](../../enum#category) | string | 產品類型  `spot`|
 |> symbol |string |合約名稱|
 |> orderId |string |訂單ID |
 |> isMaker |boolean |`true`: maker成交, `false`: taker成交 |
@@ -54,7 +54,7 @@ sidebar_position: 2.1
     "creationTime": 1716800399338,
     "data": [
         {
-            "category": "linear",
+            "category": "spot",
             "symbol": "ICPUSDT",
             "execId": "3510f361-0add-5c7b-a2e7-9679810944fc",
             "execPrice": "12.015",

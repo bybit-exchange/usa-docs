@@ -67,21 +67,6 @@ sidebar_position: 4
 }
 ```
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="private",
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-def handle_message(message):
-    print(message)
-ws.wallet_stream(callback=handle_message)
-while True:
-    sleep(1)
-```
 
 ### 推送示例
 

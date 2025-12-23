@@ -7,7 +7,7 @@ sidebar_position: 3
 訂閱訂單數據推送
 
 **All-In-One Topic:** `order`<br/>
-**Categorised Topic:** `order.spot`, `order.linear`, `order.inverse`, `order.option`
+**Categorised Topic:** `order.spot`
 
 :::info
 * All-In-One topic 和 Categorised topic **不能**放在同一個訂閱請求裡
@@ -27,7 +27,7 @@ sidebar_position: 3
 |topic |string |Topic名 |
 |creationTime |number |消息數據創建時間 |
 |data |array |Object |
-|> category |string |產品類型 `spot`, `linear`, `inverse`, `option`|
+|> category |string |產品類型 `spot`|
 |> orderId  |string |訂單ID |
 |> orderLinkId |string |用戶自定義ID |
 |> isLeverage |string |是否借貸. 僅`spot`有效<li>`0`: 否, 幣幣交易</li><li> `1`: 是, 槓桿交易</li>|
@@ -89,22 +89,6 @@ sidebar_position: 3
 }
 ```
 
-```python
-from pybit.unified_trading import WebSocket
-from time import sleep
-ws = WebSocket(
-    testnet=True,
-    channel_type="private",
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-def handle_message(message):
-    print(message)
-ws.order_stream(callback=handle_message)
-while True:
-    sleep(1)
-```
-
 ### 推送示例
 
 ```json
@@ -114,7 +98,7 @@ while True:
     "creationTime": 1672364262474,
     "data": [
         {
-            "symbol": "ETH-30DEC22-1400-C",
+            "symbol": "ETHUSDT",
             "orderId": "5cf98598-39a7-459e-97bf-76ca765ee020",
             "side": "Sell",
             "orderType": "Market",
@@ -151,7 +135,7 @@ while True:
             "triggerDirection": 0,
             "triggerBy": "",
             "closeOnTrigger": false,
-            "category": "option",
+            "category": "spot",
             "placeType": "price",
             "smpType": "None",
             "smpGroup": 0,
