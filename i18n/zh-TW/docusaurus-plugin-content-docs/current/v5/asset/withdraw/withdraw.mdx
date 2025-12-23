@@ -7,7 +7,7 @@ sidebar_position: 16
 若目標地址是Bybit平台內部地址, 您可以實現內部平台轉帳
 
 :::tip
-* 確保您已經將提現地址加入到<a href="https://www.bybit.com/user/assets/money-address">這裡</a>
+* 確保您已經將提現地址加入到<a href="https://www.abfinance.com/user/assets/money-address">這裡</a>
 * 僅支持**母帳號**的API key
 :::
 
@@ -29,7 +29,7 @@ POST `/v5/asset/withdraw/create`
 |:----- |:-------|:-----|------ |
 |coin |**true** |string |幣種 |
 |chain |false |string |<ul><li>鏈名, 當`forceChain`=0 或者 1: 該字段**必填**</li><li>當`forceChain`=2: 該字段可忽略</li></ul> |
-|address |**true** |string |錢包地址或者Bybit UID <ul><li>當`forceChain`=0 或者 1: 請填寫錢包地址, 確保將地址添加到了[網頁地址簿](https://www.bybit.com/user/assets/money-address)中, 注意大小寫，請使用和提幣地址簿中完全一樣的地址</li><li>當`forceChain`=2: 僅支持填寫目標Bybit母帳戶UID, 確保將目標UID添加到了[網頁地址簿](https://www.bybit.com/user/assets/money-address)中</li></ul> |
+|address |**true** |string |錢包地址或者Bybit UID <ul><li>當`forceChain`=0 或者 1: 請填寫錢包地址, 確保將地址添加到了[網頁地址簿](https://www.abfinance.com/user/assets/money-address)中, 注意大小寫，請使用和提幣地址簿中完全一樣的地址</li><li>當`forceChain`=2: 僅支持填寫目標Bybit母帳戶UID, 確保將目標UID添加到了[網頁地址簿](https://www.abfinance.com/user/assets/money-address)中</li></ul> |
 |tag |false |string |標籤 <ul><li>若添加地址時有填寫tag，則該字段**必傳**.</li> <li>**注意**: 如果鏈不支持tag/memo，請移除地址簿中的tag/memo，然後調用接口時，也不要傳tag字段</li></ul> |
 |amount |**true** |string |提現金額 |
 |timestamp |**true** |integer |當前時間戳 (毫秒). 用於防止請求重放 |
@@ -66,7 +66,7 @@ POST `/v5/asset/withdraw/create`
 
 ```http
 POST /v5/asset/withdraw/create HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1672196570254
 X-BAPI-RECV-WINDOW: 5000

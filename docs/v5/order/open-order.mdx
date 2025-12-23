@@ -78,7 +78,7 @@ GET `/v5/order/realtime`
 |> lastPriceOnCreated |string |Last price when place the order, Spot is not applicable |
 |> basePrice |string |Last price when place the order, Spot has this field only |
 |> reduceOnly |boolean |Reduce only. `true` means reduce position size |
-|> closeOnTrigger |boolean |Close on trigger. <a href="https://www.bybit.com/en/help-center/article/Close-On-Trigger-Order">What is a close on trigger order?</a> |
+|> closeOnTrigger |boolean |Close on trigger. <a href="https://www.abfinance.com/en/help-center/article/Close-On-Trigger-Order">What is a close on trigger order?</a> |
 |> placeType |string |Place type, `option` used. `iv`, `price`|
 |> [smpType](../enum#smptype) |string |SMP execution type|
 |> smpGroup |integer |Smp group ID. If the UID has no group, it is `0` by default |
@@ -98,7 +98,7 @@ GET `/v5/order/realtime`
 
 ```http
 GET /v5/order/realtime?symbol=ETHUSDT&category=linear&openOnly=0&limit=1  HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1672219525810

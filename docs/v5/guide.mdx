@@ -3,32 +3,15 @@ title: Integration Guidance
 sidebar_label: Integration Guidance
 ---
 
-:::tip
-To learn more about the V5 API, please read the [Introduction](intro#).
-:::
-
-## API Resources and Support Channels
-* 📌 [Help Center](https://www.bybit.com/en-US/help-center/bybitHC_Guides?language=en_US)
-* 🎉 [Official Python SDK](https://github.com/bybit-exchange/pybit)
-* 🎉 [Official Go SDK](https://github.com/bybit-exchange/bybit.go.api)
-* 🎉 [Official Java SDK](https://github.com/bybit-exchange/bybit-java-api)
-* 🎉 [Official .Net SDK](https://github.com/bybit-exchange/bybit.net.api)
-* 🎉 [Community Node.js SDK](https://www.npmjs.com/package/bybit-api)
-* ✉️ [Telegram - API Discussion Group](https://t.me/BybitAPI)
-* ✉️ [Discord](https://discord.gg/3ZDjGBNvKR)
-* 💡 [Postman collection](https://github.com/bybit-exchange/QuickStartWithPostman)
-* 💡 [API usage examples](https://github.com/bybit-exchange/api-usage-examples)
-
-
-## Authentication
+Authentication
 :::info
-Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
+Please visit Bybit's <a href="https://testnet.abfinance.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.abfinance.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
 :::
 
 REST API Base Endpoint:
 - **Testnet:**<br/>
 `https://api-testnet.abfinance.com`
-- **Mainnet** (both endpoints are available):<br/>
+- **Mainnet** :<br/>
 `https://api.abfinance.com`<br/>
 
 ### Select Your API Key Type
@@ -132,7 +115,7 @@ jsonBodyString = {"category": "option"}
 
 ```http
 GET /v5/order/realtime?category=option&symbol=BTC-29JUL22-25000-C HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 -H 'X-BAPI-SIGN: XXXXXXXXXX' \
 -H 'X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx' \
 -H 'X-BAPI-TIMESTAMP: 1658384431891' \
@@ -145,7 +128,7 @@ Host: api-testnet.bybit.com
 
 ```http
 POST /v5/order/create HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 -H 'X-Referer: XXXXXXXXXX' \ [the header for broker users only]
 -H 'X-BAPI-SIGN: XXXXXXXXXX' \
 -H 'X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx' \

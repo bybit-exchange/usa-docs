@@ -38,7 +38,7 @@ sidebar_position: 1
 |> markPrice |string |標記價 |
 |> leverage |string |槓桿. _注意: 組合保證金模式下，該字段返回""，槓桿規則失效_|
 |> autoAddMargin | integer |是否自動追加保證金, _反向合約不支持設置自動追加保證金_ <li>`0`: 否</li><li>`1`: 是</li>|
-|> positionIM| string  | 倉位起始保證金(用mark price計算), 值和`positionIMByMp`保持相同, 请看这个这则[调整](https://www.bybit.com/zh-TW/help-center/article/Understanding-the-Adjustment-and-Impact-of-the-New-Margin-Calculation) <li>組合保證金模式(PM)下, 該字段返回為空字符串</li>|
+|> positionIM| string  | 倉位起始保證金(用mark price計算), 值和`positionIMByMp`保持相同, 请看这个这则[调整](https://www.abfinance.com/zh-TW/help-center/article/Understanding-the-Adjustment-and-Impact-of-the-New-Margin-Calculation) <li>組合保證金模式(PM)下, 該字段返回為空字符串</li>|
 |> positionIMByMp| string  | 倉位起始保證金(過渡期字段, 用mark price計算), 值和`positionIM`保持相同 <li>組合保證金模式(PM)下, 該字段返回為空字符串</li>|
 |> positionMM| string  | 倉位維持保證金(用mark price計算) <li>組合保證金模式(PM)下, 該字段返回為空字符串</li>|
 |> positionMMByMp| string  | 倉位維持保證金(過渡期字段, 用mark price計算) <li>組合保證金模式(PM)下, 該字段返回為空字符串</li>|
@@ -55,7 +55,7 @@ sidebar_position: 1
 |> curRealisedPnl | string  |當前持倉的已結盈虧|
 |> cumRealisedPnl | string | 累计已结盈亏 <ul><li>期貨: 是從第一次開始有持倉加總的已結盈虧</li><li>期權: 它是本次持倉的加總已結盈虧</li></ul>|
 |> [positionStatus](../../enum#positionstatus) |string |倉位狀態. `Normal`,`Liq`, `Adl` |
-|> [adlRankIndicator](../../enum#adlrankindicator) |integer |自動減倉燈. <a href="https://www.bybit.com/zh-TW/help-center/s/article/What-is-Auto-Deleveraging-ADL">什麼是自動減倉機制?</a>|
+|> [adlRankIndicator](../../enum#adlrankindicator) |integer |自動減倉燈. <a href="https://www.abfinance.com/zh-TW/help-center/s/article/What-is-Auto-Deleveraging-ADL">什麼是自動減倉機制?</a>|
 |> createdTime |string |倉位創建時間戳 (毫秒) |
 |> updatedTime |string |倉位數據更新時間戳 (毫秒) |
 |> seq |long |序列號, 用於關聯成交和倉位的更新<ul><li>不同的幣對會存在相同seq, 可以使用seq + symbol來做唯一性識別</li><li>如果該幣對從未被交易過, 查詢時則會返回`"-1"`</li><li>對於更新槓桿、更新風險限額等非交易行為, 將會返回上一次成交時更新的seq</li></ul>|

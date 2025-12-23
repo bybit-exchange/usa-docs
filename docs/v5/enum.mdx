@@ -124,8 +124,8 @@ _closed status_
 * `GTC`&emsp;GoodTillCancel
 * `IOC`&emsp;ImmediateOrCancel
 * `FOK`&emsp;FillOrKill
-* <a href="https://www.bybit.com/en/help-center/article/Post-Only-Order">PostOnly</a>
-* <a href="https://www.bybit.com/en/help-center/article/Retail-Price-Improvement-RPI-Order">RPI</a>&emsp;features:<ul><li><b>Exclusive Matching</b>: Only match non-algorithmic users; no execution against orders from Open API.</li>
+* <a href="https://www.abfinance.com/en/help-center/article/Post-Only-Order">PostOnly</a>
+* <a href="https://www.abfinance.com/en/help-center/article/Retail-Price-Improvement-RPI-Order">RPI</a>&emsp;features:<ul><li><b>Exclusive Matching</b>: Only match non-algorithmic users; no execution against orders from Open API.</li>
 <li><b>Post-Only Mechanism</b>: Act as maker orders, adding liquidity</li>
 <li><b>Lower Priority</b>: Execute after non-RPI orders at the same price level.</li>
 <li><b>Limited Access</b>: Initially for select market makers across multiple pairs.</li>
@@ -145,7 +145,7 @@ _closed status_
 * `CreateByTrailingProfit`&emsp;Futures trailing take profit order
 * `CreateByLiq`&emsp;Laddered liquidation to reduce the required maintenance margin
 * `CreateByTakeOver_PassThrough`If the position is still subject to liquidation (i.e., does not meet the required maintenance margin level), the position shall be taken over by the liquidation engine and closed at the bankruptcy price.
-* `CreateByAdl_PassThrough`&emsp;[Auto-Deleveraging(ADL)](https://www.bybit.com/en/help-center/article/Auto-Deleveraging-ADL)
+* `CreateByAdl_PassThrough`&emsp;[Auto-Deleveraging(ADL)](https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL)
 * `CreateByBlock_PassThrough`&emsp;Order placed via Paradigm
 * `CreateByBlockTradeMovePosition_PassThrough`&emsp;Order created by move position
 * `CreateByClosing`&emsp;The close order placed via web or app position area - web/app
@@ -163,8 +163,8 @@ _closed status_
 
 ### execType
 * `Trade`
-* `AdlTrade`&emsp;<a href="https://www.bybit.com/en/help-center/article/Auto-Deleveraging-ADL">Auto-Deleveraging</a>
-* `Funding`&emsp;<a href="https://www.bybit.com/en/help-center/article/Introduction-to-Funding-Rate">Funding fee</a>
+* `AdlTrade`&emsp;<a href="https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL">Auto-Deleveraging</a>
+* `Funding`&emsp;<a href="https://www.abfinance.com/en/help-center/article/Introduction-to-Funding-Rate">Funding fee</a>
 * `BustTrade`&emsp;Takeover liquidation
 * `Delivery`&emsp;USDC futures delivery; Position closed by contract delisted
 * `Settle`&emsp;Inverse futures settlement; Position closed due to delisting
@@ -305,8 +305,8 @@ _closed status_
 ### cancelType
 * `CancelByUser`
 * `CancelByReduceOnly`&emsp;cancelled by <a href="https://bybit-exchange.github.io/docs/v5/order/create-order">reduceOnly</a>
-* `CancelByPrepareLiq` `CancelAllBeforeLiq`&emsp;cancelled in order to attempt <a href="https://www.bybit.com/en/help-center/article/Liquidation-Process-Derivatives-Standard-Account">liquidation prevention</a> by freeing up margin
-* `CancelByPrepareAdl` `CancelAllBeforeAdl`&emsp;cancelled due to <a href="https://www.bybit.com/en/help-center/article/Auto-Deleveraging-ADL">ADL</a>
+* `CancelByPrepareLiq` `CancelAllBeforeLiq`&emsp;cancelled in order to attempt <a href="https://www.abfinance.com/en/help-center/article/Liquidation-Process-Derivatives-Standard-Account">liquidation prevention</a> by freeing up margin
+* `CancelByPrepareAdl` `CancelAllBeforeAdl`&emsp;cancelled due to <a href="https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL">ADL</a>
 * `CancelByAdmin`
 * `CancelBySettle`&emsp;cancelled due to delisting contract
 * `CancelByTpSlTsClear`&emsp;TP/SL order cancelled when the position is cleared
@@ -381,17 +381,6 @@ _Options:_
     * There is no restriction to create, amend, cancel orders
     * orderbook, public trade data is released from this stage
 
-### marginTrading
-* `none`&emsp;Regardless of normal account or UTA account, this trading pair does not support margin trading
-* `both`&emsp;For both normal account and UTA account, this trading pair supports margin trading
-* `utaOnly`&emsp;Only for UTA account,this trading pair supports margin trading
-* `normalSpotOnly`&emsp;Only for normal account, this trading pair supports margin trading
-
-### copyTrading
-* `none`&emsp;Regardless of normal account or UTA account, this trading pair does not support copy trading
-* `both`&emsp;For both normal account and UTA account, this trading pair supports copy trading
-* `utaOnly`&emsp;Only for UTA account,this trading pair supports copy trading
-* `normalOnly`&emsp;Only for normal account, this trading pair supports copy trading
 
 ### type(uta-translog)
 * `TRANSFER_IN`&emsp;Assets that transferred into Unified wallet
@@ -507,9 +496,6 @@ _Options:_
 * `Others`
 
 ### unifiedMarginStatus
-* `1`&emsp;Classic account
-* `3`&emsp;Unified trading account 1.0
-* `4`&emsp;Unified trading account 1.0 (pro version)
 * `5`&emsp;Unified trading account 2.0
 * `6`&emsp;Unified trading account 2.0 (pro version)
 
@@ -517,41 +503,10 @@ _Options:_
 * `eb_convert_uta`&emsp;Unified Trading Account
 * `eb_convert_funding`&emsp;Funding Account
 
-### symbol
-_USDT Perpetual_:
-* `BTCUSDT`
-* `ETHUSDT`
-
-_USDT Futures_:
-* `BTCUSDT-21FEB25`
-* `ETHUSDT-14FEB25`<br/>
-The types of USDT Futures contracts offered by Bybit include: Weekly, Bi-Weekly, Tri-Weekly, Monthly, Bi-Monthly, Quarterly, Bi-Quarterly, Tri-Quarterly
-
-_USDC Perpetual_:
-* `BTCPERP`
-* `ETHPERP`
-
-_USDC Futures_:
-* `BTC-24MAR23`
-
-_Inverse Perpetual_:
-* `BTCUSD`
-* `ETHUSD`
-
-_Inverse Futures_:
-* `BTCUSDH23`&emsp;H: First quarter; 23: 2023
-* `BTCUSDM23`&emsp;M: Second quarter; 23: 2023
-* `BTCUSDU23`&emsp;U: Third quarter; 23: 2023
-* `BTCUSDZ23`&emsp;Z: Fourth quarter; 23: 2023
-
+### 
 _Spot_:
 * `BTCUSDT`
 * `ETHUSDC`
-
-_Option_:
-* `BTC-13FEB25-89000-P-USDT`&emsp;USDT Option
-* `ETH-28FEB25-2800-C`&emsp;USDC Option
-
 ### vipLevel
 * No VIP
 * VIP-1

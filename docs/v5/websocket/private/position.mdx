@@ -38,7 +38,7 @@ Every time when you create/amend/cancel an order, the position topic will genera
 |> markPrice |string |Mark price |
 |> leverage | string  |Position leverage<br/>_for portfolio margin mode, this field returns "", which means leverage rules are invalid_|
 |> autoAddMargin | integer |Whether to add margin automatically when using isolated margin mode <li>`0`: false</li><li>`1`: true</li> |
-|> positionIM | string  |Initial margin, the same value as `positionIMByMp`, please note this change [The New Margin Calculation: Adjustments and Implications](https://www.bybit.com/en/help-center/article/Understanding-the-Adjustment-and-Impact-of-the-New-Margin-Calculation)<li>Portfolio margin mode: returns ""</li> |
+|> positionIM | string  |Initial margin, the same value as `positionIMByMp`, please note this change [The New Margin Calculation: Adjustments and Implications](https://www.abfinance.com/en/help-center/article/Understanding-the-Adjustment-and-Impact-of-the-New-Margin-Calculation)<li>Portfolio margin mode: returns ""</li> |
 |> positionMM | string  |Maintenance margin, the same value as `positionMMByMp`<li>Portfolio margin mode: returns ""</li> |
 |> liqPrice | string  |Position liquidation price <ul><li>Isolated margin: <br/>it is the real price for isolated and cross positions, and keeps `""` when liqPrice <= minPrice or liqPrice >= maxPrice</li><li>Cross margin:<br/>it is an <b>estimated</b> price for cross positions(because the unified mode controls the risk rate according to the account), and keeps `""` when liqPrice <= minPrice or liqPrice >= maxPrice</li></ul>_this field is empty for Portfolio Margin Mode, and no liquidation price will be provided_|
 |> takeProfit |string |Take profit price |
@@ -53,7 +53,7 @@ Every time when you create/amend/cancel an order, the position topic will genera
 |> theta | string  |Theta. It is only pushed when you subscribe to the option position.|
 |> cumRealisedPnl | string  |Cumulative realised pnl <ul><li>Futures & Perp: it is the all time cumulative realised P&L</li><li>Option: it is the realised P&L when you hold that position</li></ul>|
 |> [positionStatus](../../enum#positionstatus) |string |Position status. `Normal`, `Liq`, `Adl` |
-|> [adlRankIndicator](../../enum#adlrankindicator) |integer |Auto-deleverage rank indicator. <a href="https://www.bybit.com/en-US/help-center/s/article/What-is-Auto-Deleveraging-ADL">What is Auto-Deleveraging?</a>|
+|> [adlRankIndicator](../../enum#adlrankindicator) |integer |Auto-deleverage rank indicator. <a href="https://www.abfinance.com/en-US/help-center/s/article/What-is-Auto-Deleveraging-ADL">What is Auto-Deleveraging?</a>|
 |> isReduceOnly |boolean |Useful when Bybit lower the risk limit <ul><li>`true`: Only allowed to reduce the position. You can consider a series of measures, e.g., lower the risk limit, decrease leverage or reduce the position, add margin, or cancel orders, after these operations, you can call [confirm new risk limit](../../position/confirm-mmr#) endpoint to check if your position can be removed the reduceOnly mark</li><li>`false`: There is no restriction, and it means your position is under the risk when the risk limit is systematically adjusted</li><li>Only meaningful for isolated margin & cross margin of USDT Perp, USDC Perp, USDC Futures, Inverse Perp and Inverse Futures, meaningless for others</li></ul>|
 |> createdTime |string |Timestamp of the first time a position was created on this symbol (ms) |
 |> updatedTime |string |Position data updated timestamp (ms) |

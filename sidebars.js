@@ -24,7 +24,6 @@ const sidebars = {
     'v5/acct-mode',
     'v5/announcement',
     'v5/smp',
-    'v5/copytrade',
     'v5/demo',
     'v5/system-status',
     {

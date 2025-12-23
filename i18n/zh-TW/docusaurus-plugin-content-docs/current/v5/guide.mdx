@@ -3,41 +3,18 @@ title: 接入指南
 sidebar_label: 接入指南
 ---
 
-:::tip
-欲詳細了解 V5 API 内容，還請仔細閱讀[概覽](intro#)
-:::
-
-## API相關資源和頻道
-* 📌 [幫助中心](https://www.bybit.com/zh-TW/help-center/bybitHC_Guides?language=en_US)
-* 🎉 [官方 Python SDK](https://github.com/bybit-exchange/pybit)
-* 🎉 [官方 Go SDK](https://github.com/bybit-exchange/bybit.go.api)
-* 🎉 [官方 Java SDK](https://github.com/bybit-exchange/bybit-java-api)
-* 🎉 [官方 .Net SDK](https://github.com/bybit-exchange/bybit.net.api)
-* 🎉 [社區 Node.js SDK](https://www.npmjs.com/package/bybit-api)
-* ✉️ [Telegram - API中文討論組](https://t.me/BybitChineseAPI)
-* ✉️ [Discord](https://discord.com/invite/VBwVwS2HUs)
-* 💡 [Postman接口集合](https://github.com/bybit-exchange/QuickStartWithPostman)
-* 💡 [API使用示例](https://github.com/bybit-exchange/api-usage-examples)
 
 ## 鑒權/認證
 :::info
-請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a>或<a href="https://www.bybit.com/app/user/api-management"><b>主網</b></a>API KEY。
+請先生成<a href="https://testnet.abfinance.com/app/user/api-management"><b>測試網</b></a>或<a href="https://www.abfinance.com/app/user/api-management"><b>主網</b></a>API KEY。
 :::
 
 REST接口根URL:
 - **測試網:**<br/>
-`https://api-testnet.bybit.com`
-- **主網**(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
-`https://api.bybit.com`<br/>
-`https://api.bytick.com`
+`https://api-testnet.abfinance.com`
+- **主網** :<br/>
+`https://api.abfinance.com`<br/>
 
-:::info 重要
-* **荷蘭地區用戶**: 主網域名: `https://api.bybit.nl`
-* **土耳其地區用戶**: 主網域名: `https://api.bybit-tr.com`
-* **哈薩克斯坦地區用戶**: 主網域名: `https://api.bybit.kz`
-* **喬治亞地區用戶**: 主網域名: `https://api.bybitgeorgia.ge`
-* **阿聯酋地區用戶**: 主網域名: `https://api.bybit.ae`
-:::
 
 ### 選擇用於鑒權的API密鑰類型
 **系統生產的API密鑰**: Bybit 系統生成的 API 密鑰基於 HMAC 對稱加密算法運作。您將獲得一對公鑰和私鑰。請將這對密鑰視為密碼一樣妥善保管。
@@ -130,7 +107,7 @@ raw_request_body = {"category": "option"}
 
 ```http
 GET /v5/order/realtime?category=option&symbol=BTC-29JUL22-25000-C HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 -H 'X-BAPI-SIGN: XXXXXXXXXX' \
 -H 'X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx' \
 -H 'X-BAPI-TIMESTAMP: 1658384431891' \
@@ -143,7 +120,7 @@ Host: api-testnet.bybit.com
 
 ```http
 POST /v5/order/create HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 -H 'X-Referer: XXXXXXXXXX' \ [經紀商用戶專用的頭參數]
 -H 'X-BAPI-SIGN: XXXXXXXXXX' \
 -H 'X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx' \

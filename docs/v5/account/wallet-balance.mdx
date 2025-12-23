@@ -7,7 +7,7 @@ Obtain wallet balance, query asset information of each currency. By default, cur
 information with assets or liabilities of 0 is not returned.
 
 :::info
-* Under the new logic of UTA manual borrow, `spotBorrow` field corresponding to spot liabilities is detailed in the <a href="https://announcements.bybit.com/en/article/bybit-uta-function-optimization-manual-coin-borrowing-will-be-launched-soon-blt5d858199bd12e849/"> announcement</a>.<br/>
+* Under the new logic of UTA manual borrow, `spotBorrow` field corresponding to spot liabilities is detailed in the <a href="https://announcements.abfinance.com/en/article/bybit-uta-function-optimization-manual-coin-borrowing-will-be-launched-soon-blt5d858199bd12e849/"> announcement</a>.<br/>
 * Old `walletBalance` = New `walletBalance` - `spotBorrow`
 * During periods of extreme market volatility, this interface may experience increased latency or temporary delays in data delivery
 :::
@@ -26,7 +26,7 @@ GET `/v5/account/wallet-balance`
 |:----- |:-----|----- |
 |list |array |Object |
 |> accountType |string |Account type|
-|> accountIMRate |string |Account IM rate <li>You can refer to this [Glossary](https://www.bybit.com/en/help-center/article/Glossary-Unified-Trading-Account) to understand the below fields calculation and mearning</li><li>All account wide fields are <b>not</b> applicable to isolated margin</li>|
+|> accountIMRate |string |Account IM rate <li>You can refer to this [Glossary](https://www.abfinance.com/en/help-center/article/Glossary-Unified-Trading-Account) to understand the below fields calculation and mearning</li><li>All account wide fields are <b>not</b> applicable to isolated margin</li>|
 |> accountMMRate |string |Account MM rate|
 |> totalEquity |string |Account total equity (USD): ∑Asset Equity By USD value of each asset|
 |> totalWalletBalance |string |Account wallet balance (USD): ∑Asset Wallet Balance By USD value of each asset|
@@ -57,7 +57,7 @@ GET `/v5/account/wallet-balance`
 |>> bonus |string |Bonus|
 |>> marginCollateral |boolean |Whether it can be used as a margin collateral currency (platform), `true`: YES, `false`: NO <li>When marginCollateral=false, then collateralSwitch is meaningless</li> |
 |>> collateralSwitch |boolean |Whether the collateral is turned on by user (user), `true`: ON, `false`: OFF <li>When marginCollateral=true, then collateralSwitch is meaningful</li>|
-|>> spotBorrow |string |Borrow amount by spot margin trade and manual borrow amount (does not include borrow amount by spot margin active order). `spotBorrow` field corresponding to spot liabilities is detailed in the <a href="https://announcements.bybit.com/en/article/bybit-uta-function-optimization-manual-coin-borrowing-will-be-launched-soon-blt5d858199bd12e849/"> announcement</a>.|
+|>> spotBorrow |string |Borrow amount by spot margin trade and manual borrow amount (does not include borrow amount by spot margin active order). `spotBorrow` field corresponding to spot liabilities is detailed in the <a href="https://announcements.abfinance.com/en/article/bybit-uta-function-optimization-manual-coin-borrowing-will-be-launched-soon-blt5d858199bd12e849/"> announcement</a>.|
 |>> free |string |**Deprecated** since there is no Spot wallet any more|
 |>> availableToWithdraw |string |**Deprecated** for `accountType=UNIFIED` from 9 Jan, 2025 <ul><li>Transferable balance: you can use [Get Transferable Amount (Unified)](unified-trans-amnt#) or [Get All Coins Balance](../asset/balance/all-balance#) instead</li><li>Derivatives available balance: <br/><b>isolated margin</b>: walletBalance - totalPositionIM - totalOrderIM - locked - bonus<br/><b>cross & portfolio margin</b>: look at field `totalAvailableBalance`(USD), which needs to be converted into the available balance of accordingly coin through index price</li><li>Spot (margin) available balance: refer to [Get Borrow Quota (Spot)](../order/spot-borrow-quota#)</li></ul>|
 |>> availableToBorrow |string |**Deprecated** field, always return `""`. Please refer to `availableToBorrow` in the [Get Collateral Info](collateral-info) |
@@ -73,7 +73,7 @@ GET `/v5/account/wallet-balance`
 
 ```http
 GET /v5/account/wallet-balance?accountType=UNIFIED&coin=BTC HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1672125440406

@@ -30,7 +30,7 @@ None
 |>> token | string | coin |
 |>> unpaidQty | string | Unpaid principle |
 |>> unpaidInterest | string	| Useless field, please ignore this for now |
-|> balance | string	| Total asset (margin coins converted to USDT). Please read <a href="https://www.bybit.com/en-US/help-center/s/article/Over-the-counter-OTC-Lending">here</a> to understand the calculation |
+|> balance | string	| Total asset (margin coins converted to USDT). Please read <a href="https://www.abfinance.com/en-US/help-center/s/article/Over-the-counter-OTC-Lending">here</a> to understand the calculation |
 |> balanceInfo | array | Asset details |
 |>> token | string | Margin coin |
 |>> price | string | Margin coin price |
@@ -44,7 +44,7 @@ None
 
 ```http
 GET /v5/ins-loan/ltv-convert HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1686638165351
 X-BAPI-RECV-WINDOW: 5000

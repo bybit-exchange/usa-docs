@@ -16,7 +16,7 @@ If you're not sure what the difference between these two is or you find WebSocke
 
 ### Why I get 10003 API key is invalid?
 The most likely cause is that the key used does not match the domain name:<br/>
-a. When request to api.bybit.com or stream.bybit.com, make sure the API key is created from [Production](https://www.bybit.com)
+a. When request to api.abfinance.com or stream.abfinance.com, make sure the API key is created from [Production](https://www.abfinance.com)
 ![production](/img/prd.png)
 ```python
 # pybit example
@@ -27,7 +27,7 @@ session = HTTP(
 )
 ```
 ---
-b. When request to `api-demo.bybit.com` or `stream-demo.bybit.com`, make sure the API key is created from [Production](https://www.bybit.com) – **while in Demo Trading mode**
+b. When request to `api-demo.abfinance.com` or `stream-demo.abfinance.com`, make sure the API key is created from [Production](https://www.abfinance.com) – **while in Demo Trading mode**
 ![prod-demo](/img/prd-demo.png)
 ```python
 # pybit example
@@ -39,7 +39,7 @@ session = HTTP(
 )
 ```
 ---
-c. When request to `api-testnet.bybit.com` or `stream-testnet.bybit.com`, make sure the API key is created from [Testnet](https://testnet.bybit.com) – **while outside of Demo Trading mode**
+c. When request to `api-testnet.abfinance.com` or `stream-testnet.abfinance.com`, make sure the API key is created from [Testnet](https://testnet.abfinance.com) – **while outside of Demo Trading mode**
 ![test](/img/test.png)
 ```python
 # pybit example

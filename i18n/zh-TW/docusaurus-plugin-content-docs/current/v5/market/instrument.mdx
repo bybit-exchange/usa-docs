@@ -146,7 +146,7 @@ GET `/v5/market/instruments-info`
             <td>> forbidUplWithdrawal</td><td>boolean</td><td>是否禁止浮盈提現</td>
         </tr>
         <tr>
-            <td>> riskParameters</td><td>object</td><td>限價單價格風控參數, 參讀該<a href="https://announcements.bybit.com/zh-TW/article/adjustments-to-bybit-s-derivative-trading-limit-order-mechanism-blt469228de1902fff6/">公告內容</a></td>
+            <td>> riskParameters</td><td>object</td><td>限價單價格風控參數, 參讀該<a href="https://announcements.abfinance.com/zh-TW/article/adjustments-to-bybit-s-derivative-trading-limit-order-mechanism-blt469228de1902fff6/">公告內容</a></td>
         </tr>
         <tr>
             <td>>> priceLimitRatioX</td><td>string</td><td>參數X</td>
@@ -297,7 +297,7 @@ GET `/v5/market/instruments-info`
             <td>> <a href="../enum#margintrading">marginTrading</a></td><td>string</td><td>該幣對是否支持槓桿交易 <ul><li>該字段僅用於說明不同帳戶類型下某個幣對是否支持槓桿交易</li><li>您可能會遇到某個幣對支持槓桿交易, 但是不支持單邊買入或者賣出, 這種情況下您需要前往<a href="/v5/account/collateral-info">查詢抵押品信息 (UTA)</a>確認目標幣種是否可借貸</li></ul></td>
         </tr>
          <tr>
-            <td>> stTag</td><td>string</td><td>幣對是否存在<a href="https://www.bybit.com/en/help-center/article/Bybit-Special-Treatment-ST-Label-Management-Rules">特殊處理(ST)標籤</a>. <code>0</code>: 否, <code>1</code>: 是 </td>
+            <td>> stTag</td><td>string</td><td>幣對是否存在<a href="https://www.abfinance.com/en/help-center/article/Bybit-Special-Treatment-ST-Label-Management-Rules">特殊處理(ST)標籤</a>. <code>0</code>: 否, <code>1</code>: 是 </td>
         </tr>
         <tr>
             <td>> lotSizeFilter</td><td>Object</td><td>數量屬性 </td>
@@ -336,7 +336,7 @@ GET `/v5/market/instruments-info`
             <td>>> tickSize</td><td>string</td><td>修改訂單的步長 </td>
         </tr>
         <tr>
-            <td>> riskParameters</td><td>Object</td><td>限價單價格風控參數, 參讀該<a href="https://announcements.bybit.com/zh-TW/article/title-adjustments-to-bybit-s-spot-trading-limit-order-mechanism-blt786c0c5abf865983/">公告內容</a></td>
+            <td>> riskParameters</td><td>Object</td><td>限價單價格風控參數, 參讀該<a href="https://announcements.abfinance.com/zh-TW/article/title-adjustments-to-bybit-s-spot-trading-limit-order-mechanism-blt786c0c5abf865983/">公告內容</a></td>
         </tr>
         <tr>
             <td>>> priceLimitRatioX</td><td>string</td><td>參數 X</td>
@@ -362,7 +362,7 @@ GET `/v5/market/instruments-info`
 
 ```http
 GET /v5/market/instruments-info?category=linear&symbol=BTCUSDT HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 ```
 
 </TabItem>
@@ -439,7 +439,7 @@ client
 
 ```http
 GET /v5/market/instruments-info?category=option&symbol=ETH-3JAN23-1250-P HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 ```
 
 </TabItem>
@@ -516,7 +516,7 @@ client
 
 ```http
 GET /v5/market/instruments-info?category=spot&symbol=BTCUSDT HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 ```
 
 </TabItem>

@@ -13,7 +13,7 @@ AWS 新加坡, <a href="https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuid
 
 ### 為什麼我會拿到10003 API key is invalid錯誤?
 最可能是因為使用的key和域名不匹配:<br/>
-a. 當請求到api.bybit.com或者stream.bybit.com時, 請確保api key創建自[主網](https://www.bybit.com)
+a. 當請求到api.abfinance.com或者stream.abfinance.com時, 請確保api key創建自[主網](https://www.abfinance.com)
 ![主網示意圖](/img/prd.png)
 ```python
 # pybit示例
@@ -24,7 +24,7 @@ session = HTTP(
 )
 ```
 ---
-b. 當請求到api-demo.bybit.com或者stream-demo.bybit.com時, 請確保api key創建自[主網](https://www.bybit.com)的"模擬交易"服務
+b. 當請求到api-demo.abfinance.com或者stream-demo.abfinance.com時, 請確保api key創建自[主網](https://www.abfinance.com)的"模擬交易"服務
 ![主網模擬交易示意圖](/img/prd-demo.png)
 ```python
 # pybit示例
@@ -36,7 +36,7 @@ session = HTTP(
 )
 ```
 ---
-c. 當請求到api-testnet.bybit.com或者stream-testnet.bybit.com時, 請確保api key創建自[測試網](https://testnet.bybit.com)
+c. 當請求到api-testnet.abfinance.com或者stream-testnet.abfinance.com時, 請確保api key創建自[測試網](https://testnet.abfinance.com)
 ![測試網示意圖](/img/test.png)
 ```python
 # pybit示例
@@ -71,7 +71,7 @@ d. **不要**使用測試網的"模擬交易"服務, 沒有任何意義
 [質押借貸接口](/v5/crypto-loan/collateral-coin)
 
 ### 我如何獲得測試網(testnet)的資金?
-使用母帳戶登錄後, 進入到該[頁面](https://testnet.bybit.com/user/assets/home/overview), 右邊有個"申請測試幣"按鈕
+使用母帳戶登錄後, 進入到該[頁面](https://testnet.abfinance.com/user/assets/home/overview), 右邊有個"申請測試幣"按鈕
 
 ### 為什麼我的平倉盈虧價格不准確?
 * Closed PNL接口返回的`entryPrice`和`exitPrice`不是訂單的實際執行價格。

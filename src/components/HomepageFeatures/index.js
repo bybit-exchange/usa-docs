@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/clipboard_light_mode.svg').default,
     description: (
       <>
-        <b><a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Guides?language=en_US">Learn</a></b> the intricate details of Bybit's market rules to fully maximise your API usage.
+        <b><a href="https://www.abfinance.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Guides?language=en_US">Learn</a></b> the intricate details of Bybit's market rules to fully maximise your API usage.
       </>
     ),
   },
@@ -26,13 +26,13 @@ const FeatureList = [
     Svg: require('@site/static/img/candlesticks_dark_mode.svg').default,
     description: (
       <>
-        <b><a href="https://public.bybit.com/">Get</a></b> comprehensive public market data in CSV format to speedily backtest and build strategies.
+        <b><a href="https://public.abfinance.com/">Get</a></b> comprehensive public market data in CSV format to speedily backtest and build strategies.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

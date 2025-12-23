@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: https://api-testnet.bybit.com
+  - url: https://api-testnet.abfinance.com
     description: Testnet server
 info:
   description: |

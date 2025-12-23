@@ -38,15 +38,15 @@ POST `/v5/order/create-batch`
 |> triggerPrice |false |string |<ul><li>對於期貨, 是條件單觸發價格參數. 若您希望市場價是要上升後觸發, 確保:<br/> _triggerPrice > 市場價格_<br/>否則, _triggerPrice < 市場價格_</li><li>對於現貨, 這是下止盈止損單(orderFilter=tpslOrder)或者條件單(orderFilter=stopOrder)的觸發價格參數</li></ul>|
 |> [triggerBy](../enum#triggerby) |false |string |條件單參數. 觸發價格類型. `LastPrice`, `IndexPrice`, `MarkPrice`<br/>僅`linear`有效|
 |> orderIv |false |string |隱含波動率. 僅`option`有效. 按照實際值傳入, e.g., 對於10%, 則傳入0.1. `orderIv`比`price`有更高的優先級 |
-|> [timeInForce](../enum#timeinforce) |false |string |<a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">訂單執行策略</a><ul><li>市價單，系統直接使用`IOC`</li><li>若不傳，默認使用`GTC`</li> </ul>|
+|> [timeInForce](../enum#timeinforce) |false |string |<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">訂單執行策略</a><ul><li>市價單，系統直接使用`IOC`</li><li>若不傳，默認使用`GTC`</li> </ul>|
 |> [positionIdx](../enum#positionidx) |false |integer |倉位標識, 用戶不同倉位模式. 該字段對於雙向持倉模式是**必傳**:<ul><li>`0`: 單向持倉</li><li>`1`: 買側雙向持倉</li><li>`2`: 賣側雙向持倉</li></ul>|
 |> orderLinkId |false |string |用戶自定義訂單Id. category=`option`時，該參數必傳|
 |> takeProfit |false |string |止盈價格|
 |> stopLoss |false |string |止損價格|
 |> [tpTriggerBy](../enum#triggerby) |false |string |觸發止盈的價格類型 <li>`MarkPrice`</li><li>`IndexPrice`</li><li>`LastPrice`(默認)</li><br/>僅對`linear`和`inverse`有效|
 |> [slTriggerBy](../enum#triggerby) |false |string |觸發止損的價格類型 <li>`MarkPrice`</li><li>`IndexPrice`</li><li>`LastPrice`(默認)</li><br/>僅對`linear`和`inverse`有效|
-|> reduceOnly |false |boolean |<a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001047">什麼是只減倉?</a> `true` 將這筆訂單設為只減倉 <ul><li>當減倉時, reduceOnly=true**必傳**</li><li>只減倉單的止盈止損不生效</li></ul> |
-|> closeOnTrigger |false |boolean |<a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001050">什麼是觸發後平倉委託?</a>此選項可以確保您的止損單被用於減倉（平倉）而非加倉，並且在可用保證金不足的情況下，取消其他委託，騰出保證金以確保平倉委託的執行.<br/>`linear`, `inverse`有效 |
+|> reduceOnly |false |boolean |<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001047">什麼是只減倉?</a> `true` 將這筆訂單設為只減倉 <ul><li>當減倉時, reduceOnly=true**必傳**</li><li>只減倉單的止盈止損不生效</li></ul> |
+|> closeOnTrigger |false |boolean |<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001050">什麼是觸發後平倉委託?</a>此選項可以確保您的止損單被用於減倉（平倉）而非加倉，並且在可用保證金不足的情況下，取消其他委託，騰出保證金以確保平倉委託的執行.<br/>`linear`, `inverse`有效 |
 |> [smpType](../enum#smptype) |false |string |Smp執行類型. [什麼是SMP?](../smp)|
 |> mmp |false |boolean |做市商保護. 僅`option`有效. `true` 表示該訂單是做市商保護訂單. [什麼是做市商保護?](../account/set-mmp)|
 |> tpslMode |false |string |止盈止損模式 <ul><li>`Full`: 全部倉位止盈止損.  此時, tpOrderType或者slOrderType必須傳`Market`</li><li>`Partial`: 部分倉位止盈止損(下單時沒有size選項, 實際上創建tpsl訂單時, 是按照實際成交的數量來生成止盈止損). 注意: 創建限價止盈止損時, tpslMode**必傳**且為Partial</li></ul>`linear`, `inverse`有效|
@@ -85,7 +85,7 @@ ack僅表示請求被成功接受. 請使用websocket-order推送來確認訂單
 
 ```http
 POST /v5/order/create-batch HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1672222064519

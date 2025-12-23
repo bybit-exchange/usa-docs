@@ -29,7 +29,7 @@ GET `/v5/ins-loan/ltv-convert`
 |>> token | string | 幣種 |
 |>> unpaidQty | string | 未還本金 |
 |>> unpaidInterest | string	| 該字段無效, 暫時請忽略 |
-|> balance | string	| 總資產(保證金幣種資產折算為USDT資產). 可以參考<a href="https://www.bybit.com/zh-MY/help-center/s/article/Over-the-counter-OTC-Lending">這裡</a>了解詳細計算 |
+|> balance | string	| 總資產(保證金幣種資產折算為USDT資產). 可以參考<a href="https://www.abfinance.com/zh-MY/help-center/s/article/Over-the-counter-OTC-Lending">這裡</a>了解詳細計算 |
 |> balanceInfo | array | 資產明細 |
 |>> token | string | 保證金幣種 |
 |>> price | string | 保證金幣種價格 |
@@ -43,7 +43,7 @@ GET `/v5/ins-loan/ltv-convert`
 
 ```http
 GET /v5/ins-loan/ltv-convert HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1686638165351
 X-BAPI-RECV-WINDOW: 5000

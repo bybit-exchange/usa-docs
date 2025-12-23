@@ -116,7 +116,7 @@ _終態_
 * `Rejected`&emsp;訂單被拒絕
 * `PartiallyFilledCanceled`&emsp;僅現貨存在該枚舉值, 訂單部分成交且已取消
 * `Filled`&emsp;完全成交
-* `Cancelled`&emsp;期貨交易，當訂單是該狀態時，是可能存在部分成交的; 經典帳戶的現貨盈止損單、條件單、OCO訂單觸發前取消
+* `Cancelled`&emsp;期貨交易，當訂單是該狀態時，是可能存在部分成交的;
 * `Triggered`&emsp;已觸發, 條件單從未觸發到變成New的一個中間態
 * `Deactivated`&emsp;統一帳戶下期貨、現貨的盈止損單、條件單、OCO訂單觸發前取消
 
@@ -124,8 +124,8 @@ _終態_
 * `GTC`&emsp;一直有效至取消
 * `IOC`&emsp;立即成交或取消
 * `FOK`&emsp;完全成交或取消
-* <a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001051">PostOnly</a>&emsp;被動委託
-* <a href="https://www.bybit.com/en/help-center/article/Retail-Price-Improvement-RPI-Order">RPI(Retail Price Improvement)</a>&emsp;特性:<ul><li><b>獨家匹配</b>: 僅匹配非演算法用戶；不執行來自 Open API 的訂單.</li>
+* <a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001051">PostOnly</a>&emsp;被動委託
+* <a href="https://www.abfinance.com/en/help-center/article/Retail-Price-Improvement-RPI-Order">RPI(Retail Price Improvement)</a>&emsp;特性:<ul><li><b>獨家匹配</b>: 僅匹配非演算法用戶；不執行來自 Open API 的訂單.</li>
 <li><b>Post-Only 機制</b>: 充當掛單，增加流動性</li>
 <li><b>較低優先順序</b>: 在相同價格水準的非 RPI 訂單之後執行</li>
 <li><b>有限訪問</b>: 最初僅針對部分幣對的選定做市商.</li>
@@ -144,7 +144,7 @@ _終態_
 * `CreateByTrailingProfit`&emsp;期貨追蹤止盈單
 * `CreateByLiq`&emsp;階梯強平
 * `CreateByTakeOver_PassThrough`強平觸發倉位被系統接管
-* `CreateByAdl_PassThrough`&emsp;[自動減倉](https://www.bybit.com/en/help-center/article/Auto-Deleveraging-ADL)
+* `CreateByAdl_PassThrough`&emsp;[自動減倉](https://www.abfinance.com/en/help-center/article/Auto-Deleveraging-ADL)
 * `CreateByBlock_PassThrough`&emsp;從Paradigm下的大宗交易
 * `CreateByBlockTradeMovePosition_PassThrough`&emsp;移倉觸發的訂單
 * `CreateByClosing`&emsp;在持倉區進行平倉 - web/app
@@ -162,8 +162,8 @@ _終態_
 
 ### execType
 * `Trade`
-* `AdlTrade`&emsp;<a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001124">自動減倉</a>
-* `Funding`&emsp;<a href="https://www.bybit.com/zh-TW/help-center/HelpCenterKnowledge/bybitHC_Article?id=000001123&language=zh_TW">資金費率</a>
+* `AdlTrade`&emsp;<a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001124">自動減倉</a>
+* `Funding`&emsp;<a href="https://www.abfinance.com/zh-TW/help-center/HelpCenterKnowledge/bybitHC_Article?id=000001123&language=zh_TW">資金費率</a>
 * `BustTrade`&emsp;強平
 * `Delivery`&emsp;USDC.USDT到期交割; 因合約下架導致的平倉
 * `Settle`&emsp;反向合約到期交割; 下架合約到期平倉
@@ -372,18 +372,6 @@ _期權:_
     * 該階段對訂單行為沒有限制
     * 該階段會產生訂單簿、最近成交數據
 
-### marginTrading
-* `none`&emsp;不管是經典帳戶還是統一帳戶, 該交易對都不支持槓桿交易
-* `both`&emsp;對於經典帳戶和統一帳戶, 該交易對都支持槓桿交易
-* `utaOnly`&emsp;僅對於統一帳戶, 該交易對支持槓桿交易
-* `normalSpotOnly`&emsp;僅對於經典帳戶, 該交易對支持槓桿交易
-
-### copyTrading
-* `none`&emsp;不管是經典帳戶還是統一帳戶, 該交易對都不支持帶單交易
-* `both`&emsp;對於經典帳戶和統一帳戶, 該交易對都支持帶單交易
-* `utaOnly`&emsp;僅對於統一帳戶, 該交易對支持帶單交易
-* `normalOnly`&emsp;僅對於經典帳戶, 該交易對支持帶單交易
-
 ### type(uta-translog)
 * `TRANSFER_IN`&emsp;從其他錢包轉入到統一錢包
 * `TRANSFER_OUT`&emsp;從統一錢包轉出到別的錢包
@@ -504,9 +492,6 @@ _期權:_
 * `Others`
 
 ### unifiedMarginStatus
-* `1`&emsp;經典帳戶
-* `3`&emsp;[統一帳戶1.0](acct-mode#統一帳戶10)
-* `4`&emsp;[統一帳戶1.0](acct-mode#統一帳戶10) (pro版本)
 * `5`&emsp;[統一帳戶2.0](acct-mode#統一帳戶20)
 * `6`&emsp;[統一帳戶2.0](acct-mode#統一帳戶20) (pro版本)
 
@@ -522,39 +507,9 @@ _期權:_
 * `eb_convert_funding`&emsp;資金錢包
 
 ### symbol
-_USDT永續_:
-* `BTCUSDT`
-* `ETHUSDT`
-
-_USDT交割:
-* `BTCUSDT-21FEB25`
-* `ETHUSDT-14FEB25`<br/>
-Bybit提供的USDC交割合約類型包括: 週報、雙週報、三週報、月報、雙月報、季報、雙季報、三季報。
-
-_USDC永續_:
-* `BTCPERP`
-* `ETHPERP`
-
-_USDC交割_:
-* `BTC-24MAR23`
-
-_反向永續_:
-* `BTCUSD`
-* `ETHUSD`
-
-_反向交割_:
-* `BTCUSDH23`&emsp;H: 第一季度; 23: 2023
-* `BTCUSDM23`&emsp;M: 第二季度; 23: 2023
-* `BTCUSDU23`&emsp;U: 第三季度; 23: 2023
-* `BTCUSDZ23`&emsp;Z: 第四季度; 23: 2023
-
 _現貨_:
 * `BTCUSDT`
 * `ETHUSDC`
-
-_期權_:
-* `BTC-13FEB25-89000-P-USDT`&emsp;USDT期權
-* `ETH-28FEB25-2800-C`&emsp;USDC期權
 
 ### adlRankIndicator
 * `0`&emsp;空倉時默認值

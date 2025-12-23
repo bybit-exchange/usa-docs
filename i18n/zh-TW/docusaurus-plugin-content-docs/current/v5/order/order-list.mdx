@@ -76,7 +76,7 @@ GET `/v5/order/history`
 |> lastPriceOnCreated |string |下單時的市場價格, 現貨不適用 |
 |> basePrice |string |下單時的市場價格, 僅現貨有這個字段 |
 |> reduceOnly |boolean |只減倉. `true`表明這是只減倉單 |
-|> closeOnTrigger |boolean |觸發後平倉委託. <a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001050">什麼是觸發後平倉委託?</a> |
+|> closeOnTrigger |boolean |觸發後平倉委託. <a href="https://www.abfinance.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001050">什麼是觸發後平倉委託?</a> |
 |> placeType |string |下單類型, 僅期權使用. `iv`, `price`|
 |> [smpType](../enum#smptype) |string |SMP執行類型|
 |> smpGroup |integer |所屬Smp組ID. 如果uid不屬於任何組, 則默認為`0` |
@@ -97,7 +97,7 @@ GET `/v5/order/history`
 
 ```http
 GET /v5/order/history?category=linear&limit=1 HTTP/1.1
-Host: api-testnet.bybit.com
+Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
 X-BAPI-TIMESTAMP: 1672221263407
