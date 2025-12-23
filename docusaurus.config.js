@@ -186,47 +186,47 @@ const config = {
             position: 'left',
             label: 'V5 API',
           },
-          {
-            type: 'doc',
-            docId: 'p2p/guide',
-            position: 'left',
-            label: 'P2P Trading',
-          },
-          {
-            docId: 'bybit_pay',
-            href: 'https://bybit-exchange.github.io/pay-docs',
-            position: 'left',
-            label: 'Bybit Pay',
-          },
-          {
-            type: 'doc',
-            docId: 'v3/intro',
-            position: 'left',
-            label: 'Tax API V3',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'p2p/guide',
+          //   position: 'left',
+          //   label: 'P2P Trading',
+          // },
+          // {
+          //   docId: 'bybit_pay',
+          //   href: 'https://bybit-exchange.github.io/pay-docs',
+          //   position: 'left',
+          //   label: 'Bybit Pay',
+          // },
+          // {
+          //   type: 'doc',
+          //   docId: 'v3/intro',
+          //   position: 'left',
+          //   label: 'Tax API V3',
+          // },
           {
             type: 'dropdown',
             position: 'right',
             label: 'Extras',
             items: [
-              {
-                type: 'doc',
-                docId: 'pilot-feature/pilot',
-                label: 'Pilot Features',
-              },
+              // {
+              //   type: 'doc',
+              //   docId: 'pilot-feature/pilot',
+              //   label: 'Pilot Features',
+              // },
               {
                 type: 'doc',
                 docId: 'changelog/v5',
                 label: 'Changelog',
               },
-              {
-                to: '/api-explorer/v5/category',
-                label: 'API Explorer',
-              },
-              {
-                to: '/faq',
-                label: 'FAQ',
-              }
+              // {
+              //   to: '/api-explorer/v5/category',
+              //   label: 'API Explorer',
+              // },
+              // {
+              //   to: '/faq',
+              //   label: 'FAQ',
+              // }
             ]
           },
           {
@@ -236,67 +236,8 @@ const config = {
             dropdownItemsAfter: [],
           },
         ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Telegram – English',
-                href: 'https://t.me/BybitAPI',
-              },
-              {
-                label: 'Telegram – Chinese',
-                href: 'https://t.me/BybitChineseAPI',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discord.gg/VBwVwS2HUs',
-              },
-            ],
-          },
-          {
-            title: 'GitHub',
-            items: [
-              {
-                label: 'API usage examples',
-                href: 'https://github.com/bybit-exchange/api-usage-examples',
-              },
-              {
-                label: 'Postman collection',
-                href: 'https://github.com/bybit-exchange/QuickStartWithPostman',
-              },
-              {
-                label: 'Official Python SDK – pybit',
-                href: 'https://github.com/bybit-exchange/pybit',
-              },
-              {
-                label: 'Community Node.js SDK – bybit-api',
-                href: 'https://www.npmjs.com/package/bybit-api',
-              },
-              {
-                label: 'Official Go SDK – bybit-go-api',
-                href: 'https://github.com/bybit-exchange/bybit.go.api',
-              },
-              {
-                label: 'Official Java SDK – bybit-java-api',
-                href: 'https://github.com/bybit-exchange/bybit-java-api',
-              },
-              {
-                label: 'Official .Net SDK – bybit.net.api',
-                href: 'https://github.com/bybit-exchange/bybit.net.api',
-              },
-            ],
-          },
-        ],
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "csharp", "php", "http", "json", "n4js", "java"],
-      },
+      }
+
     }),
 };
 
