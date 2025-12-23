@@ -9,7 +9,7 @@ sidebar_position: 9
 - 您必須指定`orderId`或者`orderLinkId`.
 - 若`orderId`和`orderLinkId`之間不匹配, 系統將會優先處理`orderId`.
 - 您只能撤銷未成交和部分成交的訂單.
-- 最多支持單個請求中撤銷, 期權: 20個訂單, 反向合約: 20個訂單, 正向合約: 20个訂單, 現貨: 10個訂單.
+- 最多支持單個請求中撤銷,現貨: 10個訂單.
 :::
 
 ### HTTP請求
@@ -18,7 +18,7 @@ POST `/v5/order/cancel-batch`
 ### 請求參數
 | 參數 | 是否必需 | 類型 | 說明|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |**true** |string |產品類型 `linear`, `option`, `spot`, `inverse`|
+|[category](../enum#category) |**true** |string |產品類型 `spot`|
 |request |**true** |array |Object |
 |> symbol |**true** |string |合約名稱 |
 |> orderId |false |string |訂單Id. `orderId`和`orderLinkId`必傳其中一個 |
@@ -76,90 +76,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.cancel_batch_order(
-    category="spot",
-    request=[
-        {
-            "symbol": "BTCUSDT",
-            "orderId": "1666800494330512128"
-        },
-        {
-            "symbol": "ATOMUSDT",
-            "orderLinkId": "1666800494330512129"
-        }
-    ]
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.restApi.BybitApiTradeRestClient;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-BybitApiClientFactory factory = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET");
-BybitApiAsyncTradeRestClient client = factory.newAsyncTradeRestClient();
-var cancelOrderRequests = Arrays.asList(TradeOrderRequest.builder().symbol("BTC-10FEB23-24000-C").orderLinkId("9b381bb1-401").build(),
-                TradeOrderRequest.builder().symbol("BTC-10FEB23-24000-C").orderLinkId("82ee86dd-001").build());
-var cancelBatchOrders = BatchOrderRequest.builder().category(ProductType.OPTION).request(cancelOrderRequests).build();
-client.createBatchOrder(cancelBatchOrders, System.out::println);
-```
-
-</TabItem>
-<TabItem value="DotNet" label=".Net">
-
-```c#
-using bybit.net.api.ApiServiceImp;
-using bybit.net.api.Models.Trade;
-var order1 = new OrderRequest { Symbol = "BTC-10FEB23-24000-C", OrderLinkId = "9b381bb1-401" };
-var order2 = new OrderRequest { Symbol = "BTC-10FEB23-24000-C", OrderLinkId = "82ee86dd-001" };
-var orderInfoString = await TradeService.CancelBatchOrder(category: Category.LINEAR, request: new List<OrderRequest> { order1, order2 });
-Console.WriteLine(orderInfoString);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .batchCancelOrders('spot', [
-        {
-            "symbol": "BTCUSDT",
-            "orderId": "1666800494330512128"
-        },
-        {
-            "symbol": "ATOMUSDT",
-            "orderLinkId": "1666800494330512129"
-        },
-    ])
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例

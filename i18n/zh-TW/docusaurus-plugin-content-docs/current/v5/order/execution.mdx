@@ -18,7 +18,7 @@ GET `/v5/execution/list`
 ### 請求參數
 | 參數 | 是否必需 | 類型 | 說明|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |**true** |string |產品類型 `spot`, `linear`, `inverse`, `option`|
+|[category](../enum#category) |**true** |string |產品類型 `spot`|
 |symbol |false |string |合約名稱 |
 |orderId |false |string |訂單Id |
 |orderLinkId |false |string |用戶自定義訂單id|
@@ -41,7 +41,7 @@ GET `/v5/execution/list`
 |> orderPrice |string |訂單價格 |
 |> orderQty |string |訂單數量 |
 |> leavesQty |string |剩餘委託未成交數量|
-|> [createType](../enum#createtype) |string |訂單創建類型<li>現貨、期權不返回該字段</li> |
+|> [createType](../enum#createtype) |string |訂單創建類型<li>現貨不返回該字段</li> |
 |> [orderType](../enum#ordertype) |string |訂單類型. 市價單：`Market`,限價單：`Limit` |
 |> [stopOrderType](../enum#stopordertype) |string |条件单的订单类型。如果该订单不是条件单，则可能返回`""`或者`UNKNOWN`.  |
 |> execFee |string |交易手續費. 您可以從[這裡](../enum#現貨交易手續費幣種說明)了解現貨手續費幣種信息|
@@ -76,7 +76,7 @@ GET `/v5/execution/list`
 <TabItem value="http" label="HTTP">
 
 ```http
-GET /v5/execution/list?category=linear&limit=1 HTTP/1.1
+GET /v5/execution/list?category=spot&limit=1 HTTP/1.1
 Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
@@ -85,62 +85,7 @@ X-BAPI-RECV-WINDOW: 5000
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.get_executions(
-    category="linear",
-    limit=1,
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.config.BybitApiConfig;
-import com.bybit.api.client.domain.trade.request.TradeOrderRequest;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET", BybitApiConfig.TESTNET_DOMAIN).newTradeRestClient();
-var tradeHistoryRequest = TradeOrderRequest.builder().category(CategoryType.LINEAR).symbol("BTCUSDT").execType(ExecType.Trade).limit(100).build();
-System.out.println(client.getTradeHistory(tradeHistoryRequest));
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .getExecutionList({
-        category: 'linear',
-        symbol: 'BTCUSDT',
-        margin: '10',
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例
@@ -151,7 +96,7 @@ client
     "retMsg": "OK",
     "result": {
         "nextPageCursor": "132766%3A2%2C132766%3A2",
-        "category": "linear",
+        "category": "spot",
         "list": [
             {
                 "symbol": "ETHPERP",

@@ -64,58 +64,7 @@ Content-Length: 172
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.request_a_quote(
-    requestId="test-00002",
-    fromCoin="ETH",
-    toCoin="BTC",
-    accountType="eb_convert_funding",
-    requestCoin="ETH",
-    requestAmount="0.1",
-    paramType="opFrom",
-    paramValue="broker-id-001",
-))
-```
-
-</TabItem>
-
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-  testnet: true,
-  key: 'xxxxxxxxxxxxxxxxxx',
-  secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-  .requestConvertQuote({
-    requestId: 'test-00002',
-    fromCoin: 'ETH',
-    toCoin: 'BTC',
-    accountType: 'eb_convert_funding',
-    requestCoin: 'ETH',
-    requestAmount: '0.1',
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例

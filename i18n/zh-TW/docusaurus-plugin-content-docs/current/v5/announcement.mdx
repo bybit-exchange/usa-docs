@@ -45,30 +45,8 @@ Host: api.abfinance.com
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(testnet=True)
-print(session.get_announcement(
-    locale="en-US",
-    limit=1,
-))
-```
 
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.domain.announcement.LanguageSymbol;
-import com.bybit.api.client.domain.market.request.MarketDataRequest;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance().newAsyncMarketDataRestClient();
-var announcementInfoRequest = MarketDataRequest.builder().locale(LanguageSymbol.EN_US).build();
-client.getAnnouncementInfo(announcementInfoRequest, System.out::println);
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例

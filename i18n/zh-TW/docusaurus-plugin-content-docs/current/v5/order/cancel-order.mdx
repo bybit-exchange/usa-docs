@@ -15,7 +15,7 @@ POST `/v5/order/cancel`
 ### 請求參數
 | 參數 | 是否必需 | 類型 | 說明|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |**true** |string |產品類型 `spot`, `linear`, `inverse`, `option`|
+|[category](../enum#category) |**true** |string |產品類型 `spot`|
 |symbol |**true** |string |合約名稱|
 |orderId |false |string |訂單Id. `orderId`和`orderLinkId`**必傳**其中一個 |
 |orderLinkId |false |string |用戶自定義訂單Id. `orderId`和`orderLinkId`**必傳**其中一個 |
@@ -50,83 +50,15 @@ X-BAPI-RECV-WINDOW: 5000
 Content-Type: application/json
 
 {
-  "category": "linear",
-  "symbol": "BTCPERP",
-  "orderLinkId": null,
+  "category": "spot",
+  "symbol": "BTCUSDT",
+  "orderLinkId": "spot-004",
   "orderId":"c6f055d9-7f21-4079-913d-e6523a9cfffa"
 }
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.cancel_order(
-    category="linear",
-    symbol="BTCPERP",
-    orderId="c6f055d9-7f21-4079-913d-e6523a9cfffa",
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.restApi.BybitApiTradeRestClient;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-BybitApiClientFactory factory = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET");
-BybitApiAsyncTradeRestClient client = factory.newAsyncTradeRestClient();
-var cancelOrderRequest = TradeOrderRequest.builder().category(ProductType.SPOT).symbol("XRPUSDT").orderId("1523347543495541248").build();
-var canceledOrder = client.cancelOrder(cancelOrderRequest);
-System.out.println(canceledOrder);
-```
-
-</TabItem>
-<TabItem value="DotNet" label=".Net">
-
-```c#
-using bybit.net.api.ApiServiceImp;
-using bybit.net.api.Models.Trade;
-BybitTradeService tradeService = new(apiKey: "xxxxxxxxxxxxxx", apiSecret: "xxxxxxxxxxxxxxxxxxxxx");
-var orderInfoString = await TradeService.CancelOrder(orderId: "1523347543495541248", category: Category.SPOT, symbol: "XRPUSDT");
-Console.WriteLine(orderInfoString);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .cancelOrder({
-        category: 'linear',
-        symbol: 'BTCPERP',
-        orderId: 'c6f055d9-7f21-4079-913d-e6523a9cfffa',
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例
@@ -137,7 +69,7 @@ client
     "retMsg": "OK",
     "result": {
         "orderId": "c6f055d9-7f21-4079-913d-e6523a9cfffa",
-        "orderLinkId": "linear-004"
+        "orderLinkId": "spot-004"
     },
     "retExtInfo": {},
     "time": 1672217377164

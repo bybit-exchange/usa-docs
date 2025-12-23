@@ -6,8 +6,8 @@ sidebar_position: 4
 主要用於實時查詢未成交或部分成交的訂單信息, 但結合入参`openOnly`能夠查詢到最近500條到達終態的訂單. 若需要查詢更久的訂單紀錄，請使用[查詢歷史訂單](order-list#)接口.
 
 :::tip
-- 支持查詢已成交, 取消和拒絕類型的最近500條訂單信息對於spot, linear, inverse和option類別. 
-- 您可以通過指定symbol, baseCoin, orderId 和 orderLinkId字段來查詢. 如果您使用多字段組合，系統的查詢優先級如下: orderId > orderLinkId > symbol > baseCoin.
+- 支持查詢已成交, 取消和拒絕類型的最近500條訂單信息對於spot類別. 
+- 您可以通過指定symbol, orderId 和 orderLinkId字段來查詢. 如果您使用多字段組合，系統的查詢優先級如下: orderId > orderLinkId > symbol.
 - 返回的結果將以`createdTime`從新到舊排序.
 :::
 
@@ -22,10 +22,8 @@ GET `/v5/order/realtime`
 ### 請求參數
 | 參數 | 是否必需 | 類型 | 說明|
 |:----- |:-------|:-----|------ |
-|category |**true** |string |產品類型 `spot`, `linear`, `inverse`, `option`|
-|symbol |false |string |合約名稱<li>當category=**linear**, `symbol`, `baseCoin` 和 `settleCoin`**必傳**其中一個</li>|
-|baseCoin |false |string |交易幣種<li>支持`linear`, `inverse`和`option`</li><li>對於category=**option**, 若不傳baseCoin, 則返回期權下所有活動委託單</li>|
-|settleCoin |false |string |結算幣種 <ul><li><b>linear</b>: `symbol` 和 `settleCoin`**必傳**其中一個</li><li>`spot`: 該字段無效</li><li>`option`: USDT 或 USDC</li></ul>|
+|category |**true** |string |產品類型 `spot`|
+|symbol |false |string |合約名稱|
 |orderId |false |string |訂單Id |
 |orderLinkId |false |string |用戶自定義訂單Id |
 |openOnly |false |integer |<ul><li>`0`(默認): 僅查詢活動委託訂單, 比如New, PartiallyFilled訂單</li><li>`1`: 返回僅終態（已取消/拒絕/完全成交）的訂單數據, 每個帳戶每個category下最多保留500條紀錄. <i>如果因Bybit服務更新重啟則該部分數據會情況並重新累計, 但是訂單紀錄仍然可以從[歷史訂單](order-list#)中查詢到</i></li><li>當查詢是按照_orderId_ 或者 _orderLinkId_時, `openOnly`入参將會被忽略</li></ul>
@@ -57,7 +55,7 @@ GET `/v5/order/realtime`
 |> leavesValue |string |訂單剩餘未成交的價值|
 |> cumExecQty |string |訂單累計成交數量 |
 |> cumExecValue |string |訂單累計成交價值|
-|> cumExecFee |string |<li>`inverse`, `option`: 訂單累計成交的手續費.</li><li>`linear`, `spot`: 已棄用. 用`cumFeeDetail`替代.</li>|
+|> cumExecFee |string |已棄用. 用`cumFeeDetail`替代|
 |> [timeInForce](../enum#timeinforce) |string |執行策略 |
 |> [orderType](../enum#ordertype) |string |訂單類型. `Market`,`Limit`. 對於止盈止損單, 則表示為觸發後的訂單類型 |
 |> [stopOrderType](../enum#stopordertype) |string |條件單類型 |
@@ -84,7 +82,7 @@ GET `/v5/order/realtime`
 |> smpOrderId |string |觸發此SMP執行的交易對手的 orderID|
 |> createdTime |string |創建訂單的時間戳 (毫秒) |
 |> updatedTime |string |訂單更新的時間戳 (毫秒) |
-|> cumFeeDetail |json |`linear`, `spot`: 累積交易費詳情, 替代`cumExecFee`|
+|> cumFeeDetail |json |累積交易費詳情, 替代`cumExecFee`|
 
 <a href="/api-explorer/v5/trade/open-order"><Button>運行實例 >></Button></a>
 
@@ -96,7 +94,7 @@ GET `/v5/order/realtime`
 <TabItem value="http" label="HTTP">
 
 ```http
-GET /v5/order/realtime?symbol=ETHUSDT&category=linear&openOnly=0&limit=1  HTTP/1.1
+GET /v5/order/realtime?symbol=ETHUSDT&category=spot&openOnly=0&limit=1  HTTP/1.1
 Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
@@ -106,65 +104,7 @@ Content-Type: application/json
 ```
 
 </TabItem>
-<TabItem value="python" label="Python">
 
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(
-    testnet=True,
-    api_key="xxxxxxxxxxxxxxxxxx",
-    api_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-)
-print(session.get_open_orders(
-    category="linear",
-    symbol="ETHUSDT",
-    openOnly=0,
-    limit=1,
-))
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.config.BybitApiConfig;
-import com.bybit.api.client.domain.trade.request.TradeOrderRequest;
-import com.bybit.api.client.domain.*;
-import com.bybit.api.client.domain.trade.*;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_API_SECRET", BybitApiConfig.TESTNET_DOMAIN).newTradeRestClient();
-var openLinearOrdersResult = client.getOpenOrders(openOrderRequest.category(CategoryType.LINEAR).openOnly(1).build());
-System.out.println(openLinearOrdersResult);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-    key: 'xxxxxxxxxxxxxxxxxx',
-    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-});
-
-client
-    .getActiveOrders({
-        category: 'linear',
-        symbol: 'ETHUSDT',
-        openOnly: 0,
-        limit: 1,
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
-
-</TabItem>
 </Tabs>
 
 ### 響應示例
@@ -223,7 +163,7 @@ client
             }
         ],
         "nextPageCursor": "page_args%3Dfd4300ae-7847-404e-b947-b46980a4d140%26symbol%3D6%26",
-        "category": "linear"
+        "category": "spot"
     },
     "retExtInfo": {},
     "time": 1684765770483

@@ -5,7 +5,7 @@ sidebar_position: 8
 ---
 
 獲取平台最近成交數據
-> **覆蓋範圍: 現貨 / USDT永續 / USDT交割 / USDC永續 / USDC交割 / 反向合約 / 期權**
+> **覆蓋範圍: 現貨**
 
 您可以從這個[地址](https://www.abfinance.com/derivatives/zh-TW/history-data) 下載到歸檔的更多的歷史成交數據:
 
@@ -15,11 +15,9 @@ GET `/v5/market/recent-trade`
 ### 請求參數
 | 參數 | 是否必需 | 類型 | 說明|
 |:----- |:-------|:-----|------ |
-|[category](../enum#category) |**true** |string |產品類型. `spot`,`linear`,`inverse`,`option` |
-|[symbol](../enum#symbol) |false |string |合約名稱<ul><li>現貨/期貨**必傳**</li><li>期權選傳</li></ul>|
-|baseCoin |false |string |交易幣種. 僅`option`, 若不傳, 則默認返回BTC數據|
-|optionType |false |string |期權類型. `Call` 或 `Put`. 僅`option`|
-|limit |false |integer |每頁數量限制.<ul><li>`spot`: [1,60], 默认: `60`.</li><li>others: [1,1000], 默認: `500`</li></ul>|
+|[category](../enum#category) |**true** |string |產品類型. `spot`|
+|[symbol](../enum#symbol) |**true**  |string |币对名稱|
+|limit |false |integer |每頁數量限制.<ul><li>`spot`: [1,60], 默认: `60`.</li></ul>|
 
 ### 響應參數
 | 參數 | 類型 | 說明|
@@ -54,69 +52,6 @@ GET /v5/market/recent-trade?category=spot&symbol=BTCUSDT&limit=1 HTTP/1.1
 Host: api-testnet.abfinance.com
 ```
 
-</TabItem>
-<TabItem value="python" label="Python">
-
-```python
-from pybit.unified_trading import HTTP
-session = HTTP(testnet=True)
-print(session.get_public_trade_history(
-    category="spot",
-    symbol="BTCUSDT",
-    limit=1,
-))
-```
-
-</TabItem>
-<TabItem value="GO" label="GO">
-
-```go
-import (
-	"context"
-	"fmt"
-	bybit "github.com/bybit-exchange/bybit.go.api"
-)
-client := bybit.NewBybitHttpClient("", "", bybit.WithBaseURL(bybit.TESTNET))
-params := map[string]interface{}{"category": "linear", "symbol": "BTCUSDT"}
-client.NewUtaBybitServiceWithParams(params).GetPublicRecentTrades(context.Background())
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-import com.bybit.api.client.domain.CategoryType;
-import com.bybit.api.client.domain.market.*;
-import com.bybit.api.client.domain.market.request.MarketDataRequest;
-import com.bybit.api.client.service.BybitApiClientFactory;
-var client = BybitApiClientFactory.newInstance().newAsyncMarketDataRestClient();
-var recentTrade = MarketDataRequest.builder().category(CategoryType.OPTION).symbol("ETH-30JUN23-2050-C").build();
-client.getRecentTradeData(recentTrade, System.out::println);
-```
-
-</TabItem>
-<TabItem value="Node" label="Node.js">
-
-```n4js
-const { RestClientV5 } = require('bybit-api');
-
-const client = new RestClientV5({
-    testnet: true,
-});
-
-client
-    .getPublicTradingHistory({
-        category: 'spot',
-        symbol: 'BTCUSDT',
-        limit: 1,
-    })
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-```
 
 </TabItem>
 </Tabs>
