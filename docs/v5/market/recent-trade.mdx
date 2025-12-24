@@ -16,7 +16,7 @@ GET `/v5/market/recent-trade`
 | Parameter | Required | Type | Comments|
 |:----- |:-------|:-----|------ |
 |[category](../enum#category) |**true** |string |Product type. `spot`|
-|[symbol](../enum#symbol) |false |string |Symbol name, like `BTCUSDT`, uppercase only <ul><li>**required** for spot/linear/inverse</li><li>optional for option</li></ul>|
+|[symbol](../enum#symbol) |**true**  |string |Symbol name, like `BTCUSDT`, uppercase only|
 |limit |false |integer |Limit for data size per page <ul><li>`spot`: [1,60], default: `60`</li></ul>|
 
 ### Response Parameters

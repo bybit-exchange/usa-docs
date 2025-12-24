@@ -64,8 +64,6 @@ POST `/v5/order/create`
 |orderLinkId |false |string |User customised order ID. A max of 36 characters. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported.|
 |takeProfit |false |string |Take profit price<li>Spot Limit order supports take profit, stop loss or limit take profit, limit stop loss when creating an order</li>|
 |stopLoss |false |string |Stop loss price <li>Spot Limit order supports take profit, stop loss or limit take profit, limit stop loss when creating an order</li>|
-|[tpTriggerBy](../enum#triggerby) |false |string |The price type to trigger take profit. `MarkPrice`, `IndexPrice`, default: `LastPrice`. Valid for `linear` & `inverse` |
-|[slTriggerBy](../enum#triggerby) |false |string |The price type to trigger stop loss. `MarkPrice`, `IndexPrice`, default: `LastPrice`. Valid for `linear` & `inverse`|
 |[smpType](../enum#smptype) |false |string |Smp execution type. [What is SMP?](../smp)|
 |tpLimitPrice |false |string |The limit order price when take profit price is triggered <ul><li>Spot: it is required when the order has `takeProfit` and "tpOrderType"=`Limit`</li></ul>|
 |slLimitPrice |false |string |The limit order price when stop loss price is triggered<ul><li>Spot: it is required when the order has `stopLoss` and "slOrderType"=`Limit`</li></ul>|

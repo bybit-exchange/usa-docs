@@ -46,7 +46,7 @@ GET `/v5/order/history`
 |> isLeverage |string |Whether to borrow. `0`: false, `1`: true.|
 |> [positionIdx](../enum#positionidx) |integer |Position index. Used to identify positions in different position modes |
 |> [orderStatus](../enum#orderstatus) |string |Order status |
-|> [createType](../enum#createtype) |string |Order create type <li>Only for category=linear or inverse</li><li>Spot, Option do not have this key</li> |
+|> [createType](../enum#createtype) |string |Order create type <li>Spot do not have this key</li> |
 |> [cancelType](../enum#canceltype) |string |Cancel type |
 |> [rejectReason](../enum#rejectreason) |string |Reject reason|
 |> avgPrice |string |Average filled price, returns `""` for those orders without avg price|
@@ -54,7 +54,7 @@ GET `/v5/order/history`
 |> leavesValue |string |The estimated value not executed|
 |> cumExecQty |string |Cumulative executed order qty |
 |> cumExecValue |string |Cumulative executed order value|
-|> cumExecFee |string |<li>`inverse`, `option`: Cumulative executed trading fee.</li><li>`linear`, `spot`: Deprecated. Use `cumFeeDetail` instead.</li>|
+|> cumExecFee |string |<li>`spot`: Deprecated. Use `cumFeeDetail` instead.</li>|
 |> [timeInForce](../enum#timeinforce) |string |Time in force |
 |> [orderType](../enum#ordertype) |string |Order type. `Market`,`Limit`. For TP/SL orders, is the order type after the order was triggered <li>`Block trade Roll Back`, `Block trade-Limit`: Unique enum values for Unified account block trades</li>  |
 |> [stopOrderType](../enum#stopordertype) |string |Stop order type |
@@ -84,7 +84,7 @@ GET `/v5/order/history`
 |> createdTime |string |Order created timestamp (ms) |
 |> updatedTime |string |Order updated timestamp (ms) |
 |> extraFees |string |Trading fee rate information. Currently, this data is returned only for spot orders placed on the Indonesian site or spot fiat currency orders placed on the EU site. In other cases, an empty string is returned. Enum: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype) |
-|> cumFeeDetail |json |<li>`linear`, `spot`: Cumulative trading fee details instead of `cumExecFee`</li> |
+|> cumFeeDetail |json |<li>`spot`: Cumulative trading fee details instead of `cumExecFee`</li> |
 |nextPageCursor |string |Refer to the `cursor` request parameter |
 
 <a href="/api-explorer/v5/trade/order-list"><Button>RUN >></Button></a>
@@ -97,7 +97,7 @@ GET `/v5/order/history`
 <TabItem value="http" label="HTTP">
 
 ```http
-GET /v5/order/history?category=linear&limit=1 HTTP/1.1
+GET /v5/order/history?category=spot&limit=1 HTTP/1.1
 Host: api-testnet.abfinance.com
 X-BAPI-SIGN: XXXXX
 X-BAPI-API-KEY: xxxxxxxxxxxxxxxxxx
