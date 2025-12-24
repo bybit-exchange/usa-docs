@@ -31,10 +31,6 @@
     "message": "交易",
     "description": "The label for category Trade in sidebar v5SideBar"
   },
-  "sidebar.v5SideBar.category.Position": {
-    "message": "持倉",
-    "description": "The label for category Position in sidebar v5SideBar"
-  },
   "sidebar.v5SideBar.category.Pre-upgrade": {
     "message": "升級前相關紀錄",
     "description": "The label for category Pre-upgrade in sidebar v5SideBar"
@@ -191,10 +187,6 @@
     "message": "Trade",
     "description": "The label for category Trade in sidebar apiExplorerSideBar"
   },
-  "sidebar.apiExplorerSideBar.category.Position": {
-    "message": "Position",
-    "description": "The label for category Position in sidebar apiExplorerSideBar"
-  },
   "sidebar.apiExplorerSideBar.category.Account": {
     "message": "Account",
     "description": "The label for category Account in sidebar apiExplorerSideBar"
@@ -323,57 +315,9 @@
     "message": "Get Borrow Quota (Spot)",
     "description": "The label for the doc item Get Borrow Quota (Spot) in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/trade/query-spot-quota"
   },
-  "sidebar.apiExplorerSideBar.doc.Get Position Info": {
-    "message": "Get Position Info",
-    "description": "The label for the doc item Get Position Info in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/position-info"
-  },
-  "sidebar.apiExplorerSideBar.doc.Set Leverage": {
-    "message": "Set Leverage",
-    "description": "The label for the doc item Set Leverage in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/spot-margin-uta/set-leverage"
-  },
-  "sidebar.apiExplorerSideBar.doc.Switch Cross/Isolated Margin": {
-    "message": "Switch Cross/Isolated Margin",
-    "description": "The label for the doc item Switch Cross/Isolated Margin in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/cross-isolate"
-  },
-  "sidebar.apiExplorerSideBar.doc.Set TP/SL Mode": {
-    "message": "Set TP/SL Mode",
-    "description": "The label for the doc item Set TP/SL Mode in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/tpsl-mode"
-  },
-  "sidebar.apiExplorerSideBar.doc.Switch Position Mode": {
-    "message": "Switch Position Mode",
-    "description": "The label for the doc item Switch Position Mode in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/position-mode"
-  },
-  "sidebar.apiExplorerSideBar.doc.Set Risk Limit": {
-    "message": "Set Risk Limit",
-    "description": "The label for the doc item Set Risk Limit in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/set-risk-limit"
-  },
-  "sidebar.apiExplorerSideBar.doc.Set Trading Stop": {
-    "message": "Set Trading Stop",
-    "description": "The label for the doc item Set Trading Stop in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/trading-stop"
-  },
-  "sidebar.apiExplorerSideBar.doc.Set Auto Add Margin": {
-    "message": "Set Auto Add Margin",
-    "description": "The label for the doc item Set Auto Add Margin in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/auto-add-margin"
-  },
-  "sidebar.apiExplorerSideBar.doc.Add Or Reduce Margin": {
-    "message": "Add Or Reduce Margin",
-    "description": "The label for the doc item Add Or Reduce Margin in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/manual-add-margin"
-  },
-  "sidebar.apiExplorerSideBar.doc.Get Execution (2 years)": {
-    "message": "Get Execution (2 years)",
-    "description": "The label for the doc item Get Execution (2 years) in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/execution"
-  },
-  "sidebar.apiExplorerSideBar.doc.Get Closed PnL": {
-    "message": "Get Closed PnL",
-    "description": "The label for the doc item Get Closed PnL in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/position/close-pnl"
-  },
   "sidebar.apiExplorerSideBar.doc.Get Wallet Balance": {
     "message": "Get Wallet Balance",
     "description": "The label for the doc item Get Wallet Balance in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/wallet"
-  },
-  "sidebar.apiExplorerSideBar.doc.Upgrade to Unified Account": {
-    "message": "Upgrade to Unified Account",
-    "description": "The label for the doc item Upgrade to Unified Account in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/upgrade-unified-account"
   },
   "sidebar.apiExplorerSideBar.doc.Set Collateral Coin": {
     "message": "Set Collateral Coin",
@@ -387,10 +331,7 @@
     "message": "Get Collateral Info",
     "description": "The label for the doc item Get Collateral Info in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/collateral-info"
   },
-  "sidebar.apiExplorerSideBar.doc.Get Coin Greeks": {
-    "message": "Get Coin Greeks",
-    "description": "The label for the doc item Get Coin Greeks in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/coin-greeks"
-  },
+ 
   "sidebar.apiExplorerSideBar.doc.Get Fee Rate": {
     "message": "Get Fee Rate",
     "description": "The label for the doc item Get Fee Rate in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/fee-rate"
@@ -403,25 +344,10 @@
     "message": "Get Transaction Log",
     "description": "The label for the doc item Get Transaction Log in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/transaction-log"
   },
-  "sidebar.apiExplorerSideBar.doc.Set Margin Mode": {
-    "message": "Set Margin Mode",
-    "description": "The label for the doc item Set Margin Mode in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/set-margin-mode"
-  },
-  "sidebar.apiExplorerSideBar.doc.Set Spot Hedging": {
-    "message": "Set Spot Hedging",
-    "description": "The label for the doc item Set Spot Hedging in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/account/set-spot-hedge"
-  },
+ 
   "sidebar.apiExplorerSideBar.doc.Get Coin Exchange Records": {
     "message": "Get Coin Exchange Records",
     "description": "The label for the doc item Get Coin Exchange Records in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/asset/exchange"
-  },
-  "sidebar.apiExplorerSideBar.doc.Get Delivery Record": {
-    "message": "Get Delivery Record",
-    "description": "The label for the doc item Get Delivery Record in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/asset/delivery"
-  },
-  "sidebar.apiExplorerSideBar.doc.Get USDC Session Settlement": {
-    "message": "Get USDC Session Settlement",
-    "description": "The label for the doc item Get USDC Session Settlement in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/asset/settlement"
   },
   "sidebar.apiExplorerSideBar.doc.Get Asset Info (Spot)": {
     "message": "Get Asset Info (Spot)",

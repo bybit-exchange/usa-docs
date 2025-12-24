@@ -87,26 +87,6 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
 </table>
 </span>
 
-#### Position
-<span class="blocky_table">
-<table border="0.8">
-    <tr>
-        <th rowSpan="2">Method</th><th rowSpan="2">Path</th><th colSpan="4" align="center">UTA2.0 Pro</th><th rowSpan="2">upgradable</th>
-    </tr>
-    <tr>
-        <th>inverse</th><th>linear</th><th>option</th><th>spot</th>
-    </tr>
-    <tr>
-        <td rowSpan="2">GET</td><td>/v5/position/list</td><td colSpan="3" align="center">50/s</td><td align="center">-</td><td align="center">N</td>
-    </tr>
-    <tr>
-        <td>/v5/position/closed-pnl</td><td colSpan="2" align="center">50/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
-    </tr>
-    <tr>
-        <td rowSpan="2">POST</td><td>/v5/position/set-leverage</td><td align="center">10/s</td><td align="center">10/s</td><td align="center">-</td><td align="center">-</td><td align="center">N</td>
-    </tr>
-</table>
-</span>
 
 #### Account
 <span class="blocky_table">
@@ -266,20 +246,6 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
     </tr>
 </table>
 
-#### Spread Trading
-<span class="blocky_table">
-
-|Method |Path |Limit |Upgradable|
-|:----|:----:|----|----|
-|POST |[Create Spread Order](spread/trade/create-order) | 20 req/s| N |
-|POST |[Amend Spread Order](spread/trade/amend-order) | 20 req/s| N |
-|POST |[Cancel Spread Order](spread/trade/cancel-order) | 20 req/s| N |
-|POST |[Cancel All Spread Orders](spread/trade/cancel-all) | 5 req/s| N |
-|GET |[Get Spread Open Orders](spread/trade/open-order) | 50 req/s| N |
-|GET |[Get Spread Order History](spread/trade/order-history) | 50 req/s| N |
-|GET |[Get Spread Trade History](spread/trade/trade-history) | 50 req/s| N |
-
-</span>
 
 ## Instructions for batch endpoints
 :::tip

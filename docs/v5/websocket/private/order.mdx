@@ -49,7 +49,7 @@ The first message tells you the order is executed, and the second message tells 
 |> cumExecQty |string |Cumulative executed order qty |
 |> cumExecValue |string |Cumulative executed order value |
 |> cumExecFee |string |<li>`spot`: Deprecated. Use `cumFeeDetail` instead.</li><li>After upgraded to the Unified account, you can use `execFee` for each fill in [Execution](execution) topic</li> |
-|> closedPnl |string |Closed profit and loss for each close position order. The figure is the same as "closedPnl" from [Get Closed PnL](../../position/close-pnl)|
+|> closedPnl |string |Closed profit and loss for each close position order.|
 |> feeCurrency |string |Deprecated. Trading fee currency for Spot only. Please understand Spot trading fee currency [here](../../enum#spot-fee-currency-instruction) |
 |> [timeInForce](../../enum#timeinforce) |string |Time in force |
 |> [orderType](../../enum#ordertype) |string |Order type. `Market`,`Limit`. For TP/SL orders, is the order type after the order was triggered |

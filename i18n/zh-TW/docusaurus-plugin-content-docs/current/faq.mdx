@@ -59,7 +59,7 @@ d. **不要**使用測試網的"模擬交易"服務, 沒有任何意義
 * `price * availableBalance * leverage * perc * (1 - (0.0006 * 2))`
 * 不幸的是，這不是一個完全準確的公式。實際計算很複雜，可能會在以後發佈在文檔中。
     * `price` - 最新價格 (或您的入場價) - 可以從[最新行情信息](/v5/market/tickers#)接口中獲取。
-    * `availableBalance` - 可以從[查詢持倉(實時)](/v5/position#)接口中獲取。
+    * `availableBalance`
     * `leverage` - 最高為市場各自的最大槓桿和您的風險限額（例如 2、10、50）。
     * `perc` - 0.1 表示 10%，0.25 表示 25%，等等。
     * `1 - (0.0006 * 2)` - 用於計算最大訂單成本（始終假設進入和退出訂單使用吃單費用，而不考慮實際費用）。
@@ -67,8 +67,8 @@ d. **不要**使用測試網的"模擬交易"服務, 沒有任何意義
 ### 我可以用 API 兌換資產嗎?
 [閃兌接口](/v5/asset/convert/guideline), 但目前沒有小額資產兌換MNT的接口
 
-### 我可以用 API 質押借貸嗎?
-[質押借貸接口](/v5/crypto-loan/collateral-coin)
+<!-- ### 我可以用 API 質押借貸嗎?
+[質押借貸接口](/v5/crypto-loan/collateral-coin) -->
 
 ### 我如何獲得測試網(testnet)的資金?
 使用母帳戶登錄後, 進入到該[頁面](https://testnet.abfinance.com/user/assets/home/overview), 右邊有個"申請測試幣"按鈕
