@@ -62,8 +62,6 @@ GET `/v5/account/wallet-balance`
 |>> availableToWithdraw |string |**Deprecated** for `accountType=UNIFIED` from 9 Jan, 2025 <ul><li>Transferable balance: you can use [Get Transferable Amount (Unified)](unified-trans-amnt#) or [Get All Coins Balance](../asset/balance/all-balance#) instead</li><li>Derivatives available balance: <br/><b>isolated margin</b>: walletBalance - totalPositionIM - totalOrderIM - locked - bonus<br/><b>cross & portfolio margin</b>: look at field `totalAvailableBalance`(USD), which needs to be converted into the available balance of accordingly coin through index price</li><li>Spot (margin) available balance: refer to [Get Borrow Quota (Spot)](../order/spot-borrow-quota#)</li></ul>|
 |>> availableToBorrow |string |**Deprecated** field, always return `""`. Please refer to `availableToBorrow` in the [Get Collateral Info](collateral-info) |
 
-<a href="/api-explorer/v5/account/wallet"><Button>RUN >></Button></a>
-
 ---
 
 ### Request Example
