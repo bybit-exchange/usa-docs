@@ -252,28 +252,27 @@ const sidebars = {
     'v5/enum',
     'v5/error',
   ],
-  apiExplorerSideBar: [
-    {
-      type: "category",
-      label: "V5",
-      link: {
-        type: "generated-index",
-        title: "V5 API",
-        slug: "/api-explorer/v5/category/"
-      },
-      // @ts-ignore
-      items: [
-        require("./docs/api-explorer/v5/market/sidebar.js"),
-        require("./docs/api-explorer/v5/trade/sidebar.js"),
-        require("./docs/api-explorer/v5/position/sidebar.js"),
-        require("./docs/api-explorer/v5/account/sidebar.js"),
-        require("./docs/api-explorer/v5/asset/sidebar.js"),
-        require("./docs/api-explorer/v5/user/sidebar.js"),
-        require("./docs/api-explorer/v5/lt/sidebar.js"),
-        require("./docs/api-explorer/v5/spot-margin-uta/sidebar.js"),
-      ]
-    }
-  ],
+  // apiExplorerSideBar: [
+  //   {
+  //     type: "category",
+  //     label: "V5",
+  //     link: {
+  //       type: "generated-index",
+  //       title: "V5 API",
+  //       slug: "/api-explorer/v5/category/"
+  //     },
+  //     // @ts-ignore
+  //     items: [
+  //       require("./docs/api-explorer/v5/market/sidebar.js"),
+  //       require("./docs/api-explorer/v5/trade/sidebar.js"),
+  //       require("./docs/api-explorer/v5/account/sidebar.js"),
+  //       require("./docs/api-explorer/v5/asset/sidebar.js"),
+  //       require("./docs/api-explorer/v5/user/sidebar.js"),
+  //       require("./docs/api-explorer/v5/lt/sidebar.js"),
+  //       require("./docs/api-explorer/v5/spot-margin-uta/sidebar.js"),
+  //     ]
+  //   }
+  // ],
   changelogSidebar: [
     "changelog/v5"
   ]
