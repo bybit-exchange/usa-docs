@@ -20,7 +20,7 @@ POST `/v5/apilimit/set`
 |:----- |:-------|:-----|------ |
 |list |**true**|array |Object|
 |> uids |**true**|string|Multiple UIDs separated by commas|
-|> [bizType](/docs/v5/enum#biztype) |**true**|string|Business type |
+|> [bizType](/usa-docs/v5/enum#biztype) |**true**|string|Business type |
 |> rate |**true**|integer|API rate limit per second |
 
 ### Response Parameters
@@ -28,10 +28,10 @@ POST `/v5/apilimit/set`
 |:----- |:-----|----- |
 |list |array |Object|
 |> uids |string|Multiple UIDs separated by commas|
-|> [bizType](/docs/v5/enum#biztype) |string|Business type |
+|> [bizType](/usa-docs/v5/enum#biztype) |string|Business type |
 |> rate |integer|API rate limit per second |
 |> success |boolean| Whether or not the request was successful|
-|> [msg](/docs/v5/enum#msg) |string|Result message |
+|> [msg](/usa-docs/v5/enum#msg) |string|Result message |
 
 ### Request Example
 ```http
