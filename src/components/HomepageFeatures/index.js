@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/power_plug_dark_mode.svg').default,
     description: (
       <>
-        Bybit's latest v5 suite of APIs allow for a smooth and easy integration.
+        Abfinance's latest v5 suite of APIs allow for a smooth and easy integration.
       </>
     ),
   },

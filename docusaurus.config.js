@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Bybit API Documentation',
+  title: 'Abfinance API Documentation',
   tagline: '',
   url: 'https://bybit-exchange.github.io',
   baseUrl: '/usa-docs/',
