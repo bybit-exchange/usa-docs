@@ -19,7 +19,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'bybit-exchange', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  projectName: 'usa-docs', // Usually your repo name.
   trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -32,89 +32,89 @@ const config = {
       en: { label: 'English' },
     },
   },
-  plugins: [
-    [
-      "docusaurus-plugin-openapi-docs",
-      {
-        id: "openapi",
-        docsPluginId: "classic",
-        config: {
-          v5_market: {
-            specPath: "yml-folder/v5/market.yaml",
-            outputDir: "docs/api-explorer/v5/market",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_trade: {
-            specPath: "yml-folder/v5/trade.yaml",
-            outputDir: "docs/api-explorer/v5/trade",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_account: {
-            specPath: "yml-folder/v5/account.yaml",
-            outputDir: "docs/api-explorer/v5/account",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_position: {
-            specPath: "yml-folder/v5/position.yaml",
-            outputDir: "docs/api-explorer/v5/position",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_asset: {
-            specPath: "yml-folder/v5/asset.yaml",
-            outputDir: "docs/api-explorer/v5/asset",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_user: {
-            specPath: "yml-folder/v5/user.yaml",
-            outputDir: "docs/api-explorer/v5/user",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_lt: {
-            specPath: "yml-folder/v5/lt.yaml",
-            outputDir: "docs/api-explorer/v5/lt",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_spot_margin_uta: {
-            specPath: "yml-folder/v5/spot-margin-uta.yaml",
-            outputDir: "docs/api-explorer/v5/spot-margin-uta",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-          v5_spot_margin_normal: {
-            specPath: "yml-folder/v5/spot-margin-normal.yaml",
-            outputDir: "docs/api-explorer/v5/spot-margin-normal",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag"
-            }
-          },
-        }
-      }
-    ],
-  ],
+  // plugins: [
+  //   [
+  //     "docusaurus-plugin-openapi-docs",
+  //     {
+  //       id: "openapi",
+  //       docsPluginId: "classic",
+  //       config: {
+  //         v5_market: {
+  //           specPath: "yml-folder/v5/market.yaml",
+  //           outputDir: "docs/api-explorer/v5/market",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_trade: {
+  //           specPath: "yml-folder/v5/trade.yaml",
+  //           outputDir: "docs/api-explorer/v5/trade",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_account: {
+  //           specPath: "yml-folder/v5/account.yaml",
+  //           outputDir: "docs/api-explorer/v5/account",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_position: {
+  //           specPath: "yml-folder/v5/position.yaml",
+  //           outputDir: "docs/api-explorer/v5/position",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_asset: {
+  //           specPath: "yml-folder/v5/asset.yaml",
+  //           outputDir: "docs/api-explorer/v5/asset",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_user: {
+  //           specPath: "yml-folder/v5/user.yaml",
+  //           outputDir: "docs/api-explorer/v5/user",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_lt: {
+  //           specPath: "yml-folder/v5/lt.yaml",
+  //           outputDir: "docs/api-explorer/v5/lt",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_spot_margin_uta: {
+  //           specPath: "yml-folder/v5/spot-margin-uta.yaml",
+  //           outputDir: "docs/api-explorer/v5/spot-margin-uta",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //         v5_spot_margin_normal: {
+  //           specPath: "yml-folder/v5/spot-margin-normal.yaml",
+  //           outputDir: "docs/api-explorer/v5/spot-margin-normal",
+  //           sidebarOptions: {
+  //             groupPathsBy: "tag",
+  //             categoryLinkSource: "tag"
+  //           }
+  //         },
+  //       }
+  //     }
+  //   ],
+  // ],
   presets: [
     [
       "classic",
