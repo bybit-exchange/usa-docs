@@ -11,7 +11,6 @@ execution type of trades, and fewer data fields.
 **Categorised Topic:** `execution.fast.spot`<br/>
 
 :::info
-* Supports all Perps, Futures and Spot exceution, and do not support Options for now
 * You can only receive [execType](../../enum#exectype)=Trade update
 :::
 
@@ -47,21 +46,21 @@ execution type of trades, and fewer data fields.
 
 ```json
 {
-    "topic": "execution.fast",
-    "creationTime": 1716800399338,
+    "topic": "execution.fast.spot",
+    "creationTime": 1766635053105,
     "data": [
         {
-            "category": "linear",
-            "symbol": "ICPUSDT",
-            "execId": "3510f361-0add-5c7b-a2e7-9679810944fc",
-            "execPrice": "12.015",
-            "execQty": "3000",
-            "orderId": "443d63fa-b4c3-4297-b7b1-23bca88b04dc",
+            "category": "spot",
+            "symbol": "TRXUSDT",
+            "execId": "2110000000071859283",
+            "execPrice": "0.30999",
+            "execQty": "51.31806",
+            "orderId": "2113082412035736320",
             "isMaker": false,
-            "orderLinkId": "test-00001",
-            "side": "Sell",
-            "execTime": "1716800399334",
-            "seq": 34771365464
+            "orderLinkId": "1766635052905",
+            "side": "Buy",
+            "execTime": "1766635053102",
+            "seq": 1153957368
         }
     ]
 }

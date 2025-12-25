@@ -43,46 +43,46 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
 <span class="blocky_table">
 <table border="0.8">
     <tr>
-        <th rowSpan="2">Method</th><th rowSpan="2">Path</th><th colSpan="4" align="center">UTA2.0 Pro</th><th rowSpan="2">upgradable</th>
+        <th rowSpan="2">Method</th><th rowSpan="2">Path</th><th rowSpan="2">upgradable</th>
     </tr>
     <tr>
-        <th>inverse</th><th>linear</th><th>option</th><th>spot</th>
+        <th>spot</th>
     </tr>
     <tr>
-        <td rowSpan="8">POST</td><td>/v5/order/create</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td>20/s</td><td align="center">Y</td>
+        <td rowSpan="8">POST</td><td>/v5/order/create</td><td align="center">20/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/amend</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td align="center">10/s</td><td align="center">Y</td>
+        <td>/v5/order/amend</td><td align="center">10/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/cancel</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td>20/s</td><td align="center">Y</td>
+        <td>/v5/order/cancel</td><td align="center">20/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/cancel-all</td><td colSpan="2" align="center">10/s</td><td align="center">1/s</td><td>20/s</td><td align="center">Y</td>
+        <td>/v5/order/cancel-all</td><td align="center">20/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/create-batch</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td align="center">20/s</td><td align="center">Y</td>
+        <td>/v5/order/create-batch</td><td align="center">20/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/amend-batch</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td align="center">20/s</td><td align="center">Y</td>
+        <td>/v5/order/amend-batch</td><td align="center">20/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/cancel-batch</td><td colSpan="2" align="center">10/s</td><td align="center">10/s</td><td align="center">20/s</td><td align="center">Y</td>
+        <td>/v5/order/cancel-batch</td><td align="center">20/s</td><td align="center">Y</td>
     </tr>
     <tr>
-        <td>/v5/order/disconnected-cancel-all</td><td colSpan="4" align="center">5/s</td><td align="center">N</td>
+        <td>/v5/order/disconnected-cancel-all</td><td align="center">5/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td rowSpan="4">GET</td><td>/v5/order/realtime</td><td colSpan="4" align="center">50/s</td><td align="center">N</td>
+        <td rowSpan="4">GET</td><td>/v5/order/realtime</td><td align="center">50/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td>/v5/order/history</td><td colSpan="4" align="center">50/s</td><td align="center">N</td>
+        <td>/v5/order/history</td><td align="center">50/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td>/v5/execution/list</td><td colSpan="4" align="center">50/s</td><td align="center">N</td>
+        <td>/v5/execution/list</td><td align="center">50/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td>/v5/order/spot-borrow-check</td><td colSpan="3" align="center">-</td><td align="center">50/s</td><td align="center">N</td>
+        <td>/v5/order/spot-borrow-check</td><td align="center">50/s</td><td align="center">N</td>
     </tr>
 </table>
 </span>
@@ -95,7 +95,7 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <th>Method</th><th>Path</th><th></th><th>Limit</th><th>upgradable</th>
     </tr>
     <tr>
-        <td rowSpan="13">GET</td><td>/v5/account/wallet-balance</td><td>accountType=UNIFIED</td><td>50/s</td><td align="center">N</td>
+        <td rowSpan="12">GET</td><td>/v5/account/wallet-balance</td><td>accountType=UNIFIED</td><td>50/s</td><td align="center">N</td>
     </tr>
     <tr>
         <td>/v5/account/withdrawal</td><td></td><td>50/s</td><td align="center">N</td>
@@ -116,22 +116,10 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
         <td>/v5/account/collateral-info</td><td></td><td>50/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td>/v5/asset/coin-greeks</td><td></td><td>50/s</td><td align="center">N</td>
-    </tr>
-    <tr>
         <td>/v5/account/transaction-log</td><td>accountType=UNIFIED</td><td>50/s</td><td align="center">N</td>
     </tr>
     <tr>
-        <td rowSpan="4">/v5/account/fee-rate</td><td>category=linear</td><td>10/s</td><td align="center">N</td>
-    </tr>
-    <tr>
-         <td>category=spot</td><td>5/s</td><td align="center">N</td>
-    </tr>
-    <tr>
-         <td>category=option</td><td>5/s</td><td align="center">N</td>
-    </tr>
-    <tr>
-         <td>category=inverse</td><td>10/s</td><td align="center">N</td>
+        <td>/v5/account/fee-rate</td><td>category=spot</td><td>5/s</td><td align="center">N</td>
     </tr>
 
 </table>
@@ -239,21 +227,13 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
 </table>
 </span>
 
-#### Spot Margin Trade (UTA)
-<table border="0.8">
-    <tr>
-        <td>For now, there is no limit for endpoints under this category</td>
-    </tr>
-</table>
-
-
 ## Instructions for batch endpoints
 :::tip
 The batch order endpoint, which includes operations for creating, amending, and canceling, has its own rate limit and
 does not share it with single requests, *e.g., let's say the rate limit of single create order endpoint is 100/s, and batch create order endpoint
-is 100/s, so in this case, I can place 200 linear orders in one second if I use both endpoints to place orders*
+is 100/s, so in this case, I can place 200 spot orders in one second if I use both endpoints to place orders*
 
-### When category = linear spot or inverse
+### When category=spot
 - API for batch create/amend/cancel order, the frequency of the API will be consistent with the current configuration,
 but the counting consumption will be consumed according to the actual number of orders. (Number of consumption = number
 of requests * number of orders included in a single request), and the configuration of business lines is independent of each other.
