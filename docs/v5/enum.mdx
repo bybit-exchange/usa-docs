@@ -111,11 +111,11 @@ _open status_
 
 _closed status_
 * `Rejected`
-* `PartiallyFilledCanceled`&emsp;Only spot has this order status
+* `PartiallyFilledCanceled`
 * `Filled`
-* `Cancelled`&emsp;In derivatives, orders with this status may have an executed qty
+* `Cancelled`
 * `Triggered`&emsp;instantaneous state for conditional orders from Untriggered to New
-* `Deactivated`&emsp;UTA: Spot tp/sl order, conditional order, OCO order are cancelled before they are triggered
+* `Deactivated`&emsp;tp/sl order, conditional order, OCO order are cancelled before they are triggered
 
 ### timeInForce
 * `GTC`&emsp;GoodTillCancel
@@ -144,18 +144,15 @@ _closed status_
 ### orderType
 * `Market`
 * `Limit`
-* `UNKNOWN`&emsp;is not a valid request parameter value. Is only used in some responses. Mainly, it is used when `execType` is `Funding`.
 
 ### stopOrderType
 * `TakeProfit`
 * `StopLoss`
-* `TrailingStop`
 * `Stop`
 * `PartialTakeProfit`
 * `PartialStopLoss`
-* `tpslOrder`&emsp;spot TP/SL order
-* `OcoOrder`&emsp;spot Oco order
-* `MmRateClose`&emsp;On web or app can set MMR to close position
+* `tpslOrder`&emsp;TP/SL order
+* `OcoOrder`&emsp;Oco order
 * `BidirectionalTpslOrder`&emsp;Spot bidirectional tpsl order
 
 ### tickDirection
@@ -174,12 +171,6 @@ _closed status_
 * `5min` `15min` `30min`&emsp;minute
 * `1h` `4h`&emsp;hour
 * `1d`&emsp;day
-
-
-### positionStatus
-* `Normal`
-* `Liq`&emsp;in the liquidation progress
-* `Adl`&emsp;in the auto-deleverage progress
 
 ### rejectReason
 * `EC_NoError`
@@ -206,7 +197,6 @@ _closed status_
 * `EC_InvalidSymbolStatus`
 * `EC_CancelForNoFullFill`
 * `EC_BySelfMatch`
-* `EC_InCallAuctionStatus`&emsp;used for pre-market order operation, e.g., during 2nd phase of call auction, cancel order is not allowed, when the cancel request is failed to be rejected by trading server, the request will be rejected by matching box finally
 * `EC_QtyCannotBeZero`
 * `EC_MarketOrderNoSupportTIF`
 * `EC_ReachMaxTradeNum`
@@ -287,47 +277,18 @@ _closed status_
 
 
 ### status
-* `PreLaunch`
 * `Trading`
-* `Delivering`
-* `Closed`
 
 ### symbolType
 * `innovation`
 * `adventure`
 * `xstocks`
 
-### curAuctionPhase
-* `NotStarted`&emsp;Pre-market trading is not started
-* `Finished`&emsp;Pre-market trading is finished
-    * After the auction, if the pre-market contract fails to enter continues trading phase, it will be delisted and phase="Finished"
-    * After the continuous trading, if the pre-market contract fails to be converted to official contract, it will be delisted and phase="Finished"
-* `CallAuction`&emsp;Auction phase of pre-market trading
-    * only timeInForce=GTC, orderType=Limit order is allowed to submit
-    * TP/SL are not supported; Conditional orders are not supported
-    * cannot **modify** the order at this stage
-    * order price range: [[preOpenPrice](../v5/market/tickers) x 0.5, [maxPrice](../v5/market/instrument)]
-* `CallAuctionNoCancel`&emsp;Auction no cancel phase of pre-market trading
-    * only timeInForce=GTC, orderType=Limit order is allowed to submit
-    * TP/SL are not supported; Conditional orders are not supported
-    * cannot **modify and cancel** the order at this stage
-    * order price range: Buy [[lastPrice](../v5/market/tickers) x 0.5, [markPrice](../v5/market/tickers) x 1.1], Sell [[markPrice](../v5/market/tickers) x 0.9, [maxPrice](../v5/market/instrument)]
-* `CrossMatching`&emsp;cross matching phase
-    * cannot **create, modify and cancel** the order at this stage
-    * Candle data is released from this stage
-* `ContinuousTrading`&emsp;Continuous trading phase
-    * There is no restriction to create, amend, cancel orders
-    * orderbook, public trade data is released from this stage
-
-
 ### type(uta-translog)
 * `TRANSFER_IN`&emsp;Assets that transferred into Unified wallet
 * `TRANSFER_OUT`&emsp;Assets that transferred out from Unified wallet
 * `TRADE`
-* `SETTLEMENT`&emsp;USDT Perp funding settlement, and USDC Perp funding settlement + USDC 8-hour session settlement
-* `DELIVERY`&emsp;USDC Futures, Option delivery
 * `LIQUIDATION`
-* `ADL`&emsp;Auto-Deleveraging
 * `AIRDROP`
 * `BONUS`&emsp;Bonus claimed
 * `BONUS_RECOLLECT`&emsp;Bonus expired
@@ -414,24 +375,6 @@ _closed status_
 * `DBS_CASH_IN_TR`
 * `CUSTODY_CASH_RECOVER_TR`
 * `ALPHA_SMALL_TOKEN_REFUND`
-
-
-### type(contract-translog)
-* `TRANSFER_IN`&emsp;Assets that transferred into (inverse) derivatives wallet
-* `TRANSFER_OUT`&emsp;Assets that transferred out from (inverse) derivatives wallet
-* `TRADE`
-* `SETTLEMENT`&emsp;USDT / Inverse Perp funding settlement
-* `DELIVERY`&emsp;Inverse Futures delivery
-* `LIQUIDATION`
-* `ADL`&emsp;Auto-Deleveraging
-* `AIRDROP`
-* `BONUS`&emsp;Bonus claimed
-* `BONUS_RECOLLECT`&emsp;Bonus expired
-* `FEE_REFUND`&emsp;Trading fee refunded
-* `CURRENCY_BUY`&emsp;Currency convert
-* `CURRENCY_SELL`&emsp;Currency convert
-* `AUTO_DEDUCTION`&emsp;Asset auto deducted by system (roll back)
-* `Others`
 
 ### unifiedMarginStatus
 * `5`&emsp;Unified trading account 2.0

@@ -42,20 +42,12 @@ sidebar_label: Error Codes
 | 10014 |Invalid duplicate request. |
 | 10016 |Server error. |
 | 10017 |Route not found. |
-|~~10018~~|~~Exceeded the IP Rate Limit.~~ |
 | 10024 | Compliance rules triggered |
 | 10027 |Transactions are banned. |
 | 10029 |The requested symbol is invalid, please check symbol whitelist |
-| 10028 |The API can only be accessed by unified account users. |
-| 30133 |OTC loan: The symbol you select for USDT Perpetual is not allowed by Institutional Lending |
-| 30134 |OTC loan: The symbol you select for USDC Contract is not allowed by Institutional Lending|
-| 30135 |The leverage you select for USDT Perpetual trading cannot exceed the maximum leverage allowed by Institutional Lending. |
-| 30136 |The leverage you select for USDC Perpetual or Futures trading cannot exceed the maximum leverage allowed by Institutional Lending. |
 | 30208 |Failed to submit order(s). The order price is higher than the maximum buying price|
 | 40004 |the order is modified during the process of replacing , please check the order status again |
 | 100028 |The API cannot be accessed by unified account users. |
-| 110001 |Order does not exist |
-| 110003 |Order price exceeds the <a href="https://www.bybithelp.com/en-US/s/article/Contract-Price-Limits">allowable range</a>. |
 | 110004 |Wallet balance is insufficient |
 | 110005 |position status error|
 | 110006 |The assets are estimated to be unable to cover the position margin |
@@ -65,24 +57,13 @@ sidebar_label: Error Codes
 | 110010 |The order has been cancelled |
 | 110011 |Liquidation will be triggered immediately by this adjustment |
 | 110012 |Insufficient available balance. |
-| 110013 |Cannot set leverage due to risk limit level. |
 | 110014 |Insufficient available balance to add additional margin. |
-| 110015 |The position is in cross margin mode. |
-| ~~110016~~ |~~The quantity of contracts requested exceeds the risk limit, please adjust your risk limit level before trying again~~ |
-| 110017 |Reduce-only rule not satisfied |
 | 110018 |User ID is illegal. |
 | 110019 |Order ID is illegal. |
-| 110020 |Not allowed to have more than 500 active orders. |
-| 110021 |Not allowed to exceeded position limits due to Open Interest. |
 | 110022 |Quantity has been restricted and orders cannot be modified to increase the quantity. |
-| 110023 |Currently you can only reduce your position on this contract. please check our announcement or contact customer service for details. |
-| 110024 |You have an existing position, so the position mode cannot be switched. |
-| 110025 |Position mode has not been modified. |
 | 110026 |Cross/isolated margin mode has not been modified. |
 | 110027 |Margin has not been modified. |
 | 110028 |You have existing open orders, so the position mode cannot be switched. |
-| 110029 |Hedge mode is not supported for this symbol. |
-| ~~110030~~ |~~Duplicate orderId~~ |
 | 110031 |Non-existing risk limit info, please check the risk limit rules. |
 | 110032 |Order is illegal |
 | 110033 |You can't set margin without an open position |
@@ -99,53 +80,22 @@ sidebar_label: Error Codes
 | 110044 |Available margin is insufficient. |
 | 110045 |Wallet balance is insufficient. |
 | 110046 |Liquidation will be triggered immediately by this adjustment. |
-| 110047 |Risk limit cannot be adjusted due to insufficient available margin. |
-| 110048 |Risk limit cannot be adjusted as the current/expected position value exceeds the revised risk limit. |
-| 110049 |Tick notes can only be numbers |
 | 110050 |Invalid coin |
 | 110051 |The user's available balance cannot cover the lowest price of the current market |
 | 110052 |Your available balance is insufficient to set the price |
 | 110053 |The user's available balance cannot cover the current market price and upper limit price |
-| 110054 |This position has at least one take profit link order, so the take profit and stop loss mode cannot be switched |
-| 110055 |This position has at least one stop loss link order, so the take profit and stop loss mode cannot be switched |
-| 110056 |This position has at least one trailing stop link order, so the take profit and stop loss mode cannot be switched |
 | 110057 |Conditional order or limit order contains TP/SL related params |
 | 110058 |You can't set take profit and stop loss due to insufficient size of remaining position size. |
 | 110059 |Not allowed to  modify the TP/SL of a partially filled open order |
 | 110060 |Under full TP/SL mode, it is not allowed to modify TP/SL |
 | 110061 |Not allowed to have more than 20 TP/SLs under Partial tpSlMode |
-| 110062 |There is no MMP information of the institution found. |
-| 110063 |Settlement in progress! {{key0}} not available for trading. |
-| 110064 |The modified contract quantity cannot be less than or equal to the filled quantity. |
-| 110065 |MMP hasn't yet been enabled for your account. Please contact your BD manager. |
-| 110066 |Trading is currently not allowed. |
-| 110067 |Unified account is not supported. |
-| 110068 |Leveraged trading is not allowed. |
-| 110069 |Ins lending customer is not allowed to trade. |
-| 110070 |ETP symbols cannot be traded. |
 | 110071 |Sorry, we're revamping the Unified Margin Account! Currently, new upgrades are not supported. If you have any questions, please contact our 24/7 customer support. |
 | 110072 |OrderLinkedID is duplicate|
 | 110073 |Set margin mode failed|
-| 110074 |This contract is not live|
-|~~110075~~ |~~RiskId not modified~~|
-| 110076 |Only isolated mode can set auto-add-margin|
 | 110077 |Pm mode cannot support|
 | 110078 |Added margin more than max can reduce margin|
 | 110079 |The order is processing and can not be operated, please try again later|
 | 110080 |Operations Restriction: The current LTV ratio of your Institutional Lending has hit the liquidation threshold. Assets in your account are being liquidated (trade/risk limit/leverage)|
-| 110082 |You cannot lift Reduce-Only restrictions, as no Reduce-Only restrictions are applied to your position|
-| 110083 |Reduce-Only restrictions must be lifted for both Long and Short positions at the same time|
-| 110085 |The risk limit and margin ratio for this contract has been updated, please select a supported risk limit and place your order again|
-| 110086 |Current order leverage exceeds the maximum available for your current Risk Limit tier. Please lower leverage before placing an order|
-| 110087 |Leverage for Perpetual or Futures contracts cannot exceed the maximum allowed for your Institutional loan|
-| 110088 |Please Upgrade to UTA to trade|
-| 110089 |Exceeds the maximum risk limit level|
-| 110090 |Order placement failed as your position may exceed the max limit. Please adjust your leverage to {{leverage}} or below to increase the max. position limit|
-| 110092 |expect Rising, but trigger_price[XXXXX] <= current[XXXXX]??laste|
-| 110093 |expect Falling, but trigger_price[XXXXX] >= current[XXXXX]??last|
-| 110094 |Order notional value below the lower limit|
-| 110095 |You cannot create, modify or cancel Pre-Market Perpetual orders during the Call Auction.|
-| 110096 |Pre-Market Perpetual Trading does not support Portfolio Margin mode. |
 | 110097 |Non-UTA users cannot access Pre-Market Perpetual Trading. To place, modify or cancel Pre-Market Perpetual orders, please upgrade your Standard Account to UTA.|
 | 110098 |Only Good-Till-Canceled (GTC) orders are supported during Call Auction. |
 | 110099 |You cannot create TP/SL orders during the Call Auction for Pre-Market Perpetuals. |

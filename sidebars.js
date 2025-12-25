@@ -19,9 +19,7 @@ const sidebars = {
   // But you can create a sidebar manually
 
   v5SideBar: [
-    // 'v5/intro',
     'v5/guide',
-    'v5/acct-mode',
     'v5/announcement',
     'v5/smp',
     'v5/demo',

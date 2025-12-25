@@ -41,16 +41,11 @@ sidebar_label: 錯誤碼
 | 10014 |無效的重複請求。 |
 | 10016 |系統錯誤。 |
 | 10017 |未找到路由。 |
-| ~~10018~~ |~~超過IP速率限制。~~ |
 | 10024 |合規牆攔截。 |
 | 10027 |禁止交易。 |
 | 10028 |API只能由統一帳戶用戶訪問。 |
 | 10029 |交易對白名單限制，請求的交易對無效。 |
 | 100028 |統一帳戶用戶無法訪問API。 |
-| 30133 |OTC loan: The symbol you select for USDT Perpetual is not allowed by Institutional Lending 下單交易對不在機構借貸白名單內 |
-| 30134 |OTC loan: The symbol you select for USDC Contract is not allowed by Institutional Lending 下單交易對不在機構借貸白名單內|
-| 30135 |The leverage you select for USDT Perpetual trading cannot exceed the maximum leverage allowed by Institutional Lending. 可設置的槓桿倍數不能超過機構借貸的上限 |
-| 30136 |The leverage you select for USDC Perpetual or Futures trading cannot exceed the maximum leverage allowed by Institutional Lending. 可設置的槓桿倍數不能超過機構借貸的上限|
 | 30208 |Failed to submit order(s). The order price is higher than the maximum buying price 提交訂單失敗，訂單價格高於最高買入價|
 | 40004 |the order is modified during the process of replacing 訂單已經到達終態, 無法修改 |
 | 110001 |訂單不存在 |
@@ -64,15 +59,10 @@ sidebar_label: 錯誤碼
 | 110010 |訂單已取消 |
 | 110011 |此調整將立即觸發清算 |
 | 110012 |可用餘額不足。 |
-| 110013 |由於風險限制級別，無法設定杠杆。 |
 | 110014 |可用餘額不足，無法添加額外保證金。 |
-| 110015 |該倉位處於全倉保證金模式。 |
-| ~~110016~~ |~~請求的合約數量超過了風險限額，請在重試之前調整風險限額級別~~ |
-| 110017 |不滿足ReduceOnly規則。 |
 | 110018 |用戶id非法。 |
 | 110019 |訂單id非法。 |
 | 110020 |不允許有超過500個活動訂單。 |
-| 110021 |由於未平倉，不允許超過持倉限額。 |
 | 110022 |數量已受到限制，無法修改訂單以新增數量。 |
 | 110023 |現時你只能减少你在這份合約上的頭寸。 請查看我們的公告或聯系客服瞭解詳情。 |
 | 110024 |您有一個持倉，因此無法切換位置模式。 |
@@ -81,7 +71,6 @@ sidebar_label: 錯誤碼
 | 110027 |保證金尚未修改。 |
 | 110028 |您已有未結訂單，因此無法切換倉位模式。 |
 | 110029 |此符號不支持對沖模式。 |
-| ~~110030~~ |~~訂單ID重複~~ |
 | 110031 |不存在風險限額資訊，請檢查風險限額規則。 |
 | 110032 |訂單不合法 |
 | 110033 |沒有未平倉頭寸，您無法設定保證金 |
@@ -98,8 +87,6 @@ sidebar_label: 錯誤碼
 | 110044 |可用保證金不足。 |
 | 110045 |錢包餘額不足。 |
 | 110046 |此調整將立即觸發清算。 |
-| 110047 |由於可用保證金不足，無法調整風險限額。 |
-| 110048 |由於當前/預期頭寸值超過修訂後的風險限額，因此無法調整風險限額。 |
 | 110049 |tick note只能是數位 |
 | 110050 |無效的幣種 |
 | 110051 |用戶的可用餘額不能覆蓋當前市場的最低價格 |
@@ -125,8 +112,6 @@ sidebar_label: 錯誤碼
 | 110071 |抱歉，我們正在修改統一保證金帳戶！ 現時，不支持新的升級。 如果您有任何問題，請聯繫我們的24/7客戶支援。 |
 | 110072 |OrderLinkedID 不能重複|
 | 110073 |設置保證金模式失敗. 請檢查響應裡的具體原因內容|
-| 110074 |This contract is not live 合約已經下架|
-| ~~110075~~ |~~RiskId沒有修改~~|
 | 110076 |僅逐倉保證金下支持自動添加保證金|
 | 110077 |組合保證金模式不支持此操作|
 | 110078 |無法減少過多的保證金|
@@ -466,7 +451,6 @@ sidebar_label: 錯誤碼
 | 3777029 |You currently have orders for pre-market trading that can’t be bind UIDs 由於當前存在盤前交易訂單，所以無法綁定UID|
 | 3777030 |This account has activated copyPro and cannot bind uid 該帳戶已經激活了copy pro, 無法綁定到機構借貸|
 
-
 ### 卡券
 |錯誤碼 |描述 |
 |:----:|:-------------------------------|
@@ -515,8 +499,6 @@ sidebar_label: 錯誤碼
 | 3500002 |Current user is not an institutional user 當前用戶不是機構用戶|
 | 3500153 |No permission to operate these UIDs 無權操作這些UID|
 | 3500153 |You do not have permission to query other UIDs 您無權查詢其他UID|
-
-
 
 ## 手動借貸
 | 錯誤碼  | 錯誤信息                                       |
