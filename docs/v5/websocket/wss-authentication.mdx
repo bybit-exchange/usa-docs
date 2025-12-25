@@ -120,10 +120,8 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 * Do not build over 500 connections in 5 minutes. This is counted per WebSocket domain.
 
 ## Public channel - Args limits
-Regardless of Perpetual, Futures, Options or Spot, for one public connection, you cannot have length of "args" array over 21,000 characters.
+Regardless of Spot, for one public connection, you cannot have length of "args" array over 21,000 characters.
 * Spot can input up to 10 args for each subscription request sent to one connection
-* Options can input up to 2000 args for a single connection
-* No args limit for Futures and Spread for now
 
 ## How to Send the Heartbeat Packet
 
@@ -150,32 +148,6 @@ ws.send(JSON.stringify({"req_id": "100001", "op": "ping"}));
 
 </TabItem>
 
-<TabItem value="future" label="Linear/Inverse">
-
-```json
-{
-    "success": true,
-    "ret_msg": "pong",
-    "conn_id": "465772b1-7630-4fdc-a492-e003e6f0f260",
-    "req_id": "",
-    "op": "ping"
-}
-```
-
-</TabItem>
-
-<TabItem value="option" label="Option/Spread">
-
-```json
-{
-    "args": [
-        "1672916271846"
-    ],
-    "op": "pong"
-}
-```
-
-</TabItem>
 </Tabs>
 
 > Pong message example of private channels
@@ -270,35 +242,4 @@ You can dynamically subscribe and unsubscribe from topics without unsubscribing 
 
 </TabItem>
 
-<TabItem value="public-future" label="Linear/Inverse">
-
-```json
-{
-    "success": true,
-    "ret_msg": "",
-    "conn_id": "3cd84cb1-4d06-4a05-930a-2efe5fc70f0f",
-    "req_id": "",
-    "op": "subscribe"
-}
-```
-
-</TabItem>
-
-<TabItem value="public-option" label="Option/Spread">
-
-```json
-{
-    "success": true,
-    "conn_id": "aa01fbfffe80af37-00000001-000b37b9-7147f432704fd28c-00e1c172",
-    "data": {
-    "failTopics": [],
-    "successTopics": [
-        "orderbook.100.BTC-6JAN23-18000-C"
-    ]
-},
-    "type": "COMMAND_RESP"
-}
-```
-
-</TabItem>
 </Tabs>

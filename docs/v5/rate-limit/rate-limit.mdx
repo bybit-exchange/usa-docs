@@ -15,7 +15,7 @@ in an unexpected violation.
 ### Websocket IP limit
 * Do not establish more than 500 connections within a 5-minute window. This limit applies to all connections directed to `stream.abfinance.com`.
 * Do not frequently connect and disconnect the connection
-* Do not establish more than 1,000 connections per IP for market data. The connection limits are counted separately for Spot, Linear, Inverse, and Options markets
+* Do not establish more than 1,000 connections per IP for market data. 
 
 ## API Rate Limit
 :::caution
@@ -244,9 +244,9 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
 :::tip
 The batch order endpoint, which includes operations for creating, amending, and canceling, has its own rate limit and
 does not share it with single requests, *e.g., let's say the rate limit of single create order endpoint is 100/s, and batch create order endpoint
-is 100/s, so in this case, I can place 200 linear orders in one second if I use both endpoints to place orders*
+is 100/s, so in this case, I can place 200 orders in one second if I use both endpoints to place orders*
 
-### When category = linear spot or inverse
+### When category = spot
 - API for batch create/amend/cancel order, the frequency of the API will be consistent with the current configuration,
 but the counting consumption will be consumed according to the actual number of orders. (Number of consumption = number
 of requests * number of orders included in a single request), and the configuration of business lines is independent of each other.
