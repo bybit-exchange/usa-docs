@@ -79,7 +79,7 @@ function buildCookie(cookieParams) {
 function setHeaders(postman, contentType, accept, cookie, headerParams, body, other) {
   postman.headers.clear();
   /**
-   * add bybit private request encryption logic
+   * add private request encryption logic
    * @type {string}
    */
   if (headerParams.length != 0) {

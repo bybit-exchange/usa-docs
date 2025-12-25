@@ -211,9 +211,9 @@
     "message": "Spot Margin Trade (Classic)",
     "description": "The label for category Spot Margin Trade (Classic) in sidebar apiExplorerSideBar"
   },
-  "sidebar.apiExplorerSideBar.doc.Get Bybit Server Time": {
-    "message": "Get Bybit Server Time",
-    "description": "The label for the doc item Get Bybit Server Time in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/market/time"
+  "sidebar.apiExplorerSideBar.doc.Get Server Time": {
+    "message": "Get Server Time",
+    "description": "The label for the doc item Get Server Time in sidebar apiExplorerSideBar, linking to the doc api-explorer/v5/market/time"
   },
   "sidebar.apiExplorerSideBar.doc.Get Kline": {
     "message": "Get Kline",

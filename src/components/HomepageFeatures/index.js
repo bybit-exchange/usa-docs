@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/clipboard_light_mode.svg').default,
     description: (
       <>
-        <b><a href="https://www.abfinance.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Guides?language=en_US">Learn</a></b> the intricate details of Bybit's market rules to fully maximise your API usage.
+        <b><a href="https://www.abfinance.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Guides?language=en_US">Learn</a></b> the intricate details of market rules to fully maximise your API usage.
       </>
     ),
   },

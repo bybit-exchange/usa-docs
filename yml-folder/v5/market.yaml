@@ -6,7 +6,7 @@ info:
   description: |
     Collection of v5 Restul API
   version: 3.0.0
-  title: Bybit Open API v5 explorer
+  title: Open API v5 explorer
 tags:
   - name: market
     description: Market endpoints
@@ -20,7 +20,7 @@ paths:
     get:
       tags:
         - market
-      summary: Get Bybit Server Time
+      summary: Get Server Time
       description: Get server time
       operationId: time
       responses:

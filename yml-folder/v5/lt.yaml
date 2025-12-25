@@ -6,7 +6,7 @@ info:
   description: |
     Collection of v5 Restul API
   version: 3.0.0
-  title: Bybit Open API v5 explorer - Spot leverage token
+  title: Open API v5 explorer - Spot leverage token
 tags:
   - name: etp
     description: ETP endpoints

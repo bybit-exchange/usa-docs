@@ -139,13 +139,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // announcementBar: {
-      //   id: 'offline_oldAPI',
-      //   content: 'Bybit has made old versions of the API obsolete. For more information, please refer to our guide to <a target="_blank" rel="noopener noreferrer" href="https://announcements.abfinance.com/en-US/article/bybit-openapi-services-transition-from-legacy-version-to-new-v5-api-blt25b43a5738c00765/?category=product_updates">transition from the legacy versions to the V5 API</a>.',
-      //   backgroundColor: '#20232a',
-      //   textColor: '#fff',
-      //   isCloseable: false,
-      // },
+      
       algolia: {
         appId: '6BDPYQN4N6',
         apiKey: '3945cc0bcfa5510237aa55a2fb83dd20',
@@ -175,7 +169,7 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          alt: 'Bybit Logo',
+          alt: 'Abfinance Logo',
           src: 'img/logo_lightmode.png',
           srcDark: 'img/logo_darkmode.png',
         },
@@ -186,47 +180,19 @@ const config = {
             position: 'left',
             label: 'V5 API',
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'p2p/guide',
-          //   position: 'left',
-          //   label: 'P2P Trading',
-          // },
-          // {
-          //   docId: 'bybit_pay',
-          //   href: 'https://bybit-exchange.github.io/pay-docs',
-          //   position: 'left',
-          //   label: 'Bybit Pay',
-          // },
-          // {
-          //   type: 'doc',
-          //   docId: 'v3/intro',
-          //   position: 'left',
-          //   label: 'Tax API V3',
-          // },
+          
           {
             type: 'dropdown',
             position: 'right',
             label: 'Extras',
             items: [
-              // {
-              //   type: 'doc',
-              //   docId: 'pilot-feature/pilot',
-              //   label: 'Pilot Features',
-              // },
+              
               {
                 type: 'doc',
                 docId: 'changelog/v5',
                 label: 'Changelog',
               },
-              // {
-              //   to: '/api-explorer/v5/category',
-              //   label: 'API Explorer',
-              // },
-              // {
-              //   to: '/faq',
-              //   label: 'FAQ',
-              // }
+              
             ]
           },
           {

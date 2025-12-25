@@ -6,7 +6,7 @@ info:
   description: |
     Collection of Trade - v5 Restul API, which covers USDT Perpetual, USDC Perpetual, Inverse Perpetual, Inverse Future, Spot and Option.
   version: 3.0.0
-  title: Bybit v5 trade api explorer
+  title: v5 trade api explorer
 tags:
   - name: trade
     description: All trade v5 REST API.

@@ -30,17 +30,6 @@
   "item.label.V5 API": {
     "message": "V5 API",
     "description": "Navbar item with label V5 API"
-  },
-  "item.label.P2P Trading": {
-    "message": "",
-    "description": "Navbar item with label P2P Trading"
-  },
-  "item.label.Bybit Pay": {
-    "message": "",
-    "description": "Navbar item with label Bybit Pay"
-  },
-  "item.label.Tax API V3": {
-    "message": "Tax API V3",
-    "description": "Navbar item with label Tax API V3"
   }
+  
 }

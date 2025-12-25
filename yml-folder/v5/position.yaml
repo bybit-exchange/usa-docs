@@ -6,7 +6,7 @@ info:
   description: |
     Collection of Position - v5 Restul API, which covers USDT Perpetual, USDC Perpetual, Inverse Perpetual, Inverse Future and Option.
   version: 3.0.0
-  title: Bybit v5 position api explorer
+  title: v5 position api explorer
 tags:
   - name: position
     description: All Position v5 REST API.
