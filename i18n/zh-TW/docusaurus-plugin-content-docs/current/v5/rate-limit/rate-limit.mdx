@@ -14,7 +14,7 @@ sidebar_position: 1
 ### Websocket IP 限頻
 * 不要在5分鐘內構建超過500個連接, 這個限頻適用於所有發往`stream.abfinance.com` 域名的連接請求;
 * 不要嘗試頻繁地構建連接與斷開連接;
-* 訂閱行情數據時, 每個IP不要構建超過1,000個連接, 現貨、U本位期貨、幣本位期貨以及期權分開計算。
+* 訂閱行情數據時, 每個IP不要構建超過1,000個連接。
 
 ## 賬戶頻率限製
 :::caution
@@ -119,6 +119,7 @@ X-Bapi-Limit-Reset-Timestamp: 1672738134824
     <tr>
         <td>/v5/account/fee-rate</td><td>category=spot</td><td>5/s</td><td align="center">N</td>
     </tr>
+   
 
 </table>
 </span>

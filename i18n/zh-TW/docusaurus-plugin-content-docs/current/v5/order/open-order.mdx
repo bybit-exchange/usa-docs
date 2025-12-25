@@ -27,7 +27,7 @@ GET `/v5/order/realtime`
 |orderId |false |string |訂單Id |
 |orderLinkId |false |string |用戶自定義訂單Id |
 |openOnly |false |integer |<ul><li>`0`(默認): 僅查詢活動委託訂單, 比如New, PartiallyFilled訂單</li><li>`1`: 返回僅終態（已取消/拒絕/完全成交）的訂單數據, 每個帳戶每個category下最多保留500條紀錄. <i>如果因平台服務更新重啟則該部分數據會情況並重新累計, 但是訂單紀錄仍然可以從[歷史訂單](order-list#)中查詢到</i></li><li>當查詢是按照_orderId_ 或者 _orderLinkId_時, `openOnly`入参將會被忽略</li></ul>
-|orderFilter |false |string|`Order`: 活動單<br/>`StopOrder`: 條件單, 支持現貨和期貨<br/>`tpslOrder`: 止盈止損單, 僅現貨有效<br/>`OcoOrder`: OCO訂單<br/>`BidirectionalTpslOrder`: 現貨雙向止盈止損訂單<br/>默認返回全部類型訂單|
+|orderFilter |false |string|`Order`: 活動單<br/>`StopOrder`: 條件單, 支持現貨<br/>`tpslOrder`: 止盈止損單, 僅現貨有效<br/>`OcoOrder`: OCO訂單<br/>`BidirectionalTpslOrder`: 現貨雙向止盈止損訂單<br/>默認返回全部類型訂單|
 |limit |false |integer |每頁數量限制. [`1`, `50`]. 默認: `20`|
 |cursor |false |string |游標，用於翻頁|
 

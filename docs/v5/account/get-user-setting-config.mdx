@@ -27,8 +27,6 @@ None
 |:----- |:-----|----- |
 |result |array |Object |
 |> lpaSpot |boolean |<ul><li>`true`: If the order price exceeds the boundary, the system will automatically adjust the price to the nearest allowed boundary</li><li>`false`: If the order price exceeds the boundary, the system rejects the request.</li></ul>|
-|> lpaPerp |boolean |<ul><li>`true`: If the order price exceeds the boundary, the system rejects the request.</li><li>`false`: If the order price exceeds the boundary, the system will automatically adjust the price to the nearest allowed boundary</li></ul>|
-
 
 ### Request Example
 
@@ -58,8 +56,7 @@ Content-Length: 52
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "lpaSpot": true,
-        "lpaPerp": false
+        "lpaSpot": true
     },
     "retExtInfo": {},
     "time": 1756794317787

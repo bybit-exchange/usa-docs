@@ -23,28 +23,28 @@ Maximum limit for a single UID.
         <th></th><th colSpan="3" align="center">Unified Account</th>
     </tr>
     <tr>
-        <td>Level\Product</td><td><b>Futures</b></td><td><b>Option</b></td><td><b>Spot</b></td>
+        <td>Level\Product</td><td colSpan="3" align="center"><b>Spot</b></td>
     </tr>
     <tr>
-        <td>Default</td><td>10/s</td><td>10/s</td><td>20/s</td>
+        <td>Default</td><td colSpan="3" align="center">20/s</td>
     </tr>
     <tr>
-        <td>PRO1</td><td>200/s</td><td>200/s</td><td>200/s</td>
+        <td>PRO1</td><td colSpan="3" align="center">200/s</td>
     </tr>
     <tr>
-        <td>PRO2</td><td>400/s</td><td>400/s</td><td>400/s</td>
+        <td>PRO2</td><td colSpan="3" align="center">400/s</td>
     </tr>
     <tr>
-        <td>PRO3</td><td>600/s</td><td>600/s</td><td>600/s</td>
+        <td>PRO3</td><td colSpan="3" align="center">600/s</td>
     </tr>
     <tr>
-        <td>PRO4</td><td>800/s</td><td>800/s</td><td>800/s</td>
+        <td>PRO4</td><td colSpan="3" align="center">800/s</td>
     </tr>
     <tr>
-        <td>PRO5</td><td>1000/s</td><td>1000/s</td><td>1000/s</td>
+        <td>PRO5</td><td colSpan="3" align="center">1000/s</td>
     </tr>
     <tr>
-        <td>PRO6</td><td>1200/s</td><td>1200/s</td><td>1200/s</td>
+        <td>PRO6</td><td colSpan="3" align="center">1200/s</td>
     </tr>
 </table>
 </span>
@@ -60,25 +60,25 @@ Aggregate limit across all main and sub UIDs.
         <th></th><th colSpan="3" align="center">Unified Account</th>
     </tr>
     <tr>
-        <td>Level\Product</td><td><b>Futures</b></td><td><b>Option</b></td><td><b>Spot</b></td>
+        <td>Level\Product</td><td colSpan="3" align="center"><b>Spot</b></td>
     </tr>
     <tr>
-        <td>PRO1</td><td>10000/s</td><td>10000/s</td><td>10000/s</td>
+        <td>PRO1</td><td colSpan="3" align="center">10000/s</td>
     </tr>
     <tr>
-        <td>PRO2</td><td>20000/s</td><td>20000/s</td><td>20000/s</td>
+        <td>PRO2</td><td colSpan="3" align="center">20000/s</td>
     </tr>
     <tr>
-        <td>PRO3</td><td>30000/s</td><td>30000/s</td><td>30000/s</td>
+        <td>PRO3</td><td colSpan="3" align="center">30000/s</td>
     </tr>
     <tr>
-        <td>PRO4</td><td>40000/s</td><td>40000/s</td><td>40000/s</td>
+        <td>PRO4</td><td colSpan="3" align="center">40000/s</td>
     </tr>
     <tr>
-        <td>PRO5</td><td>50000/s</td><td>50000/s</td><td>50000/s</td>
+        <td>PRO5</td><td colSpan="3" align="center">50000/s</td>
     </tr>
     <tr>
-        <td>PRO6</td><td>60000/s</td><td>60000/s</td><td>60000/s</td>
+        <td>PRO6</td><td colSpan="3" align="center">60000/s</td>
     </tr>
 </table>
 </span>
@@ -86,7 +86,7 @@ Aggregate limit across all main and sub UIDs.
 :::tip instructions for API rate limit
 - All of the existing subaccounts still have their original API rate limits.
 - The default API rate limit for a new subaccount is not counted in the institutional-level API rate limit. 
-- The default API rate limit for a new sub is: 10/s for futures, 10/s for options, 20/s for spot.
+- The default API rate limit for a new sub is:  20/s for spot.
 - If the aggregate institutional-level API rate limit is exceeded, you must reduce one or several account's API rate limit(s) first. After the API rate limit is less than the aggregate institutional API rate limit, you can increase the API rate limit of an account.
 :::
 

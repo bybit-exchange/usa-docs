@@ -24,7 +24,7 @@ GET `/v5/order/history`
 |baseCoin |false |string |Base coin, uppercase only|
 |orderId |false |string |Order ID |
 |orderLinkId |false |string |User customised order ID |
-|orderFilter |false |string |`Order`: active order<br/>`StopOrder`: conditional order for Futures and Spot<br/>`tpslOrder`: spot TP/SL order<br/>`OcoOrder`: spot OCO orders<br/>`BidirectionalTpslOrder`: Spot bidirectional TPSL order <ul><li>all kinds of orders are returned by default</li></ul>|
+|orderFilter |false |string |`Order`: active order<br/>`StopOrder`: conditional order for Spot<br/>`tpslOrder`: spot TP/SL order<br/>`OcoOrder`: spot OCO orders<br/>`BidirectionalTpslOrder`: Spot bidirectional TPSL order <ul><li>all kinds of orders are returned by default</li></ul>|
 |[orderStatus](../enum#orderstatus) |false |string |Order status|
 |startTime |false |integer |The start timestamp (ms)<ul><li>startTime and endTime are not passed, return 7 days by default</li><li>Only startTime is passed, return range between startTime and startTime+7 days</li><li>Only endTime is passed, return range between endTime-7 days and endTime</li><li>If both are passed, the rule is endTime - startTime <= 7 days</li></ul>|
 |endTime |false |integer |The end timestamp (ms)|
@@ -83,7 +83,7 @@ GET `/v5/order/history`
 |> smpOrderId |string |The counterparty's orderID which triggers this SMP execution|
 |> createdTime |string |Order created timestamp (ms) |
 |> updatedTime |string |Order updated timestamp (ms) |
-|> extraFees |string |Trading fee rate information. Currently, this data is returned only for spot orders placed on the Indonesian site or spot fiat currency orders placed on the EU site. In other cases, an empty string is returned. Enum: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype) |
+|> extraFees |string |Trading fee rate information. Enum: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype) |
 |> cumFeeDetail |json |<li>`spot`: Cumulative trading fee details instead of `cumExecFee`</li> |
 |nextPageCursor |string |Refer to the `cursor` request parameter |
 
