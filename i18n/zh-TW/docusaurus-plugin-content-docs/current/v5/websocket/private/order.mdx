@@ -39,7 +39,7 @@ sidebar_position: 3
 |> side |string |方向. `Buy`,`Sell`|
 |> [positionIdx](../../enum#positionidx) |integer |倉位標識。用戶不同倉位模式|
 |> [orderStatus](../../enum#orderstatus) |string |訂單狀態 |
-|> [createType](../../enum#createtype) |string |訂單創建類型<li>僅作用於category=linear 或 inverse</li><li>現貨、期權不返回該字段</li> |
+|> [createType](../../enum#createtype) |string |訂單創建類型<li>現貨不返回該字段</li> |
 |> [cancelType](../../enum#canceltype) |string |訂單被取消類型|
 |> [rejectReason](../../enum#rejectreason) |string |拒絕原因|
 |> avgPrice |string |訂單平均成交價格. 對於不存在avg price的場景, 總返回`""`|
@@ -47,7 +47,7 @@ sidebar_position: 3
 |> leavesValue |string |訂單剩餘未成交的價值|
 |> cumExecQty |string |訂單累計成交數量 |
 |> cumExecValue |string |訂單累計成交價值 |
-|> cumExecFee |string |<li>`inverse`, `option`: 訂單累計成交的手續費.</li><li>`linear`, `spot`: 已棄用. 用`cumFeeDetail`替代.</li><li>升級到統一帳戶後, 您可以使用[成交](execution)頻道中的`execFee`字段來獲取每次成交的手續費</li> |
+|> cumExecFee |string |<li> `spot`: 已棄用. 用`cumFeeDetail`替代.</li><li>升級到統一帳戶後, 您可以使用[成交](execution)頻道中的`execFee`字段來獲取每次成交的手續費</li> |
 |> closedPnl |string |平倉單盈虧, 部分平倉時, 減去了平攤的開倉手續費和期間產生的資金費以及平倉手續費|
 |> feeCurrency |string |已棄用. 現貨交易的手續費幣種. 可以從[這裡](../../enum#現貨交易手續費幣種說明)了解現貨交易的手續費幣種規則 |
 |> [timeInForce](../../enum#timeinforce) |string |執行策略 |
@@ -76,7 +76,7 @@ sidebar_position: 3
 |> smpOrderId |string |觸發此SMP執行的交易對手的 orderID|
 |> createdTime |string |創建訂單的時間戳 (毫秒) |
 |> updatedTime |string |訂單更新的時間戳 (毫秒) |
-|> cumFeeDetail |json |<li>`linear`, `spot`: 累積交易費詳情, 替代`cumExecFee`</li>` |
+|> cumFeeDetail |json |<li>`spot`: 累積交易費詳情, 替代`cumExecFee`</li>` |
 
 ### 訂閱示例
 ```json
