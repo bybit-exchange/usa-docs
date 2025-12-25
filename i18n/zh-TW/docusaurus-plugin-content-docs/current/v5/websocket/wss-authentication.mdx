@@ -123,10 +123,8 @@ ws.send(
 * 不要在5分鐘內構建超過500個連接。
 
 ## 公有頻道訂閱參數限制
-不管是期貨、現貨、期權, 對於單個連接, args裡的數組元素長度總和不能超過21,000個字符
+args裡的數組元素長度總和不能超過21,000個字符
 * 現貨每次向單一連接僅能發送不超過10個參數的訂閱請求，但單個連接沒有args訂閱限制
-* 期權單個連接，至多訂閱2000個args
-* 期貨和價差交易單個連接沒有args限制
 
 ## 如何發送心跳
 
@@ -151,32 +149,6 @@ ws.send(JSON.stringify({"req_id": "100001", "op": "ping"}));
 
 </TabItem>
 
-<TabItem value="future" label="期貨">
-
-```json
-{
-    "success": true,
-    "ret_msg": "pong",
-    "conn_id": "465772b1-7630-4fdc-a492-e003e6f0f260",
-    "req_id": "",
-    "op": "ping"
-}
-```
-
-</TabItem>
-
-<TabItem value="option" label="期權">
-
-```json
-{
-    "args": [
-    "1672916271846"
-    ],
-    "op": "pong"
-}
-```
-
-</TabItem>
 </Tabs>
 
 > 私有頻道接收到pong的響應示例
@@ -271,35 +243,4 @@ ws.send(JSON.stringify({"req_id": "100001", "op": "ping"}));
 
 </TabItem>
 
-<TabItem value="public-future" label="公有期貨">
-
-```json
-{
-    "success": true,
-    "ret_msg": "",
-    "conn_id": "3cd84cb1-4d06-4a05-930a-2efe5fc70f0f",
-    "req_id": "",
-    "op": "subscribe"
-}
-```
-
-</TabItem>
-
-<TabItem value="public-option" label="公有期權">
-
-```json
-{
-    "success": true,
-    "conn_id": "aa01fbfffe80af37-00000001-000b37b9-7147f432704fd28c-00e1c172",
-    "data": {
-    "failTopics": [],
-    "successTopics": [
-    "orderbook.100.BTC-6JAN23-18000-C"
-    ]
-},
-    "type": "COMMAND_RESP"
-}
-```
-
-</TabItem>
 </Tabs>

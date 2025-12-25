@@ -24,7 +24,7 @@ GET `/v5/order/history`
 |settleCoin |false |string |結算幣種|
 |orderId |false |string |訂單ID |
 |orderLinkId |false |string |用戶自定義訂單ID |
-|orderFilter |false |string |`Order`: 普通單, `StopOrder`: 條件單, 支持現貨和期貨<br/>`tpslOrder`: 現貨止盈止損單, `OcoOrder`: OCO訂單<br/>`BidirectionalTpslOrder`: 現貨雙向止盈止損訂單 <ul><li>默認返回全部類型訂單</li></ul>|
+|orderFilter |false |string |`Order`: 普通單, `StopOrder`: 條件單, 支持現貨<br/>`tpslOrder`: 現貨止盈止損單, `OcoOrder`: OCO訂單<br/>`BidirectionalTpslOrder`: 現貨雙向止盈止損訂單 <ul><li>默認返回全部類型訂單</li></ul>|
 |[orderStatus](../enum#orderstatus) |false |string |訂單狀態, 不傳則默認查詢所有終態訂單|
 |startTime |false |integer |開始時間戳 (毫秒) <ul><li>startTime 和 endTime都不傳入, 則默認返回最近7天的數據</li><li>startTime 和 endTime都傳入的話, 則確保endTime - startTime <= 7天</li><li>若只傳startTime，則查詢startTime和startTime+7天的數據</li><li>若只傳endTime，則查詢endTime-7天和endTime的數據</li></ul>|
 |endTime |false |integer |結束時間戳 (毫秒) |
@@ -83,7 +83,7 @@ GET `/v5/order/history`
 |> smpOrderId |string |觸發此SMP執行的交易對手的 orderID|
 |> createdTime |string |創建訂單的時間戳 (毫秒) |
 |> updatedTime |string |訂單更新的時間戳 (毫秒) |
-|> extraFees |string |交易費率。目前，僅針對kyc=Indian用戶或在印尼網站的現貨訂單或在歐盟站的現貨法定貨幣訂單返回此數據。在其他情況下，傳回空字串。字段枚舉: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype) |
+|> extraFees |string |交易費率。字段枚舉: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype) |
 |> cumFeeDetail |json |累積交易費詳情, 替代`cumExecFee`|
 
 

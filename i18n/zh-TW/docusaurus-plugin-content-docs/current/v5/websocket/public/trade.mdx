@@ -10,7 +10,7 @@ sidebar_position: 2
 推送頻率: **實時**
 
 **Topic:**<br/>
-`publicTrade.{symbol}` **注意**: 期權使用baseCoin, e.g., publicTrade.BTC
+`publicTrade.{symbol}`
 
 :::note
 對於現貨, 單條消息至多含有1024個成交, 一個撮合包如果超過1024個成交, 則會拆成多條消息下發
@@ -19,7 +19,7 @@ sidebar_position: 2
 ### 響應參數
 | 參數 | 類型 | 說明|
 |:----- |:-----|----- |
-|id |string |消息 id. _期權沒有該字段_ |
+|id |string |消息 id.|
 |topic |string |Topic名 |
 |type |string |數據類型. `snapshot`|
 |ts |number |行情服務生成數據的時間戳 (毫秒) |

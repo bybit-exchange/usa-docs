@@ -36,7 +36,7 @@ GET `/v5/account/transaction-log`
 |> transactionTime	|string |交易時間戳（毫秒）|
 |> [type](../enum#typeuta-translog) |string |類型 |
 |> transSubType |string |交易子類型, `movePosition`, 標識移倉產生的流水. 默認`""` |
-|> qty	|string	|數量. <li>現貨: 正的qty表示該幣數量增加, 負的qty表示該幣數量減少</li><li>期貨: 對於成交的流水來說, 這裡的qty表示每筆成交的數量, 不帶方向</li>|
+|> qty	|string	|數量. <li>現貨: 正的qty表示該幣數量增加, 負的qty表示該幣數量減少</li>|
 |> size |string |倉位. 特別地, 對於成交的流水來說, 這裡的size表示成交後的倉位大小, 帶有方向, 比如空倉, 則有"-"|
 |> currency |string |USDC、USDT、BTC、ETH|
 |> tradePrice |string |交易價格|
@@ -50,7 +50,7 @@ GET `/v5/account/transaction-log`
 |> tradeId	|string |交易id|
 |> orderId	|string	|訂單id|
 |> orderLinkId	|string	|用戶自定義訂單id|
-|> extraFees |string |交易費率。目前，僅針對在印尼網站的現貨訂單或在歐盟站的現貨法定貨幣訂單返回此數據。在其他情況下，傳回空字串。 字段枚舉: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype)
+|> extraFees |string |交易費率。字段枚舉: [feeType](../enum#extrafeesfeetype), [subFeeType](../enum#extrafeessubfeetype)
 |nextPageCursor	|string	|游標，用於翻頁|
 
 
