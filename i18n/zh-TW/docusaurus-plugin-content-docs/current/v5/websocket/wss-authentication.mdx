@@ -27,13 +27,6 @@ slug: /v5/ws/connect
 `wss://stream-testnet.abfinance.com/v5/trade`
 
 
-**[Websocket取得系統狀態](../websocket/system/system-status#):**
-- **主網:**<br/>
-`wss://stream.abfinance.com/v5/public/misc/status`
-
-- **測試網:**<br/>
-`wss://stream-testnet.abfinance.com/v5/public/misc/status`
-
 
 :::tip 自定義私有連接存活時長
 針對私有頻道和交易, 您可以自定義連接存活時長, 通過增加參數`max_active_time`, 最小支持`30s` (30秒), 最大支持`600s` (10分鐘). 如果您需要按分鐘級別配置, 您也可以傳遞`1m`, `2m`等. 例如, <i>wss://stream-testnet.abfinance.com/v5/private?max_active_time=1m</i>.
