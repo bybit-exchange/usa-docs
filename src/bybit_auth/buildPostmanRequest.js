@@ -83,12 +83,12 @@ function setHeaders(postman, contentType, accept, cookie, headerParams, body, ot
    * @type {string}
    */
   if (headerParams.length != 0) {
-    var apiKey = "CFEJUGQEQPPHGOHGHM";
+    var apiKey = "<YOUR_API_KEY>";
     if (headerParams[0].hasOwnProperty("value")) {
       apiKey = headerParams[0]["value"];
     }
 
-    var secret = "VDFZSSPUTKRJMXAVMJXBHEXIPZNZJIZUBVRQ";
+    var secret = "<YOUR_API_SECRET>";
     if (headerParams[1].hasOwnProperty("value")) {
       secret = headerParams[1]["value"];
     }
