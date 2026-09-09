@@ -1,0 +1,23 @@
+src/bybit_auth/buildPostmanRequest.js
+  1f00b1769321065a 86,91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2-bit.10+672fbf0",
+  "base_commit_sha": "b9e5549bc5d98b3332c7bb6732732a9192f175ac",
+  "prompts": {
+    "1f00b1769321065a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f2418406-871b-4f3c-b27b-722564b169df",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "doris-xiao-bybit",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 2,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
